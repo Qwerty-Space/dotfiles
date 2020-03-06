@@ -1,6 +1,7 @@
 # dotfiles
 
 ### Directory tree example:
+```
 .
 ├── bash
 │   ├── .bash_aliases
@@ -15,6 +16,7 @@
     └── .config
         └── compton
             └── compton.conf
+```
 
 ### Commands:
 |    Command    | Description                                                                                    |
