@@ -1,5 +1,4 @@
 # dotfiles
----
 
 ### Directory tree example:
 .
