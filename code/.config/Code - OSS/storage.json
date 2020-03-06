@@ -1,7 +1,9 @@
 {
     "telemetry.machineId": "82d69263e070acab330d5668d4eea308d326816d2cb340e31859c712b48b9d85",
     "openedPathsList": {
-        "workspaces3": [],
+        "workspaces3": [
+            "file:///home/qwerty/.dotfiles"
+        ],
         "files2": [
             "file:///home/qwerty/qspace.json",
             "file:///home/qwerty/.config/syncplay.ini",
@@ -61,7 +63,23 @@
                             "items": [
                                 {
                                     "id": "workbench.action.reopenClosedEditor",
-                                    "label": "&&Reopen Closed Editor"
+                                    "label": "&&Reopen Closed Editor",
+                                    "enabled": false
+                                },
+                                {
+                                    "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "openRecentFolder",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "fsPath": "/home/qwerty/.dotfiles",
+                                        "external": "file:///home/qwerty/.dotfiles",
+                                        "path": "/home/qwerty/.dotfiles",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/.dotfiles"
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
@@ -213,8 +231,7 @@
                     },
                     {
                         "id": "workbench.action.files.saveAs",
-                        "label": "Save &&As...",
-                        "enabled": false
+                        "label": "Save &&As..."
                     },
                     {
                         "id": "workbench.action.files.saveAll",
@@ -290,8 +307,7 @@
                     },
                     {
                         "id": "workbench.action.closeFolder",
-                        "label": "Close &&Folder",
-                        "enabled": false
+                        "label": "Close &&Folder"
                     },
                     {
                         "id": "workbench.action.closeWindow",
@@ -483,7 +499,8 @@
                                 },
                                 {
                                     "id": "workbench.action.toggleSidebarVisibility",
-                                    "label": "Show &&Side Bar"
+                                    "label": "Show &&Side Bar",
+                                    "checked": true
                                 },
                                 {
                                     "id": "workbench.action.toggleStatusbarVisibility",
@@ -678,8 +695,7 @@
                 "items": [
                     {
                         "id": "workbench.action.navigateBack",
-                        "label": "&&Back",
-                        "enabled": false
+                        "label": "&&Back"
                     },
                     {
                         "id": "workbench.action.navigateForward",
@@ -688,8 +704,7 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location",
-                        "enabled": false
+                        "label": "&&Last Edit Location"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1556,7 +1571,8 @@
     "themeBackground": "#002451",
     "windowsState": {
         "lastActiveWindow": {
-            "backupPath": "/home/qwerty/.config/Code - OSS/Backups/1583516530055",
+            "folder": "file:///home/qwerty/.dotfiles",
+            "backupPath": "/home/qwerty/.config/Code - OSS/Backups/3913b1fd528375c6bdcbffd5f2cef9b2",
             "uiState": {
                 "mode": 1,
                 "x": 10,
