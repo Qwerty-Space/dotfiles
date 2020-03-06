@@ -1,0 +1,19 @@
+#!/bin/bash
+
+set -e
+# env DISPLAY=:0 feh -rz --bg-fill "/home/qwerty/Saved Pictures/Desktop Wallpapers"
+shuffle() {
+    bg=$(find "/home/qwerty/Saved Pictures/Wallpapers/Desktop" -type f -and -not -iname '*.gif' | shuf -n 1)
+    echo "Found wallpaper $bg" >&2
+    echo "$bg"
+}
+
+set_wp() {
+    wallpaper=$(shuffle)
+    betterlockscreen -u "$wallpaper"
+    echo "Set lockscreen to $(basename "$wallpaper")" >&2
+    feh --bg-fill "$wallpaper"
+    echo "Set wallpaper to $(basename "$wallpaper")" >&2
+}
+
+set_wp

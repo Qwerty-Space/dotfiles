@@ -1,0 +1,252 @@
+#!/usr/bin/env bash
+
+# this is a simple config for herbstluftwm
+
+hc() {
+    herbstclient "$@"
+}
+
+hc emit_hook reload
+
+xsetroot -solid '#5A8E3A'
+
+# remove all existing keybindings
+hc keyunbind --all
+
+
+# keybindings
+source ~/.bash_aliases
+# if you have a super key you will be much happier with Mod set to Mod4
+#Mod=Mod1    # Use alt as the main modifier
+Mod=Mod4   # Use the super key as the main modifier
+AltMod=Mod1
+
+hc keybind $Mod-Shift-q quit
+hc keybind $Mod-Shift-r reload
+hc keybind $Mod-c close
+hc keybind $AltMod-F4 close
+hc keybind $Mod-Return spawn urxvt
+
+# custom keybindings
+hc keybind $Mod-l spawn ~/scripts/lock
+hc keybind $Mod-$AltMod-l spawn ~/scripts/lock off
+hc keybind XF86AudioMute spawn pactl set-sink-mute @DEFAULT_SINK@ toggle
+hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -5%
+hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
+hc keybind $AltMod-Tab spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
+                        -run-command "/bin/bash -i -c '{cmd}'" -show window; 
+## run things
+hc keybind $Mod-d spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
+                        -run-command "/bin/bash -i -c '{cmd}'" -show run;
+hc keybind Print spawn flameshot gui
+hc keybind $AltMod-Print spawn flameshot full -c
+hc keybind $Mod-Print spawn ~/scripts/screenrecord
+
+
+# basic movement
+# focusing clients
+hc keybind $Mod-Left  focus left
+hc keybind $Mod-Down  focus down
+hc keybind $Mod-Up    focus up
+hc keybind $Mod-Right focus right
+# hc keybind $Mod-h     focus left
+# hc keybind $Mod-j     focus down
+# hc keybind $Mod-k     focus up
+# hc keybind $Mod-l     focus right
+
+# moving clients
+hc keybind $Mod-Shift-Left  shift left
+hc keybind $Mod-Shift-Down  shift down
+hc keybind $Mod-Shift-Up    shift up
+hc keybind $Mod-Shift-Right shift right
+hc keybind $Mod-Shift-h     shift left
+hc keybind $Mod-Shift-j     shift down
+hc keybind $Mod-Shift-k     shift up
+hc keybind $Mod-Shift-l     shift right
+
+# splitting frames
+# create an empty frame at the specified direction
+hc keybind $Mod-u       split   bottom  0.5
+hc keybind $Mod-o       split   right   0.5
+# let the current frame explode into subframes
+hc keybind $Mod-Control-space split explode
+
+# resizing frames
+halfstep=0.05
+fullstep=0.025
+hc keybind $Mod-Control-h       resize left +$halfstep
+hc keybind $Mod-Control-j       resize down +$halfstep
+hc keybind $Mod-Control-k       resize up +$halfstep
+hc keybind $Mod-Control-l       resize right +$halfstep
+hc keybind $Mod-Control-Left    resize left +$halfstep
+hc keybind $Mod-Control-Down    resize down +$halfstep
+hc keybind $Mod-Control-Up      resize up +$halfstep
+hc keybind $Mod-Control-Right   resize right +$halfstep
+
+hc keybind $Mod-Control-$AltMod-h       resize left +$fullstep
+hc keybind $Mod-Control-$AltMod-j       resize down +$fullstep
+hc keybind $Mod-Control-$AltMod-k       resize up +$fullstep
+hc keybind $Mod-Control-$AltMod-l       resize right +$fullstep
+hc keybind $Mod-Control-$AltMod-Left    resize left +$fullstep
+hc keybind $Mod-Control-$AltMod-Down    resize down +$fullstep
+hc keybind $Mod-Control-$AltMod-Up      resize up +$fullstep
+hc keybind $Mod-Control-$AltMod-Right   resize right +$fullstep
+
+# tags
+tag_names=(Main Max AltMax Split Gaming)
+tag_keys=( {1..9} 0 )
+
+hc rename default "${tag_names[0]}" || true
+for i in ${!tag_names[@]} ; do
+    hc add "${tag_names[$i]}"
+    key="${tag_keys[$i]}"
+    if ! [ -z "$key" ] ; then
+        hc keybind "$Mod-$key" use_index "$i"
+        hc keybind "$Mod-Shift-$key" move_index "$i"
+    fi
+done
+
+MainLayout="(split horizontal:0.550000:1
+                (clients max:0)
+                (clients vertical:0))"
+
+MaxLayout="(clients max:0)"
+
+SplitLayout="(split horizontal:0.500000:0
+                (clients vertical:0)
+                (clients vertical:0))"
+
+GamingLayout="(split horizontal:0.750000:0
+                (clients max:0)
+                (clients max:0))"
+
+hc load Main "$MainLayout"
+hc load Max "$MaxLayout"
+hc load AltMax "$MaxLayout"
+hc load Split "$SplitLayout"
+hc load Gaming "$GamingLayout"
+
+# cycle through tags
+hc keybind $Mod-period use_index +1 --skip-visible
+hc keybind $Mod-comma  use_index -1 --skip-visible
+
+# layouting
+hc keybind $Mod-r remove
+hc keybind $Mod-s floating toggle
+hc keybind $Mod-f fullscreen toggle
+hc keybind $Mod-p pseudotile toggle
+# The following cycles through the available layouts within a frame, but skips
+# layouts, if the layout change wouldn't affect the actual window positions.
+# I.e. if there are two windows within a frame, the grid layout is skipped.
+hc keybind $Mod-space                                                           \
+            or , and . compare tags.focus.curframe_wcount = 2                   \
+                     . cycle_layout +1 vertical horizontal max vertical grid    \
+               , cycle_layout +1
+
+# mouse
+hc mouseunbind --all
+# hc mousebind $Mod-Button1 move
+# hc mousebind $Mod-Button2 zoom
+# hc mousebind $Mod-Button3 resize
+
+# focus
+# scratchpad=~/.config/herbstluftwm/scratchpad.sh
+hc keybind $Mod-Shift-Return spawn scratchpad
+hc keybind $Mod-BackSpace   cycle_monitor
+hc keybind $Mod-Tab           cycle_frame
+hc keybind $Mod-bracketright cycle +1
+hc keybind $Mod-bracketleft cycle -1
+hc keybind $Mod-i jumpto urgent
+
+# theme
+hc attr theme.tiling.reset 1
+hc attr theme.floating.reset 1
+hc set frame_border_active_color '#222222'
+hc set frame_border_normal_color '#101010'
+hc set frame_bg_normal_color '#565656'
+hc set frame_bg_active_color '#2473AB'
+hc set frame_border_width 1
+hc set always_show_frame 1
+hc set frame_bg_transparent 1
+hc set frame_transparent_width 5
+hc set frame_gap 6
+
+hc attr theme.active.color '#2473AB'
+hc attr theme.normal.color '#454545'
+hc attr theme.urgent.color orange
+hc attr theme.inner_width 1
+hc attr theme.inner_color black
+hc attr theme.border_width 3
+hc attr theme.floating.border_width 4
+hc attr theme.floating.outer_width 1
+hc attr theme.floating.outer_color black
+hc attr theme.active.inner_color '#3E4A00'
+hc attr theme.active.outer_color '#3E4A00'
+hc attr theme.background_color '#141414'
+
+hc set window_gap 0
+hc set frame_padding 0
+hc set smart_window_surroundings 0
+hc set smart_frame_surroundings 1
+hc set mouse_recenter_gap 0
+
+# rules
+hc unrule -F
+hc rule focus=on # normally focus new clients
+hc set focus_follows_mouse 1
+#hc rule focus=off # normally do not focus new clients
+# give focus to most common terminals
+#hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
+hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+# hc rule class="TelegramDesktop" fullscreen=off
+
+# Window locations
+hc rule class="firefox" tag="Max"
+hc rule class="Thunderbird" tag="Max"
+hc rule class="TelegramDesktop" tag="Main" index=0
+# hc rule class="Code" windowrole="browser-window" tag="Main" index=0
+hc rule class="Spacefm" tag="Main" index=0
+hc rule class="urxvtfoo" tag="Main" index=1
+hc rule class="discord" tag="Gaming" index=0
+hc rule class="Steam" tag="Gaming" index=0
+hc rule title~".+News.+" class="Steam" tag="Gaming" index=0
+hc rule title~".+Gift.+" class="Steam" tag="Gaming" index=0
+hc rule title~".+Friends List.+" class"Steam" tag="Gaming" index=1
+hc rule title~".+Chat.+" class"Steam" tag="Gaming" index=1
+
+
+hc set tree_style '╾│ ├└╼─┐'
+
+# unlock, just to be sure
+hc unlock
+
+# do multi monitor setup here, e.g.:
+# hc set_monitors 1280x1024+0+0 1280x1024+1280+0
+# or simply:
+hc detect_monitors
+
+# find the panel
+# panel=~/.config/herbstluftwm/panel.sh
+# [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
+for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
+    # start it on each monitor
+    # "$panel" $monitor &
+    pkill polybar
+    polybar -r qwerty &
+    hc pad 0 27 0 0
+done
+
+# autostart things
+pkill compton
+compton --config ~/.config/compton/compton-kawase.conf &
+if hc silent new_attr bool my_not_first_autostart ; then
+    source ~/.fehbg
+    /home/scripts/tunnel.sh
+    urxvt -name urxvtfoo &
+    fluxgui &
+    nm-applet &
+    blueman-applet &
+    flameshot &
+fi

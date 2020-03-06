@@ -1,0 +1,76 @@
+#!/bin/bash
+
+## Configuraton ##
+source ~/.config/captureconf
+
+# name generator
+generate_name() {
+    namegen=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 8)
+    echo "/tmp/$namegen.mp4"
+}
+
+beep() {
+    paplay /usr/share/sounds/freedesktop/stereo/message.oga &
+}
+
+upload() {
+    if [[ "$notify" == true ]]; then
+        notify-send "Uploading" "$clipboard"
+    fi
+
+    clipboard=$(xclip -o)
+    vid_name=$(basename $clipboard)
+
+    scp -i $identity $clipboard $ss_location
+    url="https://d.va-online.moe/zeus/ss/$vid_name"
+    echo -n "$url" | xclip -se p
+    echo -n "$url" | xclip -se c
+
+    if [[ "$log" == true ]]; then
+        echo "$url" >> "$logfile"
+    fi
+}
+
+copy_name() {
+    echo -n "$filename" | xclip -se p
+    echo -n "$filename" | xclip -se c
+
+    if [[ "$log" == true ]]; then
+        echo "$filename" >> "$logfile"
+    fi
+}
+
+if [[ -f /tmp/screenrecord.pid ]]; then
+	kill -INT $(cat "/tmp/screenrecord.pid")
+	rm /tmp/screenrecord.pid
+    beep
+    upload
+	exit 0
+fi
+
+read -r X Y W H < <(slop -f "%x %y %w %h" -q)
+if [[ -z "$X" ]]; then
+    exit 0
+fi
+if (( $W % 2 == 1)); then
+    W=$((W + 1))
+fi
+if (( $H % 2 == 1)); then
+    H=$((H + 1))
+fi
+
+beep
+DATE=$(date '+%Y-%m-%d_%H-%M-%S')
+# filename="$HOME/sr-$DATE.mp4"
+filename=$(generate_name)
+
+copy_name
+ffmpeg \
+    -video_size ${W}x$H \
+    -framerate 25 \
+    -f x11grab \
+    -i :0.0+$X,$Y \
+    -pix_fmt yuv420p \
+    "$filename" &
+
+echo $! > /tmp/screenrecord.pid

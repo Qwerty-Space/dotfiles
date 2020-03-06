@@ -1,0 +1,362 @@
+[colors]
+;background = ${xrdb:color0:#222}
+background = #402e333a
+background-alt = #00444444
+internals = #4bffdc
+;foreground = ${xrdb:color7:#222}
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+
+[bar/qwerty]
+
+width = 100%
+height = 27
+radius = 0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+# border-size = 4
+# border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=10;1
+# font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+# font-2 = siji:pixelsize=10;1
+# font-3 = Font Awesome 5 Free:style=Regular:pixelsize=22:antialias=true
+font-1 = Noto Sans Symbols2:style=Bold:pixelsize=11;2
+font-2 = Material Icons:style=Regular:pixelsize=11;2
+
+modules-left = ewmh
+modules-center = title #ewmh
+# modules-right = filesystem xbacklight memory cpu temperature pulseaudio battery date powermenu
+modules-right = filesystem pulseaudio battery date powermenu
+
+tray-position = left
+tray-padding = 2
+tray-detatched = true
+tray-offset-x = 0
+tray-offset-y = 0
+
+ursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/title]
+type = internal/xwindow
+
+; Available tags:
+;   <label> (default)
+format = <label>
+# format-background = #f00
+format-foreground = colors.foreground
+format-padding = 4
+
+; Available tokens:
+;   %title%
+; Default: %title%
+label = %title%
+label-maxlen = 50
+
+; Used instead of label when there is no window title
+; Available tokens:
+;   None
+label-empty = 
+label-empty-foreground = #707880
+
+[module/ewmh]
+type = internal/xworkspaces
+
+; Only show workspaces defined on the same output as the bar
+;
+; Useful if you want to show monitor specific workspaces
+; on different bars
+;
+; Default: false
+pin-workspaces = true
+
+; Create click handler used to focus desktop
+; Default: true
+enable-click = false
+
+; Create scroll handlers used to cycle desktops
+; Default: true
+enable-scroll = false
+
+icon-0 = Main;♛
+icon-1 = Max;♚
+icon-2 = Split;
+icon-3 = Steam;♜
+# icon-default = ♟
+icon-default = #
+
+; Available tags:
+;   <label-monitor>
+;   <label-state> - gets replaced with <label-(active|urgent|occupied|empty)>
+; Default: <label-state>
+format = <label-state>
+
+; Available tokens:
+;   %name%
+; Default: %name%
+label-monitor = %name%
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-active = %icon% %name%
+label-active-foreground = #ffffff
+label-active-background = #003f3f3f
+label-active-underline = #fba922
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-occupied = %icon%
+label-occupied-underline = #555555
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-urgent = %icon%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-underline = #9b0a20
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+; Default: %icon%  %name%
+label-empty = %icon%
+label-empty-foreground = #55
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+# label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-mounted =  %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev> <icon-stop> <label-song> <toggle> <icon-next>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 50
+label-song-ellipsis = true
+
+host = 127.0.0.1
+port = 6601
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label>
+label = " "
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = ""
+;format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.internals}
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = ""
+;format-prefix-foreground = ${colors.foreground-alt}
+format-underline = ${colors.internals}
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlp4s0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = #9f78e1
+label-connected = %essid%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+format-disconnected-underline = #c1abe6
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = "%d/%m/%Y"
+date-alt = "%a, %d of %b, %Y"
+
+time = %H:%M
+time-alt = %H:%M:%S
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #0a6cf5
+
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <label-volume>
+label-volume = 🔈%percentage%%
+label-volume-foreground = ${root.foreground}
+format-underline = #0a6cf5
+format-muted-underline = #f5170a
+
+label-muted = 🔇%percentage%%
+label-muted-foreground = #666
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <label-charging>
+format-charging-underline = #0991f4
+
+format-discharging = <label-discharging>
+format-discharging-underline = #f47709
+
+format-full-prefix = ""
+format-full-prefix-foreground = #08f30b
+format-full-underline = #08f30b
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 80
+
+format = <label>
+format-underline = ${colors.internals}
+format-warn =  <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = true
+
+format-spacing = 1
+
+label-active-font = 5
+label-open = ⏻
+label-open-foreground = ${colors.foreground}
+label-close = 
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-0-2 = capture
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = 
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = shutdown -r now
+
+menu-2-0 = power off
+menu-2-0-exec = shutdown now
+menu-2-1 = 
+menu-2-1-exec = menu-open-0
+
+menu-3-0 = 
+menu-3-0-exec = menu-open-0
+menu-3-1 = screenshot
+menu-3-1-exec = menu-open-4
+menu-3-2 = screenrecord
+menu-3-2-exec = ~/scripts/screenrecord
+menu-3-3 = clipboard
+menu-3-3-exec = ~/scripts/screenshot -p
+
+menu-4-0 = 
+menu-4-0-exec = menu-open-3
+menu-4-1 = desktop
+menu-4-1-exec = ~/scripts/screenshot
+menu-4-2 = window
+menu-4-2-exec = ~/scripts/screenshot -w
+
+[settings]
+screenchange-reload = true
+# compositing-background = xor
+compositing-background = lighten
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5

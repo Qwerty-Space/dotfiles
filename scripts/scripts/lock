@@ -1,0 +1,15 @@
+#!/bin/bash
+# Lock the screen
+
+lock() {
+    betterlockscreen -l dimblur
+}
+
+if [ "$1" == "off" ]
+then
+    lock & 
+    sleep 2s
+    $(xset dpms force off)
+else
+    lock
+fi 
