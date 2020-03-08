@@ -2,7 +2,7 @@
 
 ### Directory tree example:
 ```
-.
+~/.dotfiles
 ├── bash
 │   ├── .bash_aliases
 │   └── .bashrc
