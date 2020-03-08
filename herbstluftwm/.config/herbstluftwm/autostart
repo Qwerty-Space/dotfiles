@@ -16,10 +16,7 @@ hc keyunbind --all
 
 # keybindings
 source ~/.bash_aliases
-# if you have a super key you will be much happier with Mod set to Mod4
-#Mod=Mod1    # Use alt as the main modifier
-Mod=Mod4   # Use the super key as the main modifier
-AltMod=Mod1
+source ~/.config/herbstluftwm/vars.sh
 
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
@@ -125,6 +122,17 @@ hc load Max "$MaxLayout"
 hc load AltMax "$MaxLayout"
 hc load Split "$SplitLayout"
 hc load Gaming "$GamingLayout"
+
+random_char() {
+    echo $(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 8 | head -n 1)
+}
+
+# create tag
+hc keybind $Mod-Control-o spawn ~/.config/herbstluftwm/new_tag.sh
+# hc keybind $Mod-Control-o chain , substitute NAME random_char , add NAME , sprintf VAL "$Mod-%s" tags.count keybind VAL use NAME
+
+# merge tag with current tag
+hc keybind $Mod-Control-r spawn ~/.config/herbstluftwm/merge_tag.sh
 
 # cycle through tags
 hc keybind $Mod-period use_index +1 --skip-visible
