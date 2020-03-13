@@ -211,7 +211,7 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 # hc rule class="TelegramDesktop" fullscreen=off
 
 # Window locations
-hc rule class="firefox" tag="Max"
+hc rule instance="Navigator" class="firefox" tag="Max"
 hc rule class="Thunderbird" tag="Max"
 hc rule class="TelegramDesktop" tag="Main" index=0
 # hc rule class="Code" windowrole="browser-window" tag="Main" index=0
