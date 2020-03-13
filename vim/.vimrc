@@ -16,8 +16,11 @@ set clipboard=unnamedplus
 " filetype stuff
 filetype plugin on
 syntax on
-
 filetype indent on
+
+" tabs -> spaces
+set expandtab
+set tabstop=4
 
 " preserve indentation for wrapped lines
 autocmd FileType python set breakindentopt=shift:4
