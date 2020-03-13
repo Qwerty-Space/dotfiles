@@ -35,6 +35,10 @@ set nu
 "set spell
 "setlocal spell spelllang=en_gb
 
+" colours
+hi LineNr ctermfg=208
+hi Statement ctermfg=214
+
 " plugins
 " update vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
