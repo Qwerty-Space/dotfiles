@@ -13,6 +13,23 @@ runtime! archlinux.vim
 " use system clipboard
 set clipboard=unnamedplus
 
+" statusline
+set laststatus=2
+let g:lightline = {
+    \ 'colorscheme': 'Tomorrow_Night_Bright',
+    \ 'active': {
+    \   'left': [ ['mode', 'paste'],
+    \             ['readonly', 'filename', 'modified']],
+    \   'right': [ ['morelineinfo'],
+    \              ['percent'],
+    \              ['fileformat', 'fileencoding', 'filetype']],
+    \ },
+    \ 'component': {
+    \   'morelineinfo': '%3l/%L:%-2v'
+    \},
+    \ }
+set noshowmode
+
 " filetype stuff
 filetype plugin on
 syntax on
@@ -54,6 +71,7 @@ call plug#begin('~/.vim/plugged')
 " install plugins
 Plug 'preservim/nerdcommenter'
 Plug 'farmergreg/vim-lastplace'
+Plug 'itchyny/lightline.vim'
 
 " initialise plugins
 call plug#end()
