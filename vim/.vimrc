@@ -38,6 +38,7 @@ set nu
 " colours
 hi LineNr ctermfg=208
 hi Statement ctermfg=214
+hi Visual ctermbg=8
 
 " plugins
 " update vim-plug
@@ -52,6 +53,7 @@ call plug#begin('~/.vim/plugged')
 
 " install plugins
 Plug 'preservim/nerdcommenter'
+Plug 'farmergreg/vim-lastplace'
 
 " initialise plugins
 call plug#end()
