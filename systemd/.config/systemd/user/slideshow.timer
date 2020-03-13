@@ -1,0 +1,9 @@
+[Unit]
+Description=Runs the slideshow service
+
+[Timer]
+OnBootSec=0s
+OnUnitActiveSec=300s
+
+[Install]
+WantedBy=timers.target

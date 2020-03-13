@@ -1,0 +1,12 @@
+[Unit]
+Description=Run on resume
+After=sleep.target
+
+[Service]
+User=qwerty
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/home/qwerty/scripts/resume.sh
+
+[Install]
+WantedBy=suspend.target

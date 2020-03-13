@@ -39,6 +39,9 @@ hc keybind Print spawn flameshot gui
 hc keybind $AltMod-Print spawn flameshot full -c
 hc keybind $Mod-Print spawn ~/scripts/screenrecord
 
+## wallpaper things
+hc keybind $Mod-w spawn ~/scripts/wallpaper_changer
+hc keybind $Mod-w spawn 
 
 # basic movement
 # focusing clients
@@ -249,6 +252,7 @@ done
 # autostart things
 pkill compton
 compton --config ~/.config/compton/compton-kawase.conf &
+xss-lock ~/scripts/lock &
 if hc silent new_attr bool my_not_first_autostart ; then
     source ~/.fehbg
     /home/scripts/tunnel.sh
