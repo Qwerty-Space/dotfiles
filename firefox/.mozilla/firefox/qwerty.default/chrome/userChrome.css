@@ -1,0 +1,21 @@
+/* This style will hide the sidebar close button */
+#sidebar-close {
+visibility: collapse;
+}
+
+/* This style moves sidebar header to the bottom */
+#sidebar-box {
+    -moz-box-direction: reverse;
+}
+
+#sidebar-switcher-arrow {
+    transform: rotate(180deg);
+}
+
+/* 
+This style will hide the tab bar and merge the title bar with the navigation bar. For Windows
+Make sure "Title Bar" is unchecked in customize menu. 
+*/
+#TabsToolbar {
+  visibility: collapse !important;
+}
