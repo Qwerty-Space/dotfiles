@@ -40,8 +40,8 @@ hc keybind $AltMod-Print spawn flameshot full -c
 hc keybind $Mod-Print spawn ~/scripts/screenrecord
 
 ## wallpaper things
-hc keybind $Mod-w spawn ~/scripts/wallpaper_changer
-hc keybind $Mod-w spawn 
+hc keybind $Mod-w spawn ~/scripts/wallpaper_changer force
+hc keybind $Mod-Control-w spawn ~/scripts/pause_wallpaper.sh
 
 # basic movement
 # focusing clients
@@ -261,4 +261,5 @@ if hc silent new_attr bool my_not_first_autostart ; then
     nm-applet &
     blueman-applet &
     flameshot &
+    dunst &
 fi

@@ -1,5 +1,5 @@
 [Unit]
-Description=Change the wallpaper every minute
+Description=Change the wallpaper
 
 [Service]
 Type=oneshot
