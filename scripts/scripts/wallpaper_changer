@@ -19,7 +19,7 @@ set_wp() {
 
 if [ ! -e "$filepath" ] || [ "$1" == "force"  ]; then
     if [ "$1" == "force" ]; then
-        dunstify -a "$(hostname)@$USER" "Randomising wallpaper"
+        dunstify -a "$USER@$(hostname)" "Randomising wallpaper"
     fi
     set_wp
 fi

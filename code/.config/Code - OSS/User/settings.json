@@ -22,4 +22,5 @@
     "python.pythonPath": "/home/qwerty/.pyenv/versions/3.7.3/bin/python",
     "editor.multiCursorModifier": "alt",
     "python.formatting.provider": "autopep8",
+    "vscode-neovim.neovimPath": "/usr/bin/nvim",
 }

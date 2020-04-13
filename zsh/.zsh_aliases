@@ -29,11 +29,13 @@ alias ff='firefox'
 alias slock='betterlockscreen -l dimblur & xset dpms force off &'
 alias hc='herbstclient'
 alias tqwerty='telegram-desktop -many -key qwertyspace'
+alias telethon='python -i ~/scripts/tl/tl.py'
 
 # Scripts
 alias screenshot='/home/qwerty/scripts/screenshot'
 
 # SSH
+alias blueberry='ssh boba@178.62.67.199'
 alias zeus='ssh qwertyspace@zeus.feralhosting.com'
 mntzeus() {
     sshfs qwertyspace@zeus.feralhosting.com:/media/sdh1/home/qwertyspace /mnt/zeus && cd /mnt/zeus

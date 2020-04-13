@@ -6,8 +6,8 @@ text="If this file exists, the slideshow will be paused"
 
 if [ -e "$filepath" ]; then
     rm "$filepath"
-    dunstify -a "$(hostname)@$USER" "Resume slideshow"
+    dunstify -a "$USER@$(hostname)" "Resume slideshow"
 else
     echo "$text" > "$filepath"
-    dunstify -a "$(hostname)@$USER" "Pause slideshow"
+    dunstify -a "$USER@$(hostname)" "Pause slideshow"
 fi
