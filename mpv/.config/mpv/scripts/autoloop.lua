@@ -7,6 +7,7 @@
 require 'mp.options'
 
 function getOption()
+    -- Use recommended way to get options
     local options = {autoloop_duration = 5}
     read_options(options)
     autoloop_duration = options.autoloop_duration
