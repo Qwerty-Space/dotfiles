@@ -7,25 +7,9 @@
 require 'mp.options'
 
 function getOption()
-    -- Use recommended way to get options
     local options = {autoloop_duration = 5}
     read_options(options)
     autoloop_duration = options.autoloop_duration
-
-
-    -- Keep old way just for compatibility (remove lines 15-27 soon)
-    if autoloop_duration ~= 5 then
-        return
-    end
-
-    local opt = tonumber(mp.get_opt("autoloop-duration"))
-    if not opt then
-        return
-    end
-    print("Depracted configuration!  Please use script-opts directory to set auto_loop duration")
-    print("Or use 'script-opts=autoloop-autoloop_duration' in mpv.conf")
-    autoloop_duration = opt
-    -- Remove lines 15-27 soon
 end
 
 function set_loop()
