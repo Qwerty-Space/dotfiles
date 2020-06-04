@@ -1,0 +1,182 @@
+<Multi_key> <h> <w> : "Hello, world!"
+
+
+# Russian Ruble sign
+# <Multi_key> <P> <minus> : "₽"    U20bd # RUBLE SIGN
+# <Multi_key> <p> <minus> : "₽"    U20bd # RUBLE SIGN
+
+# Minus sign
+# <Multi_key> <minus> <minus> <equal> : "−"    U2212 # MINUS SIGN
+
+# Various tests
+# <Multi_key> <t> <f> : "(ﾉಥ益ಥ）ﾉ彡┻━┻"  # Table flip like a boss
+# <Multi_key> <l> <f> : "( ͡° ͜ʖ ͡°)"        # Lenny face
+# <Multi_key> <s> <f> : "¯\\_(ツ)_/¯"     # Shrug face
+
+# Include default config
+include "%L"
+
+
+# ===========================
+#   Alternate Acute Accents
+# ===========================
+
+<Multi_key> <A> <less> : "Á"
+<Multi_key> <E> <less> : "É"
+<Multi_key> <I> <less> : "Í"
+<Multi_key> <O> <less> : "Ó"
+<Multi_key> <U> <less> : "Ú"
+<Multi_key> <W> <less> : "Ẃ"
+<Multi_key> <Y> <less> : "Ý"
+
+<Multi_key> <a> <less> : "á"
+<Multi_key> <e> <less> : "é"
+<Multi_key> <i> <less> : "í"
+<Multi_key> <o> <less> : "ó"
+<Multi_key> <u> <less> : "ú"
+<Multi_key> <y> <less> : "ẃ"
+<Multi_key> <w> <less> : "ý"
+
+# ===========================
+#   Alternate Grave Accents
+# ===========================
+
+<Multi_key> <A> <greater> : "À"
+<Multi_key> <E> <greater> : "È"
+<Multi_key> <I> <greater> : "Ì"
+<Multi_key> <O> <greater> : "Ò"
+<Multi_key> <U> <greater> : "Ù"
+<Multi_key> <W> <greater> : "Ẁ"
+<Multi_key> <Y> <greater> : "Ỳ"
+
+<Multi_key> <a> <greater> : "à"
+<Multi_key> <e> <greater> : "è"
+<Multi_key> <i> <greater> : "ì"
+<Multi_key> <o> <greater> : "ò"
+<Multi_key> <u> <greater> : "ù"
+<Multi_key> <w> <greater> : "ẁ"
+<Multi_key> <y> <greater> : "ỳ"
+
+# ===========================
+#            Misc
+# ===========================
+
+<Multi_key> <D> <D>           : "ꓷ"    # BACKWARDS D
+<Multi_key> <space> <space>   : "⁣"     U200B    # ZERO WIDTH SPACE
+<Multi_key> <asterisk>        : "•"    U2022    # BULLET
+
+
+# ==========================
+#           Arrows
+# ==========================
+<Multi_key> <minus> <less>              : "←"    leftarrow    # LEFTWARDS ARROW
+<Multi_key> <minus> <asciicircum>       : "↑"    uparrow      # UPWARDS ARROW
+<Multi_key> <minus> <greater>           : "→"    rightarrow   # RIGHTWARDS ARROW
+<Multi_key> <minus> <v>                 : "↓"    downarrow    # DOWNWARDS ARROW
+<Multi_key> <less> <minus> <greater>    : "↔"    U2194        # LEFT RIGHT ARROW (kragen's)
+
+<Multi_key> <Left> <Left>              : "←"    leftarrow     # LEFTWARDS ARROW
+<Multi_key> <Up> <Up>                  : "↑"    uparrow       # UPWARDS ARROW
+<Multi_key> <Right> <Right>            : "→"    rightarrow    # RIGHTWARDS ARROW
+<Multi_key> <Down> <Down>              : "↓"    downarrow     # DOWNWARDS ARROW
+<Multi_key> <Left> <Right>             : "↔"    U2194         # LEFT RIGHT ARROW (kragen's)
+<Multi_key> <Right> <Left>             : "↔"    U2194         # LEFT RIGHT ARROW (kragen's)
+<Multi_key> <Up> <Down>                : "↕"    U2195         # UP DOWN ARROW (kragen's)
+<Multi_key> <Down> <Up>                : "↕"    U2195         # UP DOWN ARROW (kragen's)
+<Multi_key> <Up> <ampersand> <Down>    : "⇵"    U21F5        # DOWNWARDS ARROW LEFTWARDS OF UPWARDS ARROW
+<Multi_key> <Down> <Left>              : "↵"    U21B5        # DOWNWARDS ARROW WITH CORNER LEFTWARDS
+<Multi_key> <Left> <o>                 : "⟲"    U27F2        # ANTICLOCKWISE GAPPED CIRCLE ARROW
+<Multi_key> <Right> <o>                : "⟳"    U27F3        # CLOCKWISE GAPPED CIRCLE ARROW
+<Multi_key> <Left> <c>                 : "↺"    U21BA        # ANTICLOCKWISE OPEN CIRCLE ARROW
+<Multi_key> <Right> <c>                : "↻"    U21BB        # CLOCKWISE OPEN CIRCLE ARROW
+<Multi_key> <Left> <asciitilde>        : "⇜"    U21DC        # LEFTWARDS SQUIGGLE ARROW
+<Multi_key> <Right> <asciitilde>       : "⇝"    U21DD        # RIGHTWARDS SQUIGGLE ARROW
+<Multi_key> <Left> <bar>               : "⇤"    U21E4        # LEFTWARDS ARROW TO BAR
+<Multi_key> <Right> <bar>              : "⇥"    U21E5        # RIGHTWARDS ARROW TO BAR
+<Multi_key> <Left> <minus>             : "⇠"    U21E0        # LEFTWARDS DASHED ARROW
+<Multi_key> <Up> <minus>               : "⇡"    U21E1        # UPWARDS DASHED ARROW
+<Multi_key> <Right> <minus>            : "⇢"    U21E2        # RIGHTWARDS DASHED ARROW
+<Multi_key> <Down> <minus>             : "⇣"    U21E3        # DOWNWARDS DASHED ARROW
+
+<Multi_key> <F> <Left>         : "☚"    U261A        # BLACK LEFT POINTING INDEX
+<Multi_key> <F> <Right>        : "☛"    U261B        # BLACK RIGHT POINTING INDEX
+<Multi_key> <f> <Left>         : "☜"    U261C        # WHITE LEFT POINTING INDEX
+<Multi_key> <f> <Up>           : "☝"    U261D        # WHITE UP POINTING INDEX
+<Multi_key> <f> <Right>        : "☞"    U261E        # WHITE RIGHT POINTING INDEX
+<Multi_key> <f> <Down>         : "☟"    U261F        # WHITE DOWN POINTING INDEX
+<Multi_key> <f> <v>            : "✌"   U270C       # VICTORY HAND
+<Multi_key> <f> <w>            : "✍"   U270D       # WRITING HAND
+<Multi_key> <f> <p> <Down>     : "✎"   U270E       # LOWER RIGHT PENCIL
+<Multi_key> <f> <p> <Right>    : "✏"   U270F       # PENCIL
+<Multi_key> <f> <p> <Up>       : "✐"   U2710       # UPPER RIGHT PENCIL
+
+<Multi_key> <equal> <greater>          : "⇒"    U21D2        # RIGHTWARDS DOUBLE ARROW
+<Multi_key> <equal> <less>             : "⇐"    U21D0        # LEFTWARDS DOUBLE ARROW
+<Multi_key> <equal> <Right> <Right>    : "⇒"    U21D2        # RIGHTWARDS DOUBLE ARROW
+<Multi_key> <equal> <Left> <Left>      : "⇐"    U21D0        # LEFTWARDS DOUBLE ARROW
+<Multi_key> <equal> <Left> <Right>     : "⇔"    U21D4    # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <equal> <Right> <Left>     : "⇔"    U21D4    # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <Left> <equal> <Right>     : "⇔"    U21D4    # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <Right> <equal> <Left>     : "⇔"    U21D4    # LEFT RIGHT DOUBLE ARROW
+<Multi_key> <equal> <Up> <Up>          : "⇑"    U21D1    # UPWARDS DOUBLE ARROW
+<Multi_key> <equal> <Down> <Down>      : "⇓"    U21D3    # DOWNWARDS DOUBLE ARROW
+<Multi_key> <equal> <Up> <Down>        : "⇕"    U21D5    # UP DOWN DOUBLE ARROW
+<Multi_key> <equal> <Down> <Left>      : "⏎"    U23CE    # RETURN SYMBOL
+
+
+# ===========================
+#          Typography
+# ===========================
+<Multi_key> <period> <period>            : "…"    U2026    # HORIZONTAL ELLIPSIS
+<Multi_key> <v> <period> <period>        : "⋮"     U22EE    # VERTICAL ELLIPSIS
+<Multi_key> <c> <period> <period>        : "⋯"    U22EF    # MIDLINE HORIZONTAL ELLIPSIS
+<Multi_key> <slash> <period> <period>    : "⋰"    U22F0    # UP RIGHT DIAGONAL ELLIPSIS
+<Multi_key> <backslash> <space>          : "␣"    U2423    # OPEN BOX
+<Multi_key> <s> <s>                      : "ẞ"    U1E9E    # LATIN CAPITAL LETTER SHARP S
+
+
+# ===========================
+#         Superscript
+# ===========================
+<Multi_key> <underscore> <0>             : "₀"  U2080         # SUBSCRIPT ZERO
+<Multi_key> <underscore> <1>             : "₁"  U2081         # SUBSCRIPT ONE
+<Multi_key> <underscore> <2>             : "₂"  U2082         # SUBSCRIPT TWO
+<Multi_key> <underscore> <3>             : "₃"  U2083         # SUBSCRIPT THREE
+<Multi_key> <underscore> <4>             : "₄"  U2084         # SUBSCRIPT FOUR
+<Multi_key> <underscore> <5>             : "₅"  U2085         # SUBSCRIPT FIVE
+<Multi_key> <underscore> <6>             : "₆"  U2086         # SUBSCRIPT SIX
+<Multi_key> <underscore> <7>             : "₇"  U2087         # SUBSCRIPT SEVEN
+<Multi_key> <underscore> <8>             : "₈"  U2088         # SUBSCRIPT EIGHT
+<Multi_key> <underscore> <9>             : "₉"  U2089         # SUBSCRIPT NONE
+<Multi_key> <underscore> <plus>          : "₊"  U208A         # SUBSCRIPT PLUS
+<Multi_key> <underscore> <minus>         : "₋"  U208B         # SUBSCRIPT MINUS
+<Multi_key> <underscore> <equal>         : "₌"  U208C         # SUBSCRIPT EQUALS SIGN
+<Multi_key> <underscore> <parenleft>     : "₍"  U208D         # SUBSCRIPT LEFT PARENTHESIS
+<Multi_key> <underscore> <parenright>    : "₎"  U208E         # SUBSCRIPT RIGHT PARENTHESIS
+
+
+# ===========================
+#         Subscript
+# ===========================
+<Multi_key> <underscore> <a>    : "ₐ"  U2090      # LATIN SUBSCRIPT SMALL LETTER A
+<Multi_key> <underscore> <e>    : "ₑ"  U2091      # LATIN SUBSCRIPT SMALL LETTER E
+<Multi_key> <underscore> <o>    : "ₒ"  U2092      # LATIN SUBSCRIPT SMALL LETTER O
+<Multi_key> <underscore> <x>    : "ₓ"  U2093      # LATIN SUBSCRIPT SMALL LETTER X
+<Multi_key> <underscore> <h>    : "ₕ"  U2095      # LATIN SUBSCRIPT SMALL LETTER H
+<Multi_key> <underscore> <k>    : "ₖ"  U2096      # LATIN SUBSCRIPT SMALL LETTER K
+<Multi_key> <underscore> <l>    : "ₗ"  U2097      # LATIN SUBSCRIPT SMALL LETTER L
+<Multi_key> <underscore> <m>    : "ₘ"  U2098      # LATIN SUBSCRIPT SMALL LETTER M
+<Multi_key> <underscore> <n>    : "ₙ"  U2099      # LATIN SUBSCRIPT SMALL LETTER N
+<Multi_key> <underscore> <p>    : "ₚ"  U209A      # LATIN SUBSCRIPT SMALL LETTER P
+<Multi_key> <underscore> <s>    : "ₛ"  U209B      # LATIN SUBSCRIPT SMALL LETTER S
+<Multi_key> <underscore> <t>    : "ₜ"  U209C      # LATIN SUBSCRIPT SMALL LETTER T
+
+
+# ===========================
+#            Maths
+# ===========================
+
+<Multi_key> <a> <l> : "ℵ"
+<Multi_key> <less> <equal> : "≤"
+<Multi_key> <greater> <equal> : "≥"
+<Multi_key> <o> <o> : "°"
