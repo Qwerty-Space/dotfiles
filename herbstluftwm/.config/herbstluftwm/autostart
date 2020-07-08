@@ -31,10 +31,10 @@ hc keybind XF86AudioMute spawn pactl set-sink-mute @DEFAULT_SINK@ toggle
 hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -5%
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
 hc keybind $AltMod-Tab spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
-                        -run-command "/bin/bash -i -c '{cmd}'" -show window; 
+                        -run-command "/bin/zsh -i -c '{cmd}'" -show window; 
 ## run things
 hc keybind $Mod-d spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
-                        -run-command "/bin/bash -i -c '{cmd}'" -show run;
+                        -run-command "/bin/zsh -i -c '{cmd}'" -show run;
 hc keybind Print spawn flameshot gui
 hc keybind $AltMod-Print spawn flameshot full -c
 hc keybind $Mod-Print spawn ~/scripts/screenrecord
@@ -95,6 +95,7 @@ hc keybind $Mod-Control-$AltMod-Right   resize right +$fullstep
 # tags
 tag_names=(Main Max AltMax Split Gaming)
 tag_keys=( {1..9} 0 )
+hc set swap_monitors_to_get_tag 0
 
 hc rename default "${tag_names[0]}" || true
 for i in ${!tag_names[@]} ; do
