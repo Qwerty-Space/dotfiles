@@ -40,7 +40,7 @@ hc keybind $AltMod-Print spawn flameshot full -c
 hc keybind $Mod-Print spawn ~/scripts/screenrecord
 
 ## wallpaper things
-hc keybind $Mod-w spawn ~/scripts/wallpaper_changer force
+hc keybind $Mod-$AltMod-w spawn ~/scripts/wallpaper_changer force
 hc keybind $Mod-Control-w spawn ~/scripts/pause_wallpaper.sh
 
 # basic movement
