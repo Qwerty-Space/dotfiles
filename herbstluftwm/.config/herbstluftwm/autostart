@@ -254,11 +254,6 @@ done
 pkill compton
 compton --config ~/.config/compton/compton-kawase.conf &
 xss-lock ~/scripts/lock &
-if [[ $(hostname) == "samurai" ]]; then
-    udiskie --tray &
-    steam &
-    discord &
-fi
 
 if hc silent new_attr bool my_not_first_autostart ; then
     source ~/.fehbg
@@ -269,4 +264,9 @@ if hc silent new_attr bool my_not_first_autostart ; then
     blueman-applet &
     flameshot &
     dunst &
+    if [[ $(hostname) == "samurai" ]]; then
+        udiskie --tray &
+        steam &
+        discord &
+    fi
 fi
