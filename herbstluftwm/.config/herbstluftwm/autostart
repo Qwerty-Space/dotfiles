@@ -36,7 +36,7 @@ hc keybind $AltMod-Tab spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh
 hc keybind $Mod-d spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
                         -run-command "/bin/zsh -i -c '{cmd}'" -show run;
 hc keybind Print spawn flameshot gui
-hc keybind $AltMod-Print spawn flameshot full -c
+hc keybind $AltMod-Print spawn flameshot screen -c
 hc keybind $Mod-Print spawn ~/scripts/screenrecord
 
 ## wallpaper things
@@ -220,13 +220,14 @@ hc rule class="Thunderbird" tag="Max"
 hc rule class="TelegramDesktop" tag="Main" index=0
 # hc rule class="Code" windowrole="browser-window" tag="Main" index=0
 hc rule class="Spacefm" tag="Main" index=0
-hc rule class="urxvtfoo" tag="Main" index=1
+hc rule instance="urxvtfoo" tag="Main" index=1
 hc rule class="discord" tag="Gaming" index=0
-hc rule class="Steam" tag="Gaming" index=0
+hc rule class="Steam" tag="Gaming" index=1
+hc rule title="Steam" tag="Gaming" index=0
 hc rule title~".+News.+" class="Steam" tag="Gaming" index=0
-hc rule title~".+Gift.+" class="Steam" tag="Gaming" index=0
-hc rule title~".+Friends List.+" class"Steam" tag="Gaming" index=1
-hc rule title~".+Chat.+" class"Steam" tag="Gaming" index=1
+hc rule title~"Gift.*" class="Steam" tag="Gaming" index=0
+# hc rule title~"Friends List" class"Steam" tag="Gaming" index=1
+# hc rule title~"Chat" class"Steam" tag="Gaming" index=1
 
 
 hc set tree_style '╾│ ├└╼─┐'
@@ -254,9 +255,11 @@ done
 pkill compton
 compton --config ~/.config/compton/compton-kawase.conf &
 xss-lock ~/scripts/lock &
+setxkbmap -option compose:caps
 
 if hc silent new_attr bool my_not_first_autostart ; then
     source ~/.fehbg
+    numlockx &
     /home/scripts/tunnel.sh
     urxvt -name urxvtfoo &
     fluxgui &
