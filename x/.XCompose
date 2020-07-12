@@ -10,8 +10,8 @@
 
 # Various tests
 # <Multi_key> <t> <f> : "(ﾉಥ益ಥ）ﾉ彡┻━┻"  # Table flip like a boss
-# <Multi_key> <l> <f> : "( ͡° ͜ʖ ͡°)"        # Lenny face
-# <Multi_key> <s> <f> : "¯\\_(ツ)_/¯"     # Shrug face
+<Multi_key> <l> <f> : "( ͡° ͜ʖ ͡°)"        # Lenny face
+<Multi_key> <s> <f> : "¯\\_(ツ)_/¯"     # Shrug face
 
 # Include default config
 include "%L"
@@ -180,3 +180,11 @@ include "%L"
 <Multi_key> <less> <equal> : "≤"
 <Multi_key> <greater> <equal> : "≥"
 <Multi_key> <o> <o> : "°"
+
+# ===========================
+#         Currencies
+# ===========================
+<Multi_key> <P> <minus> : "₽"    U20bd    # RUBLE SIGN
+<Multi_key> <p> <minus> : "₽"    U20bd    # RUBLE SIGN
+<Multi_key> <Y> <equal> : "¥"    U00A5    # YEN SYMBOL
+<Multi_key> <y> <equal> : "¥"    U00A5    # YEN SYMBOL
