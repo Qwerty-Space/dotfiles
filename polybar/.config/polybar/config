@@ -34,11 +34,9 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
-# font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-# font-2 = siji:pixelsize=10;1
-# font-3 = Font Awesome 5 Free:style=Regular:pixelsize=22:antialias=true
-font-1 = Noto Sans Symbols2:style=Bold:pixelsize=11;2
-font-2 = Material Icons:style=Regular:pixelsize=11;2
+font-1 = Noto Sans Symbols2:style=Bold:pixelsize=11;2:antialias=true
+font-2 = Material Icons:style=Regular:pixelsize=12;2
+font-3 = FontAwesome:style=Regular:pixelsize=11:antialias=true
 
 modules-left = ewmh
 modules-center = title #ewmh
@@ -85,7 +83,7 @@ type = internal/xworkspaces
 ; on different bars
 ;
 ; Default: false
-pin-workspaces = true
+pin-workspaces = false
 
 ; Create click handler used to focus desktop
 ; Default: true
@@ -95,12 +93,12 @@ enable-click = false
 ; Default: true
 enable-scroll = false
 
-icon-0 = Main;♛
-icon-1 = Max;♚
-icon-2 = Split;
-icon-3 = Steam;♜
-# icon-default = ♟
-icon-default = #
+icon-0 = Main;⁣ ♛ ⁣
+icon-1 = Max;⁣ ♚ ⁣
+icon-2 = AltMax;⁣ ♞ ⁣
+icon-3 = Split;⁣ ♝ ⁣
+icon-4 = Gaming;⁣ ♜ ⁣
+icon-default =⁣ ♣ ⁣
 
 ; Available tags:
 ;   <label-monitor>
@@ -118,7 +116,7 @@ label-monitor = %name%
 ;   %icon%
 ;   %index%
 ; Default: %icon%  %name%
-label-active = %icon% %name%
+label-active = %icon%
 label-active-foreground = #ffffff
 label-active-background = #003f3f3f
 label-active-underline = #fba922
@@ -156,7 +154,7 @@ interval = 25
 mount-0 = /
 
 # label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-mounted =  %percentage_used%%
+label-mounted =  %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -311,7 +309,7 @@ format-spacing = 1
 label-active-font = 5
 label-open = ⏻
 label-open-foreground = ${colors.foreground}
-label-close = 
+label-close = 
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
