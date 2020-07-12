@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
 filepath=/run/user/1000/wallpaper_paused
