@@ -13,5 +13,42 @@
         "key": "ctrl+shift+l",
         "command": "editor.action.transformToLowercase",
         "when": "editorTextFocus"
+    },
+    {
+        "command": "-vscode-neovim.escape",
+        "key": "ctrl+["
+    },
+    {
+        "command": "-vscode-neovim.escape",
+        "key": "ctrl+c"
+    },
+    {
+        "command": "-vscode-neovim.ctrl-f",
+        "key": "ctrl+f"
+    },
+    {
+        "command": "-vscode-neovim.delete-char-left-cmdline",
+        "key": "ctrl+h"
+    },
+    {
+        "command": "-vscode-neovim.send",
+        "key": "ctrl+/"
+    },
+    {
+        "command": "-vscode-neovim.send",
+        "key": "ctrl+h"
+    },
+    {
+        "command": "-vscode-neovim.ctrl-a-insert",
+        "key": "ctrl+a"
+    },
+    {
+        "command": "vscode-neovim.ctrl-a-insert",
+        "key": "ctrl+p",
+        "when": "editorTextFocus && neovim.mode == 'normal'"
+    },
+    {
+        "command": "-deleteLeft",
+        "key": "ctrl+h",
     }
 ]

@@ -23,4 +23,7 @@
     "editor.multiCursorModifier": "alt",
     "python.formatting.provider": "autopep8",
     "vscode-neovim.neovimPath": "/usr/bin/nvim",
+    "vscode-neovim.neovimInitPath": "/home/qwerty/.config/nvim/vscode.vim",
+    "vscode-neovim.useCtrlKeysForInsertMode": false,
+    "vscode-neovim.useCtrlKeysForNormalMode": false,
 }
