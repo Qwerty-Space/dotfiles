@@ -2,6 +2,15 @@
 
 set -e
 filepath=/run/user/1000/wallpaper_paused
+lockimg="/tmp/lockimg.png"
+
+blur_level=1.5
+dim_level="50%"
+res="1920x1080"
+
+blur_shrink=$(echo "scale=2; 20 / $blur_level" | bc)
+blur_sigma=$(echo "scale=2; 0.6 * $blur_level" | bc)
+
 
 shuffle() {
     bg=$(find "/home/qwerty/Saved Pictures/Wallpapers/Desktop" -type f -and -not -iname '*.gif' | shuf -n 1)
@@ -9,10 +18,25 @@ shuffle() {
     echo "$bg"
 }
 
+apply_blur() {
+    convert "$1" \
+        -scale "$res" -gravity center -extent "$res" \
+        -filter Gaussian \
+        -resize "$blur_shrink%" \
+        -define "filter:sigma=$blur_sigma" \
+        -resize "$res^" -gravity center -extent "$res" \
+        -fill black -colorize $dim_level \
+        "$lockimg"
+
+    echo "Applied the blur filter" >&2
+    echo "$lockimg"
+}
+
 set_wp() {
     wallpaper=$(shuffle)
-    betterlockscreen -u "$wallpaper" -r 1920x1080
-    echo "Set lockscreen to $(basename "$wallpaper")" >&2
+
+    lockimg=$(apply_blur "$wallpaper")
+
     feh --bg-fill "$wallpaper"
     echo "Set wallpaper to $(basename "$wallpaper")" >&2
 }

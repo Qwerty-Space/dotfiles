@@ -2,7 +2,19 @@
 # Lock the screen
 
 lock() {
-    betterlockscreen -l dimblur
+    # betterlockscreen -l dimblur
+    i3lock \
+        -Ci "/tmp/lockimg.png" \
+        --timepos="x+120:h-120" --timesize=130 \
+        --datepos="x+130:h-90" \
+        --clock --date-align 1 --time-align 1 \
+        --insidecolor=00000000 --ringcolor=ffffffff --line-uses-inside \
+        --keyhlcolor=1768b7ff --bshlcolor=1768b7ff --separatorcolor=00000000 \
+        --insidevercolor=00000000 --insidewrongcolor=d23c3dff \
+        --ringvercolor=ffffffff --ringwrongcolor=ffffffff \ #--indpos="x+280:h-70" \
+        --radius=20 --ring-width=4 --veriftext="" --wrongtext="" --noinputtext="" \
+        --verifcolor=ffffffff --timecolor=ffffffff --datecolor=c1c1c1ff \
+        --time-font="sans-serif" --date-font="sans-serif" --layout-font="sans-serif" 
 }
 
 if [ "$1" == "off" ]
