@@ -11,7 +11,7 @@ shuffle() {
 
 set_wp() {
     wallpaper=$(shuffle)
-    betterlockscreen -u "$wallpaper"
+    betterlockscreen -u "$wallpaper" -r 1920x1080
     echo "Set lockscreen to $(basename "$wallpaper")" >&2
     feh --bg-fill "$wallpaper"
     echo "Set wallpaper to $(basename "$wallpaper")" >&2
