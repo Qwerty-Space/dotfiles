@@ -37,6 +37,7 @@ alias screenshot='/home/qwerty/scripts/screenshot'
 # SSH
 alias blueberry='ssh boba@178.62.67.199'
 alias zeus='ssh qwertyspace@zeus.feralhosting.com'
+alias shinobi='ssh qwerty@shinobi'
 mntzeus() {
     sshfs qwertyspace@zeus.feralhosting.com:/media/sdh1/home/qwertyspace /mnt/zeus && cd /mnt/zeus
 }
