@@ -83,6 +83,14 @@ cpstat () {
     tar c "$1" | pv | tar x -C "$2"
 }
 
+# copy a file to the x clipboard
+xcopy() {
+    TYPE=$(file -b --mime-type "$1")
+    xclip -se c -t "$TYPE" "$1"
+}
+alias cpx='xcopy'
+alias xc='xcopy'
+
 # Check for errors in FLAC files in chosen directory
 audiocheck() {
     find "$1" -type f -iname '*.flac' -print0 | xargs --null flac -wst

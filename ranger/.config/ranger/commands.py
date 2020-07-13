@@ -11,6 +11,7 @@ from __future__ import (absolute_import, division, print_function)
 
 # You can import any python module as needed.
 import os
+from shlex import quote
 
 # You always need to import ranger.api.commands here to get the Command class:
 from ranger.api.commands import Command
@@ -59,4 +60,20 @@ class my_edit(Command):
     def tab(self, tabnum):
         # This is a generic tab-completion function that iterates through the
         # content of the current directory.
+        return self._tab_directory_content()
+
+class x_copy(Command):
+    """
+    Copies a file to the x clipboard
+    """
+
+    def execute(self):
+        cf = quote(self.fm.thisfile.path)
+        self.fm.notify(cf)
+        self.fm.run(f"xclip -se c -t $(file -b --mime-type {cf}) {cf}")
+        self.fm.notify("Copied to x clipboard")
+
+
+    def tab(self, tabnum):
+        # tab completion
         return self._tab_directory_content()
