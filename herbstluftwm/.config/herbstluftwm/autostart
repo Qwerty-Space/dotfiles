@@ -38,7 +38,7 @@ hc keybind $Mod-d spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
 hc keybind Print spawn flameshot gui
 hc keybind $AltMod-Print spawn flameshot screen -c
 hc keybind $Mod-Print spawn ~/scripts/screenrecord
-hc keybind $Mod-w -spawn ~/scripts/mpv_paste.sh
+hc keybind $Mod-w spawn ~/scripts/mpv_paste.sh
 
 ## wallpaper things
 hc keybind $Mod-$AltMod-w spawn ~/scripts/wallpaper_changer force
@@ -248,21 +248,25 @@ for monitor in $(herbstclient list_monitors | cut -d: -f1) ; do
     # start it on each monitor
     # "$panel" $monitor &
     hc pad 0 27 0 0
+    # polybar -r qwerty &
 done
 
-for m in $(polybar --list-monitors | cut -d":" -f1); do
-    MONITOR=$m polybar -r qwerty &
-done
+# for m in $(polybar --list-monitors | cut -d":" -f1); do
+#     MONITOR=$m polybar -r qwerty &
+#     MONITOR=$m polybar -r qwertyr &
+# done
 
 # autostart things
 pkill compton
 compton --config ~/.config/compton/compton-kawase.conf &
 xss-lock ~/scripts/lock &
 setxkbmap -option compose:caps
+killall -q polybar
+polybar -r qwerty &
 
 if hc silent new_attr bool my_not_first_autostart ; then
     # killall -q polybar
-    polybar -r qwerty &
+    # polybar -r qwerty &
     source ~/.fehbg
     numlockx &
     /home/scripts/tunnel.sh
