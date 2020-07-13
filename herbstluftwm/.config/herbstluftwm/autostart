@@ -38,7 +38,7 @@ hc keybind $Mod-d spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
 hc keybind Print spawn flameshot gui
 hc keybind $AltMod-Print spawn flameshot screen -c
 hc keybind $Mod-Print spawn ~/scripts/screenrecord
-hc keybind $Mod-w spawn ~/scripts/mpv_paste.sh
+hc keybind $Mod-w spawn mpv "$(xclip -se c -o)"
 
 ## wallpaper things
 hc keybind $Mod-$AltMod-w spawn ~/scripts/wallpaper_changer force
