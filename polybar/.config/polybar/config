@@ -71,8 +71,6 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
 font-1 = Noto Sans Symbols2:style=Bold:pixelsize=11;2:antialias=true
-font-2 = Material Icons:style=Regular:pixelsize=12;2
-font-3 = FontAwesome:style=Regular:pixelsize=11:antialias=true
 
 modules-left = ewmh
 modules-center = title
@@ -190,7 +188,7 @@ interval = 25
 mount-0 = /
 
 # label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-mounted =  %percentage_used%%
+label-mounted = 🖴 %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -345,7 +343,7 @@ format-spacing = 1
 label-active-font = 5
 label-open = ⏻
 label-open-foreground = ${colors.foreground}
-label-close = 
+label-close = 🗙
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
