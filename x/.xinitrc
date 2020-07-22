@@ -24,8 +24,8 @@ fi
 ### Custom Stuff ##
 # Stop terminal beeps and screensaver
 xset b off 
-#xset s off
-#xset -dpms
+# xset s off
+# xset -dpms
 
 # Launch Herstluftwm
 exec herbstluftwm

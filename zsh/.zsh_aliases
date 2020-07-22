@@ -30,6 +30,7 @@ alias slock='betterlockscreen -l dimblur & xset dpms force off &'
 alias hc='herbstclient'
 alias tqwerty='telegram-desktop -many -key qwertyspace'
 alias telethon='python -i ~/scripts/tl/tl.py'
+alias zcal='zenity --calendar'
 
 # Scripts
 alias screenshot='/home/qwerty/scripts/screenshot'

@@ -38,7 +38,7 @@ hc keybind $Mod-d spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
 hc keybind Print spawn flameshot gui
 hc keybind $AltMod-Print spawn flameshot screen -c
 hc keybind $Mod-Print spawn ~/scripts/screenrecord
-hc keybind $Mod-w spawn mpv "$(xclip -se c -o)"
+hc keybind $Mod-w spawn ~/.config/herbstluftwm/mpv_clipboard.sh
 
 ## wallpaper things
 hc keybind $Mod-$AltMod-w spawn ~/scripts/wallpaper_changer force
@@ -145,7 +145,7 @@ hc keybind $Mod-comma  use_index -1 --skip-visible
 
 # layouting
 hc keybind $Mod-r remove
-hc keybind $Mod-s floating toggle
+hc keybind $Mod-s attr clients.focus.floating toggle
 hc keybind $Mod-f fullscreen toggle
 hc keybind $Mod-p pseudotile toggle
 # The following cycles through the available layouts within a frame, but skips
@@ -158,12 +158,12 @@ hc keybind $Mod-space                                                           
 
 # mouse
 hc mouseunbind --all
-# hc mousebind $Mod-Button1 move
+hc mousebind $Mod-Button1 move
 # hc mousebind $Mod-Button2 zoom
 # hc mousebind $Mod-Button3 resize
 
 # focus
-# scratchpad=~/.config/herbstluftwm/scratchpad.sh
+scratchpad=~/.config/herbstluftwm/scratchpad.sh
 hc keybind $Mod-Shift-Return spawn scratchpad
 hc keybind $Mod-BackSpace   cycle_monitor
 hc keybind $Mod-Tab           cycle_frame
@@ -210,9 +210,10 @@ hc set focus_follows_mouse 1
 #hc rule focus=off # normally do not focus new clients
 # give focus to most common terminals
 #hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
-hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+hc rule class="Calculator" floating=on
 # hc rule class="TelegramDesktop" fullscreen=off
 
 # Window locations
@@ -222,13 +223,13 @@ hc rule class="TelegramDesktop" tag="Main" index=0
 # hc rule class="Code" windowrole="browser-window" tag="Main" index=0
 hc rule class="Spacefm" tag="Main" index=0
 hc rule instance="urxvtfoo" tag="Main" index=1
+hc rule instance="watch" tag="Gaming" index=0
 hc rule class="discord" tag="Gaming" index=0
 hc rule class="Steam" tag="Gaming" index=1
 hc rule title="Steam" tag="Gaming" index=0
 hc rule title~".+News.+" class="Steam" tag="Gaming" index=0
 hc rule title~"Gift.*" class="Steam" tag="Gaming" index=0
-# hc rule title~"Friends List" class"Steam" tag="Gaming" index=1
-# hc rule title~"Chat" class"Steam" tag="Gaming" index=1
+hc rule title="Image Popout" class="Steam" tag="Gaming" index=0
 
 
 hc set tree_style '╾│ ├└╼─┐'
@@ -256,27 +257,32 @@ done
 #     MONITOR=$m polybar -r qwertyr &
 # done
 
+
 # autostart things
 pkill compton
 compton --config ~/.config/compton/compton-kawase.conf &
-xss-lock ~/scripts/lock &
-setxkbmap -option compose:caps
 killall -q polybar
 polybar -r qwerty &
 
 if hc silent new_attr bool my_not_first_autostart ; then
-    # killall -q polybar
-    # polybar -r qwerty &
-    source ~/.fehbg
     numlockx &
+    source ~/.fehbg
+    setxkbmap -option compose:caps
+    xss-lock ~/scripts/lock &
     /home/scripts/tunnel.sh
     urxvt -name urxvtfoo &
-    fluxgui &
+    # fluxgui &
+    xflux -l 51.57282790128005 -g -0.3267680884084996 &
     nm-applet &
     blueman-applet &
     flameshot &
     dunst &
+
     if [[ $(hostname) == "samurai" ]]; then
+        # view certain tags on login
+        hc focus_monitor 0; hc use_index 4
+        hc focus_monitor 1; hc use_index 0
+
         udiskie --tray &
         steam &
         discord &
