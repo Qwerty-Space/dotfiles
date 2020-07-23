@@ -1,22 +1,14 @@
 # Rofi stuff
 rofi_run() {
     rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
-    -run-command "/bin/bash -i -c '{cmd}'" -show run;
+    -run-command "/bin/zsh -i -c '{cmd}'" -show run;
 }
 
+# list directory tree
 lst() {
     depth=${1:-2}
     lsd --group-dirs first --tree --depth $depth;
 }
-
-# lst() {
-#     if [ -z $1 ] 
-#         then
-#             lsd --tree --depth 2
-#         else
-#             lsd --tree --depth $1 
-#     fi
-# }
 
 alias l='lsd --group-dirs first'
 alias ll='lsd -l --total-size --date "+%F %T" --group-dirs first'
@@ -26,7 +18,7 @@ alias da='du -hd1'
 alias tunnel='bash ~/scripts/tunnel.sh'
 alias ssh_tunnel='bash ~/scripts/tunnel.sh'
 alias ff='firefox'
-alias slock='betterlockscreen -l dimblur & xset dpms force off &'
+alias slock='~/scripts/lock off'
 alias hc='herbstclient'
 alias tqwerty='telegram-desktop -many -key qwertyspace'
 alias telethon='python -i ~/scripts/tl/tl.py'
@@ -42,6 +34,7 @@ alias shinobi='ssh qwerty@shinobi'
 mntzeus() {
     sshfs qwertyspace@zeus.feralhosting.com:/media/sdh1/home/qwertyspace /mnt/zeus && cd /mnt/zeus
 }
+alias mntzeus='mntzeus'
 
 # Make a directory and cd into it
 mkcd() {
