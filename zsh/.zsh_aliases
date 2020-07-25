@@ -3,6 +3,7 @@ rofi_run() {
     rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
     -run-command "/bin/zsh -i -c '{cmd}'" -show run;
 }
+alias calc='rofi -show calc -modi calc -no-show-match -no-sort'
 
 # list directory tree
 lst() {

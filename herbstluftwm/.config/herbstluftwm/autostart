@@ -263,11 +263,11 @@ pkill compton
 compton --config ~/.config/compton/compton-kawase.conf &
 killall -q polybar
 polybar -r qwerty &
+setxkbmap -option compose:caps
 
 if hc silent new_attr bool my_not_first_autostart ; then
     numlockx &
     source ~/.fehbg
-    setxkbmap -option compose:caps
     xss-lock ~/scripts/lock &
     /home/scripts/tunnel.sh
     urxvt -name urxvtfoo &
