@@ -210,6 +210,7 @@ hc set focus_follows_mouse 1
 #hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
+hc rule windowtype='_NET_WM_WINDOW_TYPE_NORMAL' title~'Wine.+' floating=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc rule class="Calculator" floating=on
 # hc rule class="TelegramDesktop" fullscreen=off
@@ -228,7 +229,7 @@ hc rule title="Steam" tag="Gaming" index=0
 hc rule title~".+News.+" class="Steam" tag="Gaming" index=0
 hc rule title~"Gift.*" class="Steam" tag="Gaming" index=0
 hc rule title="Image Popout" class="Steam" tag="Gaming" index=0
-
+hc rule class="mp3tag" tag="AltMax" index=0
 
 hc set tree_style '╾│ ├└╼─┐'
 
