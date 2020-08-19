@@ -24,6 +24,7 @@ alias hc='herbstclient'
 alias tqwerty='telegram-desktop -many -key qwertyspace'
 alias telethon='python -i ~/scripts/tl/tl.py'
 alias zcal='zenity --calendar'
+alias dragon='dragon-drag-and-drop'
 
 # Scripts
 alias screenshot='/home/qwerty/scripts/screenshot'
@@ -35,7 +36,6 @@ alias shinobi='ssh qwerty@shinobi'
 mntzeus() {
     sshfs qwertyspace@zeus.feralhosting.com:/media/sdh1/home/qwertyspace /mnt/zeus && cd /mnt/zeus
 }
-alias mntzeus='mntzeus'
 
 # Make a directory and cd into it
 mkcd() {
