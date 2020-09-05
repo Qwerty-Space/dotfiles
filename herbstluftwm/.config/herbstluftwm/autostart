@@ -41,6 +41,7 @@ hc keybind $Mod-w spawn ~/.config/herbstluftwm/mpv_clipboard.sh
 ## wallpaper things
 hc keybind $Mod-$AltMod-w spawn ~/scripts/wallpaper_changer force
 hc keybind $Mod-Control-w spawn ~/scripts/pause_wallpaper.sh
+hc keybind $Mod-$AltMod-Control-w spawn ~/scripts/safe_wallpaper.sh
 
 # basic movement
 # focusing clients
@@ -289,6 +290,7 @@ if hc silent new_attr bool my_not_first_autostart ; then
         udiskie --tray &
         steam &
         discord &
+        scream -o pulse -i virbr0 &
         # ibus-daemon -drx
     fi
 fi

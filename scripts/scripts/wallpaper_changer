@@ -1,7 +1,8 @@
 #!/bin/sh
 
 set -e
-filepath=/run/user/1000/wallpaper_paused
+pausepath=/run/user/1000/wallpaper_paused
+safepath=/run/user/1000/wallpaper_safe
 lockimg="/tmp/lockimg.png"
 
 blur_level=1.5
@@ -13,7 +14,11 @@ blur_sigma=$(echo "scale=2; 0.6 * $blur_level" | bc)
 
 
 shuffle() {
-    bg=$(find "/home/qwerty/Saved Pictures/Wallpapers/Desktop" -type f -and -not -iname '*.gif' | shuf -n 1)
+    if [ ! -e "$safepath" ]; then
+        bg=$(find "/home/qwerty/Saved Pictures/Wallpapers/Desktop" -type f -and -not -iname '*.gif' | shuf -n 1)
+    elif [ -e "$safepath" ]; then
+        bg=$(find "/home/qwerty/Saved Pictures/Wallpapers/Desktop" -type f -and -not -iname '*.gif' -and -not -ipath '*/NSFW/*' | shuf -n 1)
+    fi
     echo "Found wallpaper $bg" >&2
     echo "$bg"
 }
@@ -41,7 +46,7 @@ set_wp() {
     echo "Set wallpaper to $(basename "$wallpaper")" >&2
 }
 
-if [ ! -e "$filepath" ] || [ "$1" == "force"  ]; then
+if [ ! -e "$pausepath" ] || [ "$1" == "force"  ]; then
     if [ "$1" == "force" ]; then
         dunstify -a "$USER@$(hostname)" "Randomising wallpaper"
     fi

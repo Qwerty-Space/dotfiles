@@ -25,6 +25,7 @@ alias tqwerty='telegram-desktop -many -key qwertyspace'
 alias telethon='python -i ~/scripts/tl/tl.py'
 alias zcal='zenity --calendar'
 alias dragon='dragon-drag-and-drop'
+alias count='tree -a | tail -n 1'
 
 # Scripts
 alias screenshot='/home/qwerty/scripts/screenshot'
