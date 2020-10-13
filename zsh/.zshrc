@@ -106,6 +106,7 @@ export EDITOR=/usr/bin/vim
 
 # Add ~/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
+export QMK_HOME="$HOME/.qmk_firmware/qmk_firmware"
 # Add cargo binaries to path
 export PATH="$PATH:$HOME/.cargo/bin"
 # Pyenv stuff

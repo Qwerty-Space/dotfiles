@@ -265,8 +265,6 @@ done
 
 
 # autostart things
-pkill compton
-compton --config ~/.config/compton/compton-kawase.conf &
 killall -q polybar
 polybar -r qwerty &
 
@@ -294,3 +292,6 @@ if hc silent new_attr bool my_not_first_autostart ; then
         # ibus-daemon -drx
     fi
 fi
+sleep 2s
+pkill compton
+compton --config ~/.config/compton/compton-kawase.conf &

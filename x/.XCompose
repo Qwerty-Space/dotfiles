@@ -37,6 +37,7 @@ include "%L"
 <Multi_key> <y> <less> : "ẃ"
 <Multi_key> <w> <less> : "ý"
 
+
 # ===========================
 #   Alternate Grave Accents
 # ===========================
@@ -57,18 +58,20 @@ include "%L"
 <Multi_key> <w> <greater> : "ẁ"
 <Multi_key> <y> <greater> : "ỳ"
 
+
 # ===========================
 #            Misc
 # ===========================
 
-<Multi_key> <D> <D>           : "ꓷ"    # BACKWARDS D
-<Multi_key> <space> <space>   : "⁣"     U200B    # ZERO WIDTH SPACE
-<Multi_key> <asterisk>        : "•"    U2022    # BULLET
+<Multi_key> <D> <D>                    : "ꓷ"    # BACKWARDS D
+<Multi_key> <space> <space>            : "⁣"     U200B    # ZERO WIDTH SPACE
+<Multi_key> <asterisk> <asterisk>      : "•"    U2022    # BULLET
 
 
 # ==========================
 #           Arrows
 # ==========================
+
 <Multi_key> <minus> <less>              : "←"    leftarrow    # LEFTWARDS ARROW
 <Multi_key> <minus> <asciicircum>       : "↑"    uparrow      # UPWARDS ARROW
 <Multi_key> <minus> <greater>           : "→"    rightarrow   # RIGHTWARDS ARROW
@@ -127,6 +130,7 @@ include "%L"
 # ===========================
 #          Typography
 # ===========================
+
 <Multi_key> <period> <period>            : "…"    U2026    # HORIZONTAL ELLIPSIS
 <Multi_key> <v> <period> <period>        : "⋮"     U22EE    # VERTICAL ELLIPSIS
 <Multi_key> <c> <period> <period>        : "⋯"    U22EF    # MIDLINE HORIZONTAL ELLIPSIS
@@ -138,6 +142,7 @@ include "%L"
 # ===========================
 #         Superscript
 # ===========================
+
 <Multi_key> <underscore> <0>             : "₀"  U2080         # SUBSCRIPT ZERO
 <Multi_key> <underscore> <1>             : "₁"  U2081         # SUBSCRIPT ONE
 <Multi_key> <underscore> <2>             : "₂"  U2082         # SUBSCRIPT TWO
@@ -158,6 +163,7 @@ include "%L"
 # ===========================
 #         Subscript
 # ===========================
+
 <Multi_key> <underscore> <a>    : "ₐ"  U2090      # LATIN SUBSCRIPT SMALL LETTER A
 <Multi_key> <underscore> <e>    : "ₑ"  U2091      # LATIN SUBSCRIPT SMALL LETTER E
 <Multi_key> <underscore> <o>    : "ₒ"  U2092      # LATIN SUBSCRIPT SMALL LETTER O
@@ -180,6 +186,7 @@ include "%L"
 <Multi_key> <less> <equal> : "≤"
 <Multi_key> <greater> <equal> : "≥"
 <Multi_key> <o> <o> : "°"
+
 
 # ===========================
 #         Currencies

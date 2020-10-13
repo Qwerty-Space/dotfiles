@@ -12,7 +12,7 @@
     "git.confirmSync": false,
     "vscode-mysql.enableTelemetry": false,
     "files.autoGuessEncoding": false,
-    "editor.fontFamily": "Hasklig, Source Code Pro, Consolas, 'Courier New', monospace, 'Material Icons'",
+    "editor.fontFamily": "Hasklig, Source Code Pro, Consolas, 'Courier New', monospace, 'Material Icons','Hack Nerd Font'",
     "editor.fontLigatures": true,
     "window.openFoldersInNewWindow": "off",
     "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",

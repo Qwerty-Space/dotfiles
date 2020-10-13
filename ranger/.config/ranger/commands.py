@@ -31,47 +31,6 @@ class x_copy(Command):
         return self._tab_directory_content()
 
 
-class archive(Command):
-    """ Put files in a zip archive """
-
-    def execute(self):
-        cwd = self.fm.thisdir
-        marked_files = cwd.get_selection()
-
-        if not marked_files:
-            return
-
-        basename = os.path.basename(cwd.path)
-        zipfile = quote(basename + ".zip")
-        command = f"zip -urq0 {zipfile}"
-
-        for f in marked_files:
-            command += " "
-            command += quote(f.path)
-
-        self.fm.run(command)
-
-    def tab(self, tabnum):
-        # tab completion
-        return self._tab_directory_content()
-
-class extract(Command):
-    """ Extract files from archive """
-
-    def execute(self):
-        cf = self.fm.thisfile.path
-        cf_path = quote(cf)
-        basename = quote(os.path.basename(cf))
-        self.fm.notify(cf)
-        command = f"unzip {cf_path} -d {basename}"
-
-        self.fm.run(command)
-
-    def tab(self, tabnum):
-        # tab completion
-        return self._tab_directory_content()
-
-
 class watch_episode(Command):
     """ Watch in mpv on specific tag """
 
