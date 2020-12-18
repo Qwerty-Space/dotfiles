@@ -225,7 +225,7 @@ hc rule class="mp3tag" tag="Max" index=0
 hc rule class="TelegramDesktop" tag="Main" index=0
 hc rule class="Spacefm" tag="Main" index=0
 hc rule instance="urxvtfoo" tag="Main" index=1
-hc rule instance="watch" tag="Gaming" index=0
+hc rule instance="watch" tag="AltMax" index=0
 
 # Steam and Gaming
 hc rule class="discord" tag="Gaming" index=0
@@ -235,6 +235,7 @@ hc rule title~".+News.+" class="Steam" tag="Gaming" index=0
 hc rule title~"Gift.*" class="Steam" tag="Gaming" index=0
 hc rule title="Image Popout" class="Steam" tag="Gaming" index=0
 hc rule instance="streaming_client" tag="AltMax" index=0
+hc rule instance~"Minecraft.*" tag="AltMax" index=0
 
 ### /Window locations ###
 
@@ -280,7 +281,7 @@ if hc silent new_attr bool my_not_first_autostart ; then
     flameshot &
     dunst &
 
-    if [[ $(hostname) == "samurai" ]]; then
+    if [[ $(cat /etc/hostname) == "samurai" ]]; then
         # view certain tags on login
         hc focus_monitor 0; hc use_index 4
         hc focus_monitor 1; hc use_index 0
@@ -294,4 +295,6 @@ if hc silent new_attr bool my_not_first_autostart ; then
 fi
 sleep 2s
 pkill compton
+pkill picom
 compton --config ~/.config/compton/compton-kawase.conf &
+# picom --config ~/.config/picom/picom-kawase.conf &

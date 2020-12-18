@@ -19,11 +19,12 @@
     "window.zoomLevel": 0,
     "window.menuBarVisibility": "toggle",
     "files.eol": "\n",
-    "python.pythonPath": "/home/qwerty/.pyenv/versions/3.7.3/bin/python",
+    "python.pythonPath": "/usr/bin/python",
     "editor.multiCursorModifier": "alt",
     "python.formatting.provider": "autopep8",
     "vscode-neovim.neovimPath": "/usr/bin/nvim",
     "vscode-neovim.neovimInitPath": "/home/qwerty/.config/nvim/vscode.vim",
     "vscode-neovim.useCtrlKeysForInsertMode": false,
     "vscode-neovim.useCtrlKeysForNormalMode": false,
+    "python.defaultInterpreterPath": "/usr/bin/python",
 }
