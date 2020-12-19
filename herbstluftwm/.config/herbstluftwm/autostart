@@ -288,7 +288,7 @@ if hc silent new_attr bool my_not_first_autostart ; then
 
         udiskie --tray &
         steam &
-        discord &
+        discord --no-sandbox &
         scream -o pulse -i virbr0 &
         # ibus-daemon -drx
     fi

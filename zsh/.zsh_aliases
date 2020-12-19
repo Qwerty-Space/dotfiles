@@ -26,6 +26,7 @@ alias telethon='python -i ~/scripts/tl/tl.py'
 alias zcal='zenity --calendar'
 alias dragon='dragon-drag-and-drop'
 alias count='tree -a | tail -n 1'
+alias discord='discord --no-sandbox'
 
 # Scripts
 alias screenshot='/home/qwerty/scripts/screenshot'
