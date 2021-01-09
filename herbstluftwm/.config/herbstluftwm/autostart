@@ -117,7 +117,7 @@ SplitLayout="(split horizontal:0.500000:0
                 (clients vertical:0)
                 (clients vertical:0))"
 
-GamingLayout="(split horizontal:0.750000:0
+GamingLayout="(split horizontal:0.725:0
                 (clients max:0)
                 (clients max:0))"
 

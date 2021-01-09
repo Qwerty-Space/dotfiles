@@ -86,8 +86,8 @@ include "%L"
 <Multi_key> <Right> <Left>             : "↔"    U2194         # LEFT RIGHT ARROW (kragen's)
 <Multi_key> <Up> <Down>                : "↕"    U2195         # UP DOWN ARROW (kragen's)
 <Multi_key> <Down> <Up>                : "↕"    U2195         # UP DOWN ARROW (kragen's)
-<Multi_key> <Up> <ampersand> <Down>    : "⇵"    U21F5        # DOWNWARDS ARROW LEFTWARDS OF UPWARDS ARROW
-<Multi_key> <Down> <Left>              : "↵"    U21B5        # DOWNWARDS ARROW WITH CORNER LEFTWARDS
+<Multi_key> <Up> <ampersand> <Down>    : "⇵"    U21F5         # DOWNWARDS ARROW LEFTWARDS OF UPWARDS ARROW
+<Multi_key> <Down> <Left>              : "↵"    U21B5         # DOWNWARDS ARROW WITH CORNER LEFTWARDS
 <Multi_key> <Left> <o>                 : "⟲"    U27F2        # ANTICLOCKWISE GAPPED CIRCLE ARROW
 <Multi_key> <Right> <o>                : "⟳"    U27F3        # CLOCKWISE GAPPED CIRCLE ARROW
 <Multi_key> <Left> <c>                 : "↺"    U21BA        # ANTICLOCKWISE OPEN CIRCLE ARROW
