@@ -1,5 +1,7 @@
 *.session
 *.session-journal
 *.dict
+.nvimlog
 __pycache__
+
 
