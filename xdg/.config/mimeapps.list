@@ -1,0 +1,18 @@
+[Default Applications]
+x-scheme-handler/tg=userapp-Telegram Desktop-QGQDW0.desktop
+x-scheme-handler/discord-527978676525072386=yuna.desktop
+image/png=qimgv.desktop;
+audio/flac=mpv.desktop;
+application/x-shellscript=code-oss.desktop;vim.desktop;
+image/jpeg=pix.desktop;
+inode/directory=xranger.desktop
+
+[Added Associations]
+image/png=pix.desktop;
+audio/flac=mpv.desktop;
+application/x-shellscript=code-oss.desktop;vim.desktop;
+image/jpeg=pix.desktop;
+application/octet-stream=code-oss.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-PH36R0.desktop;userapp-Telegram Desktop-QGQDW0.desktop;
+application/pdf=firefox.desktop;
+video/mp4=mpv.desktop;

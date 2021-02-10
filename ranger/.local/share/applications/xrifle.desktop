@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=xrifle
+GenericName=File Manager
+Comment=Launches rifle
+Exec=/usr/bin/rifle %F
+Icon=utilities-terminal
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+MimeType=*/*;
+StartupNotify=true
+Categories=System;FileTools;FileManager

@@ -213,8 +213,10 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' floating=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_NORMAL' title~'Wine.+' floating=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+
 hc rule class="Calculator" floating=on
 hc rule instance="dragon-drag-and-drop" floating=on #floatplacement=center # to be added next version
+hc rule instance="redshift-gtk" floating=on
 # hc rule class="TelegramDesktop" fullscreen=off
 
 ### Window locations ###
@@ -222,7 +224,8 @@ hc rule instance="dragon-drag-and-drop" floating=on #floatplacement=center # to 
 hc rule instance="Navigator" class="firefox" tag="Max"
 hc rule class="Thunderbird" tag="Max"
 hc rule class="mp3tag" tag="Max" index=0
-hc rule class="TelegramDesktop" tag="Main" index=0
+hc rule class="TelegramDesktop" tag="Main" index=0 floatplacement=center
+hc rule class="TelegramDesktop", windowtype="_NET_WM_WINDOW_TYPE_UTILITY", tag="Main" index=1
 hc rule class="Spacefm" tag="Main" index=0
 hc rule instance="urxvtfoo" tag="Main" index=1
 hc rule instance="watch" tag="AltMax" index=0
@@ -275,7 +278,6 @@ if hc silent new_attr bool my_not_first_autostart ; then
     xss-lock ~/scripts/lock &
     /home/scripts/tunnel.sh
     urxvt -name urxvtfoo &
-    xflux -l 51.57282790128005 -g -0.3267680884084996 &
     nm-applet &
     blueman-applet &
     flameshot &
@@ -287,9 +289,11 @@ if hc silent new_attr bool my_not_first_autostart ; then
         hc focus_monitor 1; hc use_index 0
 
         udiskie --tray &
+        redshift-gtk &
         steam &
         discord --no-sandbox &
         scream -o pulse -i virbr0 &
+        tmux new -ds logiops logid -c .config/logiops/logid.cfg
         # ibus-daemon -drx
     fi
 fi

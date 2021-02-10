@@ -48,7 +48,7 @@ set_wp() {
 
 if [ ! -e "$pausepath" ] || [ "$1" == "force"  ]; then
     if [ "$1" == "force" ]; then
-        dunstify -a "$USER@$(hostname)" "Randomising wallpaper"
+        dunstify -a "$USER@$(cat /etc/hostname)" "Randomising wallpaper"
     fi
     set_wp
 fi
