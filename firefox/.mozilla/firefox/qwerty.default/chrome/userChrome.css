@@ -1,21 +1,11 @@
-/* This style will hide the sidebar close button */
-#sidebar-close {
-visibility: collapse;
-}
+/* Hide sidebar close button */
+@import "sidebar-no-close-button.css";
 
-/* This style moves sidebar header to the bottom */
-#sidebar-box {
-    -moz-box-direction: reverse;
-}
+/* Move sidebar title to bottom*/
+@import "sidebar-title-to-bottom.css";
 
-#sidebar-switcher-arrow {
-    transform: rotate(180deg);
-}
+/* Hide tab bar and merge title bar with nav */
+@import "hide-tabs-linux-titlebar.css";
 
-/* 
-This style will hide the tab bar and merge the title bar with the navigation bar. For Windows
-Make sure "Title Bar" is unchecked in customize menu. 
-*/
-#TabsToolbar {
-  visibility: collapse !important;
-}
+/* Reduce padding in navbar */
+@import "compact-navbar-breakout.css";
