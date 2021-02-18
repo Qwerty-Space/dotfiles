@@ -11,7 +11,7 @@
     "debug_disable_lock": true,
     "library_autoscan": true,
     "library_full_path": false,
-    "player": "/usr/bin/mpv --x11-name=watch",
+    "player": "/usr/bin/mpv --x11-name=watch --fs",
     "plex_host": "localhost",
     "plex_obey_update_wait_s": false,
     "plex_passwd": "",
