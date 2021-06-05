@@ -5,15 +5,15 @@ lock() {
     # betterlockscreen -l dimblur
     i3lock \
         -Ci "/tmp/lockimg.png" \
-        --timepos="x+120:h-120" --timesize=130 --timestr="%R" \
-        --datepos="x+130:h-90" --datesize=20 --datestr="%A, %d %B %Y" \
+        --time-pos="x+120:h-120" --time-size=130 --time-str="%R" \
+        --date-pos="x+130:h-90" --date-size=20 --date-str="%A, %d %B %Y" \
         --clock --date-align 1 --time-align 1 \
-        --insidecolor=00000000 --ringcolor=ffffffff --line-uses-inside \
-        --keyhlcolor=1768b7ff --bshlcolor=1768b7ff --separatorcolor=00000000 \
-        --insidevercolor=00000000 --insidewrongcolor=d23c3dff \
-        --ringvercolor=ffffffff --ringwrongcolor=ffffffff \ #--indpos="x+280:h-70" \
-        --radius=20 --ring-width=4 --veriftext="" --wrongtext="" --noinputtext="" \
-        --verifcolor=ffffffff --timecolor=ffffffff --datecolor=b8b6b6 \
+        --inside-color=00000000 --ring-color=ffffffff --line-uses-inside \
+        --keyhl-color=1768b7ff --bshl-color=1768b7ff --separator-color=00000000 \
+        --insidever-color=00000000 --insidewrong-color=d23c3dff \
+        --ringver-color=ffffffff --ringwrong-color=ffffffff \ #--indpos="x+280:h-70" \
+        --radius=20 --ring-width=4 --verif-text="" --wrong-text="" --noinput-text="" \
+        --verif-color=ffffffff --time-color=ffffffff --date-color=b8b6b6 \
         --time-font="sans-serif" --date-font="sans-serif" --layout-font="sans-serif" 
 }
 
