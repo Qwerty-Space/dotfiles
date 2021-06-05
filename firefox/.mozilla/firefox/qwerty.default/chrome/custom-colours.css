@@ -1,0 +1,7 @@
+:root[lwt-toolbar-field-focus-brighttext] {
+    --lwt-popup-brighttext-url-color: #1976d2 !important;
+}
+
+:root:-moz-lwtheme-brighttext {
+    --focus-outline-color: #1976d2 !important;
+}
