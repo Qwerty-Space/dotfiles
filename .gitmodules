@@ -1,0 +1,3 @@
+[submodule "Firefox-UI-Fix"]
+	path = Firefox-UI-Fix
+	url = https://github.com/black7375/Firefox-UI-Fix.git

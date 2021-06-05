@@ -1,3 +1,6 @@
+/* Reduce padding, and re-arrange content in the hamburger menu */
+@import "Firefox-UI-Fix/userChrome.css";
+
 /* Hide sidebar close button */
 @import "sidebar-no-close-button.css";
 
