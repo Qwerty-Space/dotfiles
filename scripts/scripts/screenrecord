@@ -22,7 +22,7 @@ upload() {
     vid_name=$(basename $clipboard)
 
     scp -i $identity $clipboard $ss_location
-    url="https://d.va-online.moe/zeus/ss/$vid_name"
+    url=""
     echo -n "$url" | xclip -se p
     echo -n "$url" | xclip -se c
 
@@ -41,11 +41,11 @@ copy_name() {
 }
 
 if [[ -f /tmp/screenrecord.pid ]]; then
-	kill -INT $(cat "/tmp/screenrecord.pid")
-	rm /tmp/screenrecord.pid
+    kill -INT $(cat "/tmp/screenrecord.pid")
+    rm /tmp/screenrecord.pid
     beep
-    upload
-	exit 0
+    # upload
+    exit 0
 fi
 
 read -r X Y W H < <(slop -f "%x %y %w %h" -q)
@@ -61,13 +61,13 @@ fi
 
 beep
 DATE=$(date '+%Y-%m-%d_%H-%M-%S')
-# filename="$HOME/sr-$DATE.mp4"
-filename=$(generate_name)
+filename="/tmp/sr-$DATE.mp4"
+# filename=$(generate_name)
 
 copy_name
 ffmpeg \
     -video_size ${W}x$H \
-    -framerate 25 \
+    -framerate 60 \
     -f x11grab \
     -i :0.0+$X,$Y \
     -pix_fmt yuv420p \
