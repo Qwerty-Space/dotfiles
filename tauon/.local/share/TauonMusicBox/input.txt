@@ -116,3 +116,5 @@ regenerate-playlist R Alt
 clear-queue Q Shift Alt
 resize-window-16:9 F11 Alt
 delete-playlist-force W Shift Ctrl
+
+transfer-playtime-to P Ctrl Shift
