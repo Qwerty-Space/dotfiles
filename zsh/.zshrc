@@ -108,6 +108,11 @@ export VISUAL=code
 
 # Add ~/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
+
+# Add nix bin to path
+export PATH="$HOME/.nix-profile/bin:$PATH"
+
+
 export QMK_HOME="$HOME/.qmk_firmware/qmk_firmware"
 # Add cargo binaries to path
 export PATH="$PATH:$HOME/.cargo/bin"
