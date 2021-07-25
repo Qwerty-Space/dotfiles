@@ -85,44 +85,18 @@ function clip_cmd() {
 zle -N clip_cmd
 bindkey "^X" clip_cmd
 
-# colour aliases
-alias ls='ls --color=auto'
-alias grep='grep --colour=auto'
-alias egrep='egrep --colour=auto'
-alias fgrep='fgrep --colour=auto'
-
-# confirm before overwriting something
-alias cp="cp -i"
-alias mv="mv -i"
-# human-readable sizes
-alias df='df -h'
-# show sizes in MB
-alias free='free -m'
+# Zoxide stuff
+eval "$(zoxide init zsh)"
 
 # better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
 
-export EDITOR=vim
-export PAGER=less
-export VISUAL=code
-
-# Add ~/bin to PATH
-export PATH="$HOME/.local/bin:$PATH"
-
-# Add nix bin to path
-export PATH="$HOME/.nix-profile/bin:$PATH"
-
-
-export QMK_HOME="$HOME/.qmk_firmware/qmk_firmware"
-# Add cargo binaries to path
-export PATH="$PATH:$HOME/.cargo/bin"
 # Pyenv stuff
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# Show the motd
 if [[ $TERM == "rxvt-unicode-256color" ]]; then
     cat /etc/motd
 fi

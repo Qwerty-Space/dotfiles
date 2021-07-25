@@ -1,3 +1,17 @@
+# colour aliases
+alias ls='ls --color=auto'
+alias grep='grep --colour=auto'
+alias egrep='egrep --colour=auto'
+alias fgrep='fgrep --colour=auto'
+
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv="mv -i"
+# human-readable sizes
+alias df='df -h'
+# show sizes in MB
+alias free='free -m'
+
 # Rofi stuff
 rofi_run() {
     rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
@@ -5,6 +19,7 @@ rofi_run() {
 }
 alias calc='rofi -show calc -modi calc -no-show-match -no-sort'
 
+## Directory listing
 # list directory tree
 lst() {
     depth=${1:-2}
@@ -16,8 +31,13 @@ alias ll='lsd -l --total-size --date "+%F %T" --group-dirs first'
 alias la='lsd -lA --date "+%F %T" --group-dirs first'
 alias d='du --exclude "./.*" -hd1'
 alias da='du -hd1'
+
+
+## ssh tunnelling
 alias tunnel='bash ~/scripts/tunnel.sh'
 alias ssh_tunnel='bash ~/scripts/tunnel.sh'
+
+## misc
 alias ff='firefox'
 alias slock='~/scripts/lock off'
 alias hc='herbstclient'
