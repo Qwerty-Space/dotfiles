@@ -96,9 +96,13 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+
 # Show the motd
+# generated with:
+# figlet -otf shadow qwerty@ && figlet -ktf shadow <hostname>
 if [[ $TERM == "rxvt-unicode-256color" ]]; then
-    cat /etc/motd
+    hostname=$(cat /etc/hostname)
+    cat "$HOME/.config/motd/$hostname" 2> /dev/null
 fi
 
 
