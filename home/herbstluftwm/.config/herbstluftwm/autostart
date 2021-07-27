@@ -292,10 +292,9 @@ if hc silent new_attr bool my_not_first_autostart ; then
         udiskie --tray &
         redshift-gtk &
         steam &
-        discord --no-sandbox &
+        lightcord &
         scream -o pulse -i virbr0 &
         tmux new -ds logiops logid -c .config/logiops/logid.cfg
-        # ibus-daemon -drx
     fi
 fi
 sleep 2s
