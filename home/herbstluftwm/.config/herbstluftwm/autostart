@@ -231,7 +231,7 @@ hc rule instance="urxvtfoo" tag="Main" index=1
 hc rule instance="watch" tag="AltMax" index=0
 
 # Steam and Gaming
-hc rule class="discord" tag="Gaming" index=0
+hc rule class~"(dis|light)cord" tag="Gaming" index=0
 hc rule class="Steam" tag="Gaming" index=1
 hc rule title="Steam" tag="Gaming" index=0
 hc rule title~".+News.+" class="Steam" tag="Gaming" index=0
