@@ -1,15 +1,9 @@
-[submodule "firefox/.mozilla/firefox/qwerty.default/chrome/Firefox-UI-Fix"]
-	path = firefox/.mozilla/firefox/qwerty.default/chrome/Firefox-UI-Fix
-	url = https://github.com/black7375/Firefox-UI-Fix.git
-[submodule "Powercord-Blocked-User-Remover"]
-	path = Powercord-Blocked-User-Remover
-	url = git@github.com:fuzzydragon/Powercord-Blocked-User-Remover.git
-[submodule "total-members"]
-	path = total-members
-	url = git@github.com:cyyynthia/total-members.git
-[submodule "who-reacted"]
-	path = who-reacted
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/who-reacted"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/who-reacted
 	url = git@github.com:jaimeadf/who-reacted.git
-[submodule "better-formatting"]
-	path = better-formatting
-	url = git@github.com:rauenzi/better-formatting.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/total-members"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/total-members
+	url = git@github.com:cyyynthia/total-members.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/Powercord-Blocked-User-Remover"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/Powercord-Blocked-User-Remover
+	url = git@github.com:fuzzydragon/Powercord-Blocked-User-Remover.git
