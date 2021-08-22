@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ $1 == "win10-gaming" ]] && [[ $2 == "start" || $2 == "stopped" ]]
+then
+    if [[ $2 == "start" ]]
+    then
+        echo hi
+        sudo usb_modeswitch -v 8087 -p 0025 --reset-usb --detach-only
+    else
+        echo closing
+        # mount logic here
+    fi
+fi

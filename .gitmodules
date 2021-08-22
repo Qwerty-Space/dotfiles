@@ -7,3 +7,6 @@
 [submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/Powercord-Blocked-User-Remover"]
 	path = home/powercord/.local/share/powercord/src/Powercord/plugins/Powercord-Blocked-User-Remover
 	url = git@github.com:fuzzydragon/Powercord-Blocked-User-Remover.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/smart-typers"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/smart-typers
+	url = git@github.com:GriefMoDz/smart-typers.git

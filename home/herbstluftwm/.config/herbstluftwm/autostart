@@ -217,7 +217,7 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 hc rule class="Calculator" floating=on
 hc rule instance="dragon-drag-and-drop" floating=on #floatplacement=center # to be added next version
 hc rule instance="redshift-gtk" floating=on
-hc rule instance="Toolkit" class="firefox"
+hc rule instance="Toolkit" class="firefox" floating=off
 # hc rule class="TelegramDesktop" fullscreen=off
 
 ### Window locations ###
@@ -293,7 +293,7 @@ if hc silent new_attr bool my_not_first_autostart ; then
         udiskie --tray &
         redshift-gtk &
         steam &
-        lightcord &
+        discord-canary &
         scream -o pulse -i virbr0 &
         tmux new -ds logiops logid -c .config/logiops/logid.cfg
     fi
