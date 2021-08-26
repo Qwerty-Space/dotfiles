@@ -11,7 +11,7 @@ gui="urxvt rofi rofi-calc networkmanager network-manager-applet firefox thunderb
 herbstluftwm polybar blueman flameshot dunst udiskie mpv redshift xclip slop \
 imagemagick capitaine-cursors arc-icon-theme code feh filezilla noto-fonts \
 noto-fonts-cjk noto-fonts-emoji noto-fonts-extra numlockx obs-studio pavucontrol \
-xsensors pulseaudio pulseaudio-alsa pulseaudio-bluetooth zenity"
+xsensors pulseaudio pulseaudio-alsa pulseaudio-bluetooth zenity xorg-xinit xorg"
 
 gui_aur="dragon-drag-and-drop i3lock-color tauon-music-box matcha-gtk-theme logiops \
 liri-calculator neovim-nightly-bin nerd-fonts-complete obs qimgv-git qmk-git syncplay-git"
