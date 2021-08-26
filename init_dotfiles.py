@@ -5,7 +5,7 @@ import subprocess
 parser = argparse.ArgumentParser(description="Initialise dotfiles by creating the directory struture")
 parser.add_argument("-d", "--dry", default=False, action="store_const", const=True)
 parser.add_argument("-p", "--path", default=".", action="store")
-parser.add_argument("-t", "--target", default="..", action="store")
+parser.add_argument("-t", "--target", default="$HOME", action="store")
 
 args = parser.parse_args()
 
