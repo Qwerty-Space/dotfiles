@@ -105,7 +105,7 @@ fi
 
 
 if [[ $install_telegram == "y" ]]; then
-    paru -Sy nix-bin || break
+    paru -Sy nix-bin || return
     nix-channel --update
     nix-env -iA nixpkgs.tdesktop
     ls ~/.nix-profile/bin
