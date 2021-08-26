@@ -55,6 +55,12 @@ if [[ $install_paru == "y" ]]; then
     install_gui_aur=${install_gui_aur:-y}
 fi
 
+
+echo -en "\nInstall Telegram? [Y/n]:  "
+read -n 1 install_telegram
+install_telegram=${install_telegram:-y}
+
+
 echo -e "\n$gaming"
 echo -en "\nInstall gaming packages? [y/N]:  "
 read -n 1 install_gaming
@@ -66,6 +72,7 @@ if [[ $install_paru == "y" ]]; then
     read -n 1 install_gaming_aur
     install_gaming_aur=${install_gaming_aur:-n}
 fi
+
 
 echo -e "\n$extras"
 echo -en "\nInstall extra packages? [y/N]:  "
@@ -125,6 +132,14 @@ if [[ $install_extras_aur == "y" ]]; then
     packages+="$extras_aur "
 fi
 
+
 echo "Packages: $packages"
 paru -Syu $packages
 
+if [[ $install_telegram == "y" ]]; then
+    paru -Syu nix-bin || break
+    nix-channel --update
+    nix-env -iA nixpkgs.tdesktop
+    ls ~/.nix-profile/bin
+    [ -f /etc/profile.d/nix.sh ] && source /etc/profile.d/nix.sh
+fi
