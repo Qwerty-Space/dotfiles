@@ -28,15 +28,13 @@ def create_dirs(packages):
             # join the path back together
             if not dir:
                 continue
-            print(dir)
             directories.add(os.path.join(*dir))
 
     for name in directories:
         name_dir = os.path.split(name)
         dir = os.path.join(target, name.lstrip("/"))#.replace("dot-", ".")
-        if args.dry:
-            print(dir)
-        else:
+        print(dir)
+        if not args.dry:
             os.makedirs(dir, exist_ok=True)
 
 
@@ -46,7 +44,8 @@ def stow_dirs(packages):
         print("Directories to stow:  ", packages)
         return
 
-    subprocess.run(["stow", "-t", target, path])
+    for package in packages:
+        subprocess.run(["stow", "-t", target, package])
 
 
 def main():
