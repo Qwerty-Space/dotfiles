@@ -107,6 +107,7 @@ fi
 if [[ $install_telegram == "y" && -e /usr/bin/paru ]]; then
     paru -Sy nix-bin
     systemctl enable --now nix-daemon.socket
+    source /etc/profile.d/nix-daemon.sh
     nix-channel --update
     nix-env -iA nixpkgs.tdesktop
     ls ~/.nix-profile/bin
