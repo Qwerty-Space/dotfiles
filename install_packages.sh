@@ -137,7 +137,7 @@ echo "Packages: $packages"
 paru -Syu $packages
 
 if [[ $install_telegram == "y" ]]; then
-    paru -Syu nix-bin || break
+    paru -Sy nix-bin || break
     nix-channel --update
     nix-env -iA nixpkgs.tdesktop
     ls ~/.nix-profile/bin
