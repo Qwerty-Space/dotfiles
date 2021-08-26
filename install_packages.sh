@@ -7,7 +7,7 @@ htop lynx mediainfo vim ncdu openssh syncthing tmux wget youtube-dl"
 
 base_aur="lsd-git"
 
-gui="urxvt rofi rofi-calc networkmanager network-manager-applet firefox thunderbird \
+gui="rxvt-unicode rofi rofi-calc networkmanager network-manager-applet firefox thunderbird \
 herbstluftwm polybar blueman flameshot dunst udiskie mpv redshift xclip slop \
 imagemagick capitaine-cursors arc-icon-theme code feh filezilla noto-fonts \
 noto-fonts-cjk noto-fonts-emoji noto-fonts-extra numlockx obs-studio pavucontrol \
