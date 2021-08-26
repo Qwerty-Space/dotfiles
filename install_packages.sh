@@ -104,6 +104,15 @@ if [[ $install_extras == "y" ]]; then
 fi
 
 
+if [[ $install_telegram == "y" ]]; then
+    paru -Sy nix-bin || break
+    nix-channel --update
+    nix-env -iA nixpkgs.tdesktop
+    ls ~/.nix-profile/bin
+    [ -f /etc/profile.d/nix.sh ] && source /etc/profile.d/nix.sh
+fi
+
+
 if [[ $install_paru == "n" ]]; then
     echo "Packages: $packages"
     sudo pacman -Syu $packages
@@ -136,10 +145,3 @@ fi
 echo "Packages: $packages"
 paru -Syu $packages
 
-if [[ $install_telegram == "y" ]]; then
-    paru -Sy nix-bin || break
-    nix-channel --update
-    nix-env -iA nixpkgs.tdesktop
-    ls ~/.nix-profile/bin
-    [ -f /etc/profile.d/nix.sh ] && source /etc/profile.d/nix.sh
-fi
