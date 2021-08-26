@@ -44,7 +44,8 @@ def stow_dirs(packages):
         print("Directories to stow:  ", packages)
         return
 
-    for package in packages:
+    for p in packages:
+        package = os.path.join(path, p)
         subprocess.run(["stow", "-t", target, package])
 
 
