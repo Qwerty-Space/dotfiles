@@ -104,8 +104,9 @@ if [[ $install_extras == "y" ]]; then
 fi
 
 
-if [[ $install_telegram == "y" ]]; then
-    paru -Sy nix-bin || return
+if [[ $install_telegram == "y" && -e /usr/bin/paru ]]; then
+    paru -Sy nix-bin
+    systemctl enable --now nix-daemon.socket
     nix-channel --update
     nix-env -iA nixpkgs.tdesktop
     ls ~/.nix-profile/bin
