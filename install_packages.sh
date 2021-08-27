@@ -7,14 +7,14 @@ htop lynx mediainfo vim ncdu openssh syncthing tmux wget youtube-dl"
 
 base_aur="lsd-git"
 
-gui="rxvt-unicode rofi rofi-calc networkmanager network-manager-applet firefox thunderbird \
+gui="rofi rofi-calc networkmanager network-manager-applet firefox thunderbird \
 herbstluftwm blueman flameshot dunst udiskie mpv redshift xclip slop \
 imagemagick capitaine-cursors arc-icon-theme code feh filezilla noto-fonts \
 noto-fonts-cjk noto-fonts-emoji noto-fonts-extra numlockx obs-studio pavucontrol \
 xsensors pulseaudio pulseaudio-alsa pulseaudio-bluetooth zenity xorg-xinit xorg"
 
-gui_aur="dragon-drag-and-drop i3lock-color tauon-music-box matcha-gtk-theme logiops \
-liri-calculator neovim-nightly-bin nerd-fonts-complete obs qimgv-git qmk-git syncplay-git \
+gui_aur="rxvt-unicode-intensityfix dragon-drag-and-drop i3lock-color tauon-music-box matcha-gtk-theme logiops \
+liri-calculator neovim-nightly-bin nerd-fonts-complete obs-studio qimgv-git qmk-git syncplay-git \
 compton-tryone-git polybar"
 
 gaming="discord-canary steam"
@@ -117,7 +117,7 @@ fi
 
 
 echo "Installing packages: $packages"
-sudo pacman -Syu $packages
+sudo pacman -Syu --needed $packages
 
 
 if [[ $install_paru == "n" ]]; then
@@ -148,5 +148,5 @@ fi
 
 
 echo "Packages: $packages"
-paru -Syu $packages
+paru -Syu --needed $packages
 
