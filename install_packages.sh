@@ -116,18 +116,20 @@ if [[ $install_telegram == "y" && -e /usr/bin/paru ]]; then
 fi
 
 
+echo "Installing packages: $packages"
+sudo pacman -Syu $packages
+
+
 if [[ $install_paru == "n" ]]; then
-    echo "Packages: $packages"
-    sudo pacman -Syu $packages
     exit
 fi
 
-
 sudo pacman -S --needed base-devel
-git clone https://aur.archlinux.org/paru.git
-cd paru
+git clone https://aur.archlinux.org/paru.git /tmp/paru
+cd /tmp/paru
 makepkg -si
 
+packages = ""
 if [[ $install_base_aur == "y" ]]; then
     packages+="$base_aur "
 fi
