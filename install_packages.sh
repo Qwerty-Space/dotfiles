@@ -149,4 +149,3 @@ fi
 
 echo "Packages: $packages"
 paru -Syu --needed $packages
-
