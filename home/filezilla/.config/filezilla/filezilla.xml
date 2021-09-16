@@ -123,8 +123,6 @@
 		<Setting name="Startup action">1</Setting>
 		<Setting name="Prompt password save">0</Setting>
 		<Setting name="Persistent Choices">0</Setting>
-		<Setting name="Queue completion action">1</Setting>
-		<Setting name="Queue completion command">shutdown now</Setting>
 		<Setting name="Drag and Drop disabled">0</Setting>
 		<Setting name="Disable update footer">0</Setting>
 		<Setting name="Master password encryptor" />
@@ -136,14 +134,16 @@
 		<Setting name="Highest shown overlay id">0</Setting>
 		<Setting name="Queue column widths">1016 88 515 80 60 150</Setting>
 		<Setting name="Remote filelist colwidths">532 75 80 136 80 75</Setting>
-		<Setting name="Splitter positions (v2)">50 -249 500000000 253 253 500000000</Setting>
 		<Setting name="Window position and size">0 0 32 1914 988 </Setting>
-		<Setting name="Site Manager position">0 394 254 1118 589 </Setting>
-		<Setting name="Sitemanager last selected">0/shinobi</Setting>
-		<Setting name="Already connected choice">0</Setting>
+		<Setting name="Already connected choice">2</Setting>
+		<Setting name="Site Manager position">0 2314 222 1118 589 </Setting>
+		<Setting name="Sitemanager last selected">0/Zeus</Setting>
+		<Setting name="Queue completion action">4</Setting>
+		<Setting name="Queue completion command">dunstify shutting down in 5; shutdown +5</Setting>
+		<Setting name="Splitter positions (v2)">50 -220 500000000 253 253 500000000</Setting>
 		<Setting name="Tab data" sensitive="1">
 			<Tabs>
-				<Tab connected="1">
+				<Tab connected="1" selected="1">
 					<Host>zeus.feralhosting.com</Host>
 					<Port>22</Port>
 					<Protocol>1</Protocol>
@@ -155,22 +155,8 @@
 					<BypassProxy>0</BypassProxy>
 					<Name>Zeus</Name>
 					<Site>0/Zeus</Site>
-					<RemotePath>1 0 5 media 4 sdh1 4 home 11 qwertyspace</RemotePath>
-					<LocalPath>/home/qwerty/.ssh/other keys/shinobi/</LocalPath>
-				</Tab>
-				<Tab connected="1" selected="1">
-					<Host>shinobi</Host>
-					<Port>22</Port>
-					<Protocol>1</Protocol>
-					<Type>0</Type>
-					<User>qwerty</User>
-					<Logontype>2</Logontype>
-					<EncodingType>Auto</EncodingType>
-					<BypassProxy>0</BypassProxy>
-					<Name>shinobi</Name>
-					<Site>0/shinobi</Site>
-					<RemotePath>1 0 4 home 6 qwerty</RemotePath>
-					<LocalPath>/home/qwerty/</LocalPath>
+					<RemotePath>1 0 5 media 4 sdh1 4 home 11 qwertyspace 7 private 8 rtorrent 4 data 2 ab 76 [Koten_Gars] Naruto Shippuden - Season 1 [DVD][Hi10][480p][AC3] (Dual Audio)</RemotePath>
+					<LocalPath>/home/qwerty/Videos/Videos/Anime/Naruto Shippuuden/</LocalPath>
 				</Tab>
 			</Tabs>
 		</Setting>

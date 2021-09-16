@@ -1,20 +1,62 @@
 #!/bin/bash
 # Lock the screen
 
+t_pos="x+120:h-120"
+t_size=130
+t_string="%R"
+t_colour="ffffffff"
+
+d_pos="x+130:h-90"
+d_size=20
+d_string="%A, %d %B %Y"
+d_colour="b8b6b6"
+
+align=1
+
+outline="000000ff"
+t_outline_w=3
+d_outline_w=1
+
+rver_colour="ffffffff"
+r_colour="ffffffff"
+rwr_colour="ffffffff"
+radius=20
+r_width=4
+
+
+in_colour="00000000"
+inver_colour="00000000"
+inwr_colour="d23c3dff"
+
+hl_colour="1976d2ff"
+sep_colour="00000000"
+
+ve_text=""
+ve_colour="1976d2"
+ve_colour="ffffffff"
+wr_text=""
+ni_text=""
+
+
+
+
 lock() {
     # betterlockscreen -l dimblur
     i3lock \
         -Ci "/tmp/lockimg.png" \
-        --time-pos="x+120:h-120" --time-size=130 --time-str="%R" \
-        --date-pos="x+130:h-90" --date-size=20 --date-str="%A, %d %B %Y" \
-        --clock --date-align 1 --time-align 1 \
-        --inside-color=00000000 --ring-color=ffffffff --line-uses-inside \
-        --keyhl-color=1768b7ff --bshl-color=1768b7ff --separator-color=00000000 \
-        --insidever-color=00000000 --insidewrong-color=d23c3dff \
-        --ringver-color=ffffffff --ringwrong-color=ffffffff \ #--indpos="x+280:h-70" \
-        --radius=20 --ring-width=4 --verif-text="" --wrong-text="" --noinput-text="" \
-        --verif-color=ffffffff --time-color=ffffffff --date-color=b8b6b6 \
-        --time-font="sans-serif" --date-font="sans-serif" --layout-font="sans-serif" 
+        --time-pos=$t_pos --time-size=$t_size --time-str=$t_string \
+        --timeoutline-color=$outline --timeoutline-width=$t_outline_w \
+        --date-pos=$d_pos --date-size=$d_size --date-str="$d_string" \
+        --dateoutline-color=$outline --dateoutline-width=$d_outline_w \
+        --clock --date-align $align --time-align $align \
+        --inside-color=$in_colour --ring-color=$r_colour --line-uses-inside \
+        --keyhl-color=$hl_colour --bshl-color=$hl_colour --separator-color=$sep_colour \
+        --insidever-color=$inver_colour --insidewrong-color=$inwr_colour \
+        --ringver-color=$rver_colour --ringwrong-color=$rwr_colour \
+        --radius=$radius --ring-width=$r_width --verif-text="$ve_text" --wrong-text="$wr_text" --noinput-text="$ni_text" \
+        --verif-color=$ve_colour --time-color=$t_colour --date-color=$d_colour \
+        --time-font="sans-serif" --date-font="sans-serif" --layout-font="sans-serif" \
+        --no-modkey-text --ignore-empty-password
 }
 
 if [ "$1" == "off" ]

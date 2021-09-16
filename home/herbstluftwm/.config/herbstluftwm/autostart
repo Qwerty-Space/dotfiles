@@ -284,14 +284,15 @@ if hc silent new_attr bool my_not_first_autostart ; then
     blueman-applet &
     flameshot &
     dunst &
+    udiskie --tray &
+    redshift-gtk &
+    telegram-desktop &
 
     if [[ $(cat /etc/hostname) == "samurai" ]]; then
         # view certain tags on login
         hc focus_monitor 0; hc use_index 4
         hc focus_monitor 1; hc use_index 0
 
-        udiskie --tray &
-        redshift-gtk &
         steam &
         discord-canary &
         scream -o pulse -i virbr0 &
