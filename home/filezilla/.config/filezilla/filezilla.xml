@@ -136,11 +136,11 @@
 		<Setting name="Remote filelist colwidths">532 75 80 136 80 75</Setting>
 		<Setting name="Window position and size">0 0 32 1914 988 </Setting>
 		<Setting name="Already connected choice">2</Setting>
-		<Setting name="Site Manager position">0 2314 222 1118 589 </Setting>
 		<Setting name="Sitemanager last selected">0/Zeus</Setting>
-		<Setting name="Queue completion action">4</Setting>
 		<Setting name="Queue completion command">dunstify shutting down in 5; shutdown +5</Setting>
 		<Setting name="Splitter positions (v2)">50 -220 500000000 253 253 500000000</Setting>
+		<Setting name="Site Manager position">0 394 254 1118 589 </Setting>
+		<Setting name="Queue completion action">0</Setting>
 		<Setting name="Tab data" sensitive="1">
 			<Tabs>
 				<Tab connected="1" selected="1">
