@@ -283,10 +283,12 @@ if hc silent new_attr bool my_not_first_autostart ; then
     nm-applet &
     blueman-applet &
     flameshot &
-    dunst &
+    # dunst &
+    wired -r &
     udiskie --tray &
     redshift-gtk &
     telegram-desktop &
+    keepassxc &
 
     if [[ $(cat /etc/hostname) == "samurai" ]]; then
         # view certain tags on login
