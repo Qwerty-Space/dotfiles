@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<FileZilla3 version="3.56.0" platform="*nix">
+<FileZilla3 version="3.56.2" platform="*nix">
 	<Settings>
 		<Setting name="Use Pasv mode">1</Setting>
 		<Setting name="Limit local ports">0</Setting>
@@ -141,8 +141,8 @@
 		<Setting name="Sitemanager last selected">0/Zeus</Setting>
 		<Setting name="Minimum TLS Version">2</Setting>
 		<Setting name="Trust system trust store">0</Setting>
-		<Setting name="Site Manager position">0 2314 222 1118 589 </Setting>
-		<Setting name="Window position and size">0 1920 0 1914 1020 </Setting>
+		<Setting name="Site Manager position">0 394 270 1118 589 </Setting>
+		<Setting name="Window position and size">0 0 32 1914 988 </Setting>
 		<Setting name="Tab data" sensitive="1">
 			<Tabs>
 				<Tab connected="1" selected="1">
@@ -157,8 +157,8 @@
 					<BypassProxy>0</BypassProxy>
 					<Name>Zeus</Name>
 					<Site>0/Zeus</Site>
-					<RemotePath>1 0 5 media 4 sdh1 4 home 11 qwertyspace 7 private 8 rtorrent 4 data 3 ptp</RemotePath>
-					<LocalPath>/home/qwerty/Videos/Videos/Movies/</LocalPath>
+					<RemotePath>1 0 5 media 4 sdh1 4 home 11 qwertyspace 7 private 8 rtorrent 4 data 2 ab 34 [GSK_kun]  Kaguya-sama Love Is War</RemotePath>
+					<LocalPath>/home/qwerty/Videos/Videos/Anime/Kaguya-Sama Love is War/</LocalPath>
 				</Tab>
 			</Tabs>
 		</Setting>
