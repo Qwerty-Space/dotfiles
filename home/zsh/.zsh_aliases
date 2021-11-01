@@ -47,6 +47,7 @@ alias zcal='zenity --calendar'
 alias dragon='dragon-drag-and-drop'
 alias count='tree -a | tail -n 1'
 alias discord='discord --no-sandbox'
+alias virt='virsh -c qemu:///system'
 
 # Scripts
 alias screenshot='/home/qwerty/scripts/screenshot'
