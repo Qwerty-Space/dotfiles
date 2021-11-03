@@ -41,6 +41,8 @@ if [[ "$TERM" == (alacritty*|gnome*|konsole*|putty*|rxvt*|screen*|tmux*|xterm*) 
     add-zsh-hook -Uz preexec xterm_title_preexec
 fi
 
+# don't use quotes in ls
+export QUOTING_STYLE=literal
 
 # load aliases
 source ~/.zsh_aliases
