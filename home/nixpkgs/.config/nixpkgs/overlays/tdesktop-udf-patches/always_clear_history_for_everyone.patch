@@ -1,6 +1,6 @@
 Description: Selects the "clear history for {other party}" by default
 
-diff --git a/Telegram/SourceFiles/boxes/confirm_box.cpp b/Telegram/SourceFiles/boxes/confirm_box.cpp
+diff --git a/Telegram/SourceFiles/ui/boxes/confirm_box.cpp b/Telegram/SourceFiles/boxes/ui/confirm_box.cpp
 index 1f392acb9..dccf06391 100644
 --- a/Telegram/SourceFiles/boxes/confirm_box.cpp
 +++ b/Telegram/SourceFiles/boxes/confirm_box.cpp

@@ -1,6 +1,6 @@
 Description: Selects the delete for {other party} checkbox by default
 
-diff --git a/Telegram/SourceFiles/boxes/confirm_box.cpp b/Telegram/SourceFiles/boxes/confirm_box.cpp
+diff --git a/Telegram/SourceFiles/ui/boxes/confirm_box.cpp b/Telegram/SourceFiles/boxes/ui/confirm_box.cpp
 index 4f8699f37..369048168 100644
 --- a/Telegram/SourceFiles/boxes/confirm_box.cpp
 +++ b/Telegram/SourceFiles/boxes/confirm_box.cpp
