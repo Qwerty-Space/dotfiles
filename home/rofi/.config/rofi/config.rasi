@@ -1,4 +1,4 @@
 configuration {
-    theme: "/usr/share/rofi/themes/android_notification.rasi";
     modi: "window,run,calc";
 }
+@theme "/usr/share/rofi/themes/android_notification.rasi"
