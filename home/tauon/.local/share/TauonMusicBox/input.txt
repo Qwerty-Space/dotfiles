@@ -118,3 +118,8 @@ resize-window-16:9 F11 Alt
 delete-playlist-force W Shift Ctrl
 
 transfer-playtime-to P Ctrl Shift
+
+shift-up Up Shift
+shift-down Down Shift
+vol-up Up Ctrl
+vol-down Down Ctrl
