@@ -12,6 +12,7 @@
   "colorScheme": "photon",
   "configsVersion": 25,
   "context_topLevel_sendTreeToDevice": false,
+  "defaultSearchEngine": "https://duckduckgo.com/?q=%s",
   "dropLinksOnTabBehavior": 2,
   "enableLinuxBehaviors": true,
   "lastSelectedSubPanelProviderId": "@tst-search",
@@ -19,7 +20,8 @@
   "notifiedFeaturesVersion": 9,
   "optionsExpandedGroups": [
     "group-importedConfigsFromLegacy",
-    "group-importedTreeStructureFromLegacy"
+    "group-importedTreeStructureFromLegacy",
+    "group-allConfigs"
   ],
   "optionsExpandedSections": [
     "section-appearance",
@@ -42,6 +44,12 @@
       "name": "Samurai",
       "icon": "device-desktop",
       "timestamp": 1640959226048
+    },
+    "device-1630094698314-46432": {
+      "id": "device-1630094698314-46432",
+      "name": "shinobi",
+      "icon": "device-desktop",
+      "timestamp": 1640987112358
     }
   },
   "userStyleRules": "",
