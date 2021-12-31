@@ -1,19 +1,19 @@
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/qwerty/.zshrc'
 
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
 unsetopt beep
-# End of lines configured by zsh-newuser-install
+setopt hist_ignore_all_dups
+setopt hist_expire_dups_first
+setopt hist_find_no_dups
 
 # completion
-autoload -Uz compinit
+autoload -Uz compinit; compinit
 zstyle ':completion:*' menu select
+zstyle ':completion:*' squeeze-slashes false
 zmodload zsh/complist
-compinit
 # Include hidden files
 _comp_options+=(globdots)
 
