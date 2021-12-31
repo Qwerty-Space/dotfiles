@@ -296,7 +296,9 @@ if hc silent new_attr bool my_not_first_autostart ; then
         hc focus_monitor 1; hc use_index 0
 
         steam &
-        discord-canary &
+        discord-canary --ignore-gpu-blocklist --disable-features=UseOzonePlatform \
+            --enable-features=VaapiVideoDecoder --use-gl=desktop \
+            --enable-gpu-rasterization --enable-zero-copy &
         scream -o pulse -i virbr0 &
         tmux new -ds logiops logid -c .config/logiops/logid.cfg
     fi
