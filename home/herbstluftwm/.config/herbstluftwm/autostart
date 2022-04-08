@@ -301,6 +301,7 @@ if hc silent new_attr bool my_not_first_autostart ; then
             --enable-gpu-rasterization --enable-zero-copy &
         scream -o pulse -i virbr0 &
         tmux new -ds logiops logid -c .config/logiops/logid.cfg
+        mntzeus &
     fi
 fi
 sleep 2s
