@@ -53,7 +53,10 @@ alias virt='virsh -c qemu:///system'
 alias screenshot='/home/qwerty/scripts/screenshot'
 
 mntzeus() {
-    sshfs qwertyspace@zeus.feralhosting.com:/media/sdh1/home/qwertyspace /mnt/zeus && cd /mnt/zeus
+    sshfs qwertyspace@zeus.feralhosting.com:/media/sdh1/home/qwertyspace /mnt/zeus -o reconnect
+    if [[ "$1" == "cd" ]]; then
+        cd /mnt/zeus/
+    fi
 }
 
 # Make a directory and cd into it
