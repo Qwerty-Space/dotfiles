@@ -27,6 +27,11 @@ xset b off
 # xset s off
 # xset -dpms
 
+# Setup Monitors
+
+xrandr --output HDMI-A-0 --primary --mode 1920x1080 --rate 144
+xrandr --output DisplayPort-0 --mode 1920x1080 --rate 144 --right-of HDMI-A-0
+
 # Launch Herstluftwm
 exec herbstluftwm
 xset r rate 660 25
