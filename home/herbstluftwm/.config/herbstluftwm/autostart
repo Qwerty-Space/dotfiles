@@ -283,8 +283,8 @@ if hc silent new_attr bool my_not_first_autostart ; then
     nm-applet &
     blueman-applet &
     flameshot &
-    # dunst &
-    wired -r &
+    dunst &
+    # wired -r &
     udiskie --tray &
     redshift-gtk &
     telegram-desktop &
