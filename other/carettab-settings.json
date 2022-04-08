@@ -1,0 +1,298 @@
+{
+    "order": {
+        "items": [
+            {
+                "id": "CLOCK_6X9PYY6IL0G",
+                "order": 1
+            },
+            {
+                "id": "DATE_183AQFVON78",
+                "order": 2
+            }
+        ],
+        "nw": [],
+        "n": [],
+        "ne": [],
+        "w": [],
+        "e": [],
+        "sw": [],
+        "s": [],
+        "se": []
+    },
+    "design": {
+        "scalingMethod": true,
+        "scaling": 10,
+        "font": 91,
+        "customFont": "Comic Sans MS",
+        "customFontWeight": 40,
+        "background": "#000000",
+        "foreground": "#FFFFFF",
+        "colorsId": 900,
+        "patternId": 3900,
+        "imageSize": 10,
+        "imageBlend": 10,
+        "brightness": 1,
+        "hideMenu": true,
+        "hideLogo": true
+    },
+    "messages": {
+        "id": "MESSAGE_1CUETHV7L63",
+        "enabled": false,
+        "random": false,
+        "scaling": 8,
+        "offset": 0,
+        "marginHeight": 0,
+        "marginWidth": 2,
+        "width": 100,
+        "position": "c",
+        "textAlign": "center",
+        "messageList": [
+            {
+                "id": "MESSAGETEXT_1PCCEZ3K991",
+                "text": "Hello world!"
+            }
+        ]
+    },
+    "i18n": {
+        "lang": "en-US"
+    },
+    "bookmark": {
+        "enabled": false,
+        "icons": false,
+        "mostVisited": false,
+        "bookmarksManager": false,
+        "history": false,
+        "apps": false,
+        "chromeTab": false
+    },
+    "quickLink": {
+        "id": "QUICKLINK_C5HDR1KCPMG",
+        "enabled": false,
+        "icons": false,
+        "scaling": 10,
+        "width": 100,
+        "offset": 0,
+        "padding": 5,
+        "marginHeight": 3,
+        "marginWidth": 2,
+        "position": "n",
+        "textAlign": "center",
+        "vertical": false,
+        "mostVisited": false,
+        "bookmarksManager": false,
+        "history": false,
+        "apps": false,
+        "chromeTab": false,
+        "links": [
+            {
+                "id": "LINK_2OKQ6AXD3ZW",
+                "label": "Google",
+                "url": "https://www.google.com/"
+            },
+            {
+                "id": "LINK_1EXP1722D1K",
+                "label": "Gmail",
+                "url": "https://gmail.com/"
+            },
+            {
+                "id": "LINK_2EEUNROCLLG",
+                "label": "YouTube",
+                "url": "https://www.youtube.com/"
+            }
+        ]
+    },
+    "time": {
+        "clocks": [
+            {
+                "id": "CLOCK_6X9PYY6IL0G",
+                "label": {
+                    "dim": false,
+                    "enabled": false,
+                    "offset": 0,
+                    "scaling": 10,
+                    "text": "Main clock"
+                },
+                "timezone": "Automatic",
+                "scaling": 10,
+                "span": 40,
+                "padding": 10,
+                "marginHeight": 0,
+                "marginWidth": 2,
+                "position": "c",
+                "offset": 0,
+                "twentyFour": true,
+                "twoDigit": false,
+                "relativeTime": {
+                    "dim": false,
+                    "enabled": false,
+                    "offset": 0,
+                    "scaling": 10
+                },
+                "seconds": {
+                    "dim": false,
+                    "enabled": true,
+                    "offset": 0,
+                    "scaling": 20
+                },
+                "meridiem": {
+                    "am": "am",
+                    "dim": false,
+                    "enabled": false,
+                    "offset": 0,
+                    "pm": "pm",
+                    "scaling": 10
+                },
+                "delimiter": {
+                    "blink": false,
+                    "dim": true,
+                    "enabled": true,
+                    "offset": 0,
+                    "scaling": 10,
+                    "symbol": ":"
+                },
+                "brackets": {
+                    "dim": false,
+                    "enabled": false,
+                    "left": "[",
+                    "offset": -2,
+                    "padding": 1,
+                    "right": "]",
+                    "scaling": 6
+                },
+                "analog": {
+                    "enabled": false,
+                    "style": 10
+                },
+                "binary": {
+                    "enabled": false,
+                    "dim": false
+                }
+            }
+        ]
+    },
+    "covidData": {
+        "enabled": false,
+        "countries": []
+    },
+    "date": {
+        "id": "DATE_183AQFVON78",
+        "enabled": true,
+        "scaling": 4,
+        "offset": 0,
+        "marginHeight": 0,
+        "marginWidth": 10,
+        "position": "c",
+        "timezone": "Automatic",
+        "dimDelimiter": false,
+        "format": 20,
+        "short": {
+            "delimiter": "/",
+            "enabled": false
+        },
+        "year": {
+            "enabled": true,
+            "twoDigit": false
+        },
+        "month": {
+            "abbr": false,
+            "enabled": true,
+            "twoDigit": false
+        },
+        "day": {
+            "enabled": true,
+            "twoDigit": true
+        },
+        "dayOfWeek": {
+            "abbr": false,
+            "enabled": true
+        },
+        "week": {
+            "enabled": false,
+            "label": "Week",
+            "offset": 0,
+            "scaling": 10
+        }
+    },
+    "search": {
+        "id": "SEARCH_1QUHAEPMFGX",
+        "enabled": false,
+        "scaling": 6,
+        "offset": 0,
+        "marginHeight": 0,
+        "marginWidth": 10,
+        "position": "c",
+        "width": 13,
+        "engine": 60,
+        "autocomplete": true,
+        "label": "Search the web..."
+    },
+    "weather": {
+        "id": "WEATHER_KS096NVA56",
+        "enabled": false,
+        "scaling": 12,
+        "offset": 0,
+        "position": "s",
+        "padding": 5,
+        "marginHeight": 2,
+        "marginWidth": 4,
+        "location": {
+            "url": "seattle-washington-united-states-of-america"
+        },
+        "celsius": false,
+        "metric": false,
+        "preciseDigits": false,
+        "current": {
+            "enabled": true,
+            "icon": {
+                "enabled": true,
+                "size": 28
+            },
+            "temp": {
+                "currently": true,
+                "feelsLike": true,
+                "degree": true
+            },
+            "wind": {
+                "enabled": true
+            },
+            "humidity": {
+                "enabled": true
+            },
+            "pressure": {
+                "enabled": false
+            },
+            "astro": {
+                "moonPhase": false,
+                "sunrise": false,
+                "sunset": false
+            }
+        },
+        "forecast": {
+            "enabled": false,
+            "days": 3,
+            "horizontal": true,
+            "icon": {
+                "enabled": true,
+                "size": 20
+            },
+            "day": {
+                "enabled": true
+            },
+            "temp": {
+                "high": true,
+                "low": true,
+                "degree": true
+            }
+        }
+    },
+    "misc": {
+        "schema": "1.1",
+        "enableAnalytics": false,
+        "disableSelect": true,
+        "title": {
+            "clockUsed": 1,
+            "text": "Hello world!",
+            "type": 10
+        }
+    }
+}
