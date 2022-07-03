@@ -99,7 +99,7 @@ fi
 # Show the motd
 # generated with:
 # figlet -otf shadow qwerty@ && figlet -ktf shadow <hostname>
-if [[ $TERM == "rxvt-unicode-256color" ]]; then
+if [[ $TERM == "xterm-256color" ]]; then
     hostname=$(cat /etc/hostname)
     cat "$HOME/.config/motd/$hostname" 2> /dev/null
 fi

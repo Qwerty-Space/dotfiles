@@ -20,7 +20,7 @@ hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-c close
 hc keybind $AltMod-F4 close
-hc keybind $Mod-Return spawn urxvt
+hc keybind $Mod-Return spawn termite
 
 # custom keybindings
 hc keybind $Mod-l spawn ~/scripts/lock
@@ -30,6 +30,10 @@ hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -5%
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
 hc keybind $AltMod-Tab spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
                         -run-command "/bin/zsh -i -c '{cmd}'" -show window; 
+
+hc keybind $Mod-F1 spawn ddcutil -n "ATNM91A020664" setvcp 60 0x11
+hc keybind $Mod-F2 spawn ddcutil -n "ATNM91A020664" setvcp 60 0x12
+
 ## run things
 hc keybind $Mod-d spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
                         -run-command "/bin/zsh -i -c '{cmd}'" -show run;
@@ -215,7 +219,7 @@ hc rule windowtype='_NET_WM_WINDOW_TYPE_NORMAL' title~'Wine.+' floating=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 
 hc rule class="Calculator" floating=on
-hc rule instance="dragon-drag-and-drop" floating=on #floatplacement=center # to be added next version
+hc rule instance="dragon-drop" floating=on #floatplacement=center # to be added next version
 hc rule instance="redshift-gtk" floating=on
 hc rule instance="Toolkit" class="firefox" floating=off
 # hc rule class="TelegramDesktop" fullscreen=off
@@ -228,14 +232,15 @@ hc rule class="mp3tag" tag="Max" index=0
 hc rule class="TelegramDesktop" tag="Main" index=0 floatplacement=center
 hc rule class="TelegramDesktop", windowtype="_NET_WM_WINDOW_TYPE_UTILITY", tag="Main" index=1
 hc rule class="Spacefm" tag="Main" index=0
-hc rule instance="urxvtfoo" tag="Main" index=1
+# hc rule instance="urxvtfoo" tag="Main" index=1
+hc rule windowrole="termstart" tag="Main" index=1
 hc rule instance="watch" tag="AltMax" index=0
 
 # Steam and Gaming
 hc rule class~"(dis|light)cord" tag="Gaming" index=0
 hc rule class="Steam" tag="Gaming" index=1
 hc rule title="Steam" tag="Gaming" index=0
-hc rule title~".+News.+" class="Steam" tag="Gaming" index=0
+hc rule title~".+News.*" class="Steam" tag="Gaming" index=0
 hc rule title="Settings" class="Steam" tag="Gaming" index=0
 hc rule title~"Gift.*" class="Steam" tag="Gaming" index=0
 hc rule title="Image Popout" class="Steam" tag="Gaming" index=0
@@ -279,7 +284,8 @@ if hc silent new_attr bool my_not_first_autostart ; then
     source ~/.fehbg
     # xss-lock ~/scripts/lock &
     /home/scripts/tunnel.sh
-    urxvt -name urxvtfoo &
+    # urxvt -name urxvtfoo &
+    termite -r termstart &
     nm-applet &
     blueman-applet &
     flameshot &

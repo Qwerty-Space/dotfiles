@@ -1,0 +1,90 @@
+[options]
+allow_bold = true
+bold_is_bright = true
+#cell_height_scale = 1.0
+#cell_width_scale = 1.0
+clickable_url = true
+#clickable_url_ctrl = false
+dynamic_title = true
+font = Monospace 11
+word_char_exceptions = -=&#:/.?@+~_%;
+# Length of the scrollback buffer, 0 disabled the scrollback buffer
+# and setting it to a negative value means "infinite scrollback"
+scrollback_lines = 100000
+hyperlinks = true
+
+# $BROWSER is used by default if set, with xdg-open as a fallback
+browser = rifle
+
+# "system", "on" or "off"
+#cursor_blink = system
+
+# "block", "underline" or "ibeam"
+#cursor_shape = block
+
+# Hide links that are no longer valid in url select overlay mode
+#filter_unmatched_urls = true
+
+# Emit escape sequences for extra modified keys
+#modify_other_keys = false
+
+# set size hints for the window
+#size_hints = false
+
+# "off", "left" or "right"
+#scrollbar = off
+
+# Whether to prefer using the GTK dark theme variant.
+#gtk_dark_theme = false
+
+# Enable smart copy. ^C will copy if text has been selected. ^V will paste. It
+# is no longer possible to send a ^V to the running program when this option is
+# enabled.
+#smart_copy = false
+
+[colors]
+# If both of these are unset, cursor falls back to the foreground color,
+# and cursor_foreground falls back to the background color.
+#cursor = #dcdccc
+#cursor_foreground = #dcdccc
+
+#foreground = #dcdccc
+#foreground_bold = #ffffff
+#background = #3f3f3f
+
+# 20% background transparency (requires a compositor)
+background = rgba(46, 51, 58, 0.6)
+
+# If unset, will reverse foreground and background
+highlight = #2f2f2f
+
+# Colors from color0 to color254 can be set
+color0 = #252525
+color1 = #D4A7E2
+color2 = #8DD78D
+color3 = #EBEABD
+color4 = #81A2BE
+color5 = #D57FD2
+color6 = #C8C9EB
+color7 = #FCFEFD
+color8 = #505050
+color9 = #F99286
+color10 = #C3F786
+color11 = #FCFBCC
+color12 = #B6DEFB
+color13 = #AD7FA8
+color14 = #D7D9FC
+color15 = #E2E2E2
+
+[hints]
+#font = Monospace 12
+#foreground = #dcdccc
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 0.5
+#roundness = 2.0
+
+# vim: ft=dosini cms=#%s

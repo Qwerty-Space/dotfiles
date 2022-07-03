@@ -48,6 +48,8 @@ URxvt*matcher.rend.0: Uline Bold color4
 !Urxvt Transparent background
 URxvt*depth: 32
 
+URxvt*scrollBar: false
+
 !URxvt*inheritPixmap: true
 !URxvt*transparent: true
 ! URxvt*shading: 0 to 99 darkens, 101 to 200 lightens
