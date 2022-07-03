@@ -139,10 +139,10 @@
 		<Setting name="Persistent Choices">1</Setting>
 		<Setting name="Minimum TLS Version">2</Setting>
 		<Setting name="Trust system trust store">0</Setting>
-		<Setting name="Splitter positions (v2)">50 -344 500000000 253 253 500000000</Setting>
 		<Setting name="Sitemanager last selected">0/Zeus</Setting>
 		<Setting name="Window position and size">0 0 32 1914 988 </Setting>
 		<Setting name="Site Manager position">0 394 254 1118 589 </Setting>
+		<Setting name="Splitter positions (v2)">50 -227 500000000 253 253 500000000</Setting>
 		<Setting name="Tab data" sensitive="1">
 			<Tabs>
 				<Tab connected="1" selected="1">
@@ -157,8 +157,8 @@
 					<BypassProxy>0</BypassProxy>
 					<Name>Zeus</Name>
 					<Site>0/Zeus</Site>
-					<RemotePath>1 0 5 media 4 sdh1 4 home 11 qwertyspace 7 private 10 motherless</RemotePath>
-					<LocalPath>/home/qwerty/Downloads/</LocalPath>
+					<RemotePath>1 0 5 media 4 sdh1 4 home 11 qwertyspace 7 private 8 rtorrent 4 data 2 ab</RemotePath>
+					<LocalPath>/home/qwerty/Videos/Videos/Anime/</LocalPath>
 				</Tab>
 			</Tabs>
 		</Setting>
