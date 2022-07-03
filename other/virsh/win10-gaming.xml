@@ -197,16 +197,14 @@
       </source>
       <address type='usb' bus='0' port='1'/>
     </hostdev>
-    <memballoon model='virtio'>
-      <address type='pci' domain='0x0000' bus='0x06' slot='0x00' function='0x0'/>
-    </memballoon>
+    <memballoon model='none'/>
     <sound model='ich9'>
       <codec type='micro'/>
       <audio id='1'/>
     </sound>
     <audio id='1' type='pulseaudio' serverName='/run/user/1000/pulse/native'>
-      <input latency="1000000"/>
-      <output latency="1000000"/>
+      <input latency="500000"/>
+      <output latency="500000"/>
     </audio>
   </devices>
   <qemu:commandline>
