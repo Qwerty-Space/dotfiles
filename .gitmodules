@@ -4,18 +4,12 @@
 [submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/total-members"]
 	path = home/powercord/.local/share/powercord/src/Powercord/plugins/total-members
 	url = git@github.com:cyyynthia/total-members.git
-[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/Powercord-Blocked-User-Remover"]
-	path = home/powercord/.local/share/powercord/src/Powercord/plugins/Powercord-Blocked-User-Remover
-	url = git@github.com:fuzzydragon/Powercord-Blocked-User-Remover.git
 [submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/smart-typers"]
 	path = home/powercord/.local/share/powercord/src/Powercord/plugins/smart-typers
 	url = git@github.com:GriefMoDz/smart-typers.git
 [submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/quickChatReply"]
 	path = home/powercord/.local/share/powercord/src/Powercord/plugins/quickChatReply
 	url = git@github.com:notKnei/quickChatReply.git
-[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/Do-Not-Slowmode-Me"]
-	path = home/powercord/.local/share/powercord/src/Powercord/plugins/Do-Not-Slowmode-Me
-	url = git@github.com:SammCheese/Do-Not-Slowmode-Me.git
 [submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-pindms"]
 	path = home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-pindms
 	url = git@github.com:Bricklou/powercord-pindms.git
@@ -31,3 +25,12 @@
 [submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-toneindicators"]
 	path = home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-toneindicators
 	url = git@github.com:Lisenaaaa/powercord-toneindicators.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-plugin-downloader"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-plugin-downloader
+	url = git@github.com:LandenStephenss/PowercordPluginDownloader.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/do-not-slowmode-me"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/do-not-slowmode-me
+	url = git@github.com:SammCheese/Do-Not-Slowmode-Me.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-blocked-user-remover"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-blocked-user-remover
+	url = git@github.com:vdsk/Powercord-Blocked-User-Remover.git
