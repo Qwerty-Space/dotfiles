@@ -203,8 +203,8 @@
       <audio id='1'/>
     </sound>
     <audio id='1' type='pulseaudio' serverName='/run/user/1000/pulse/native'>
-      <input latency="500000"/>
-      <output latency="500000"/>
+      <input latency="20000"/>
+      <output latency="20000"/>
     </audio>
   </devices>
   <qemu:commandline>
