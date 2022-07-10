@@ -10,3 +10,24 @@
 [submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/smart-typers"]
 	path = home/powercord/.local/share/powercord/src/Powercord/plugins/smart-typers
 	url = git@github.com:GriefMoDz/smart-typers.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/quickChatReply"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/quickChatReply
+	url = git@github.com:notKnei/quickChatReply.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/Do-Not-Slowmode-Me"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/Do-Not-Slowmode-Me
+	url = git@github.com:SammCheese/Do-Not-Slowmode-Me.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-pindms"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-pindms
+	url = git@github.com:Bricklou/powercord-pindms.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/unindent"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/unindent
+	url = git@github.com:VenPlugs/Unindent.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-stafftags"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-stafftags
+	url = git@github.com:Puyodead1/powercord-stafftags.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/better-replies"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/better-replies
+	url = git@github.com:cyyynthia/better-replies.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-toneindicators"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-toneindicators
+	url = git@github.com:Lisenaaaa/powercord-toneindicators.git
