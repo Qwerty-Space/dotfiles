@@ -34,3 +34,6 @@
 [submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-blocked-user-remover"]
 	path = home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-blocked-user-remover
 	url = git@github.com:vdsk/Powercord-Blocked-User-Remover.git
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/pc-custom-volume-range"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/pc-custom-volume-range
+	url = https://github.com/Kiokuu/pc-custom-volume-range
