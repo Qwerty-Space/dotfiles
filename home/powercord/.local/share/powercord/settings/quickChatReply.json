@@ -1,0 +1,17 @@
+{
+  "replyNext": {
+    "ctrlKey": true,
+    "shiftKey": false,
+    "altKey": false,
+    "metaKey": false,
+    "key": "ArrowUp"
+  },
+  "replyPrev": {
+    "ctrlKey": true,
+    "shiftKey": false,
+    "altKey": false,
+    "metaKey": false,
+    "key": "ArrowDown"
+  },
+  "mention": true
+}

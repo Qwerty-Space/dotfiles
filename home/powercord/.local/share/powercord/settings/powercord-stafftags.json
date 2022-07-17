@@ -1,0 +1,14 @@
+{
+  "lastChangeLogVersion": "1.0.16",
+  "customTagColors": true,
+  "showCrowns": true,
+  "useCustomOwnerColor": true,
+  "ownerTagColor": "#f1c40f",
+  "GroupOwnerColor": true,
+  "useCustomAdminColor": true,
+  "adminTagColor": "#992d22",
+  "useCustomStaffColor": true,
+  "staffTagColor": "#71368a",
+  "useCustomModColor": true,
+  "modTagColor": "#1f8b4c"
+}

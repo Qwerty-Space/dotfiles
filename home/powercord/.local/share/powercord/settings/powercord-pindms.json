@@ -1,0 +1,21 @@
+{
+  "notifsounds": {},
+  "friendList": {
+    "sortoptions": true,
+    "mutualguilds": true,
+    "showtotal": true
+  },
+  "general": {
+    "pinIcon": true,
+    "unreadAmount": true,
+    "channelAmount": true
+  },
+  "recentOrder": {
+    "channelList": false,
+    "guildList": false
+  },
+  "pindms": {
+    "dmCategories": {},
+    "serverlist": []
+  }
+}
