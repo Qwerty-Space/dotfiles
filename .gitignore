@@ -5,3 +5,6 @@
 __pycache__
 
 
+
+home/filezilla/.config/filezilla/lockfile
+home/filezilla/.config/filezilla/queue.sqlite3
