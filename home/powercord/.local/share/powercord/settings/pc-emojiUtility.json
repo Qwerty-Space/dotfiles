@@ -2,5 +2,7 @@
   "useEmbeds": false,
   "displayLink": true,
   "includeIdForSavedEmojis": true,
-  "defaultCloneIdUseCurrent": false
+  "defaultCloneIdUseCurrent": false,
+  "defaultCloneId": "1000436734997307413",
+  "filePath": "/tmp/emotes/"
 }

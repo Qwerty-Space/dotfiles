@@ -37,3 +37,6 @@
 [submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/pc-custom-volume-range"]
 	path = home/powercord/.local/share/powercord/src/Powercord/plugins/pc-custom-volume-range
 	url = https://github.com/Kiokuu/pc-custom-volume-range
+[submodule "home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-bdcompat"]
+	path = home/powercord/.local/share/powercord/src/Powercord/plugins/powercord-bdcompat
+	url = git@github.com:Juby210/bdCompat.git
