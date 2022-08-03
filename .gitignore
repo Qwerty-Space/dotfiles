@@ -6,3 +6,7 @@ __pycache__
 home/filezilla/.config/filezilla/lockfile
 home/filezilla/.config/filezilla/queue.sqlite3
 home/powercord/.local/share/powercord/settings/pc-updater.json
+
+home/filezilla/.config/filezilla/filezilla.xml
+home/filezilla/.config/filezilla/layout.xml
+home/filezilla/.config/filezilla/sitemanager.xml
