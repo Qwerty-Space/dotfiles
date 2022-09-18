@@ -95,6 +95,8 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# termite stuff
+source /etc/profile.d/vte.sh
 
 # Show the motd
 # generated with:
@@ -104,4 +106,8 @@ if [[ $TERM == "xterm-256color" ]]; then
     cat "$HOME/.config/motd/$hostname" 2> /dev/null
 fi
 
+# ibus stuff
+GTK_IM_MODULE=ibus
+QT_IM_MODULE=ibus
+XMODIFIERS=@im=ibus
 

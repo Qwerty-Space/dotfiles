@@ -164,9 +164,9 @@
       <driver queues='8'/>
       <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
     </interface>
-    <input type='evdev'>
+    <!--<input type='evdev'>
       <source dev='/dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse'/>
-    </input>
+    </input>-->
     <input type='evdev'>
       <source dev='/dev/input/by-id/usb-OLKB_Preonic_0-event-kbd' grab='all' repeat='on'/>
     </input>

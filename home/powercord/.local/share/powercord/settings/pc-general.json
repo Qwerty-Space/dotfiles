@@ -1,7 +1,12 @@
 {
   "disabledPlugins": [
     "pc-heygirl",
-    "pc-spotify"
+    "pc-spotify",
+    "powercord-pindms",
+    "pc-sdk",
+    "pc-tags",
+    "total-members",
+    "pc-custom-volume-range"
   ],
   "advancedSettings": false
 }

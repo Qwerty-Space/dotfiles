@@ -1,3 +1,4 @@
 {
-  "maxAdjustableScreenShareVolume": 400
+  "maxAdjustableScreenShareVolume": 200,
+  "maxAdjustableVolume": 200
 }
