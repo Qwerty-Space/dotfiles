@@ -10,3 +10,8 @@ home/powercord/.local/share/powercord/settings/pc-updater.json
 home/filezilla/.config/filezilla/filezilla.xml
 home/filezilla/.config/filezilla/layout.xml
 home/filezilla/.config/filezilla/sitemanager.xml
+home/nvim/.config/nvim/plugged/YouCompleteMe
+home/nvim/.config/nvim/plugged/lightline.vim
+home/nvim/.config/nvim/plugged/nerdcommenter
+home/nvim/.config/nvim/plugged/nerdtree
+home/nvim/.config/nvim/plugged/vim-lastplace

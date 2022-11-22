@@ -1,13 +1,11 @@
 [Unit]
 Description=monitor-on-shutdown
-DefaultDependencies=no
-Conflicts=reboot.target
-Before=halt.target shutdown.target
 
 [Service]
 Type=oneshot
-ExecStart=sh /home/qwerty/scripts/monitors-off.sh
+RemainAfterExit=true
+ExecStop=sh /home/qwerty/scripts/monitors-off.sh
 
 [Install]
-WantedBy=shutdown.target
+WantedBy=multi-user.target
 

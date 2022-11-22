@@ -1,0 +1,10 @@
+[Unit]
+Description=Start Discord
+
+[Service]
+ExecStart=/home/qwerty/scripts/discord.sh
+Restart=always
+WatchdogSec=10
+
+[Install]
+WantedBy=default.target
