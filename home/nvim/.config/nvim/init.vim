@@ -1,4 +1,4 @@
-" set the leader key to fullstop
+" set the leader key to comma
 let mapleader=","
 set number
 syntax on
@@ -20,13 +20,13 @@ set whichwrap=b,s,<,>,[,]
 
 command Vb :execute "normal! \<C-v>"
 
-" filetype indenting
+" file type indenting
 filetype plugin indent on
 
 " hide the old mode icon
 set noshowmode
 
-" statusline
+" status line
 set laststatus=2
 let g:lightline = {
     \ 'colorscheme': 'Tomorrow_Night_Bright',
