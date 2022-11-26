@@ -4,7 +4,7 @@ set number
 syntax on
 
 " spell checking
-set spell
+" set spell
 
 " highlighting
 set incsearch
@@ -50,7 +50,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
 Plug 'farmergreg/vim-lastplace'
 Plug 'itchyny/lightline.vim'
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
+"Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
 
 " initialise plugins
 call plug#end()

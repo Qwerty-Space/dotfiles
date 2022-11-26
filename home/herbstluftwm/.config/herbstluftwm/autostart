@@ -311,6 +311,7 @@ if hc silent new_attr bool my_not_first_autostart ; then
         scream -o pulse -i virbr0 &
         solaar -w hide &
         mntzeus &
+        barriers --name samurai --disable-client-cert-checking -c ~/.config/barrier/barrier.conf --address :24800
     fi
 fi
 sleep 2s

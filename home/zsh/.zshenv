@@ -1,6 +1,6 @@
 export EDITOR=vim
 export PAGER=less
-export VISUAL=code
+export VISUAL=$EDITOR
 export BROWSER=firefox
 
 export QMK_HOME="$HOME/.qmk_firmware/qmk_firmware"
