@@ -1,10 +1,27 @@
+" plugins
+call plug#begin('~/.config/nvim/plugged')
+
+" install plugins
+Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdtree'
+Plug 'farmergreg/vim-lastplace'
+Plug 'itchyny/lightline.vim'
+Plug 'jan-warchol/selenized', { 'rtp': 'editors/vim' }
+
+" code completion
+Plug 'echasnovski/mini.completion'
+
+" initialise plugins
+call plug#end()
+
+
+" colourscheme
+colorscheme selenized_bw
+
 " set the leader key to comma
 let mapleader=","
 set number
 syntax on
-
-" spell checking
-" set spell
 
 " highlighting
 set incsearch
@@ -22,6 +39,9 @@ command Vb :execute "normal! \<C-v>"
 
 " file type indenting
 filetype plugin indent on
+
+" Trim trailing spaces
+nnoremap <F5> <cmd>let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " hide the old mode icon
 set noshowmode
@@ -42,15 +62,12 @@ let g:lightline = {
     \},
 \ }
 
-" plugins
-call plug#begin('~/.config/nvim/plugged')
+" mini.completion
+lua << EOF
+require('mini.completion').setup()
+EOF
 
-" install plugins
-Plug 'preservim/nerdcommenter'
-Plug 'preservim/nerdtree'
-Plug 'farmergreg/vim-lastplace'
-Plug 'itchyny/lightline.vim'
-"Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
+" mini.completion
+inoremap <silent><expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
+inoremap <silent><expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
 
-" initialise plugins
-call plug#end()

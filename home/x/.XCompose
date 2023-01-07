@@ -136,7 +136,6 @@ include "%L"
 <Multi_key> <c> <period> <period>        : "⋯"    U22EF    # MIDLINE HORIZONTAL ELLIPSIS
 <Multi_key> <slash> <period> <period>    : "⋰"    U22F0    # UP RIGHT DIAGONAL ELLIPSIS
 <Multi_key> <backslash> <space>          : "␣"    U2423    # OPEN BOX
-<Multi_key> <s> <s>                      : "ẞ"    U1E9E    # LATIN CAPITAL LETTER SHARP S
 
 
 # ===========================

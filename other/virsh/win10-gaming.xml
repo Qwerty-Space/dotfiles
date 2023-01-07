@@ -36,7 +36,18 @@
     <hyperv mode='custom'>
       <relaxed state='on'/>
       <vapic state='on'/>
-      <vendor_id state='on' value='other'/>
+      <spinlocks state='on' retries='8191'/>
+      <vpindex state='on'/>
+      <runtime state='on'/>
+      <synic state='on'/>
+      <stimer state="on"/>
+      <reset state='off'/>
+      <vendor_id state='on' value='whatever'/>
+      <frequencies state='on'/>
+      <reenlightenment state='off'/>
+      <tlbflush state='on'/>
+      <ipi state='on'/>
+      <evmcs state='off'/>
     </hyperv>
     <kvm>
       <hidden state='on'/>
@@ -47,6 +58,7 @@
   <cpu mode='host-passthrough' check='none' migratable='on'>
     <topology sockets='1' dies='1' cores='6' threads='2'/>
     <feature policy='require' name='topoext'/>
+    <feature policy='disable' name='svm'/>
   </cpu>
   <clock offset='localtime'>
     <timer name='rtc' tickpolicy='catchup'/>
@@ -164,9 +176,6 @@
       <driver queues='8'/>
       <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
     </interface>
-    <!--<input type='evdev'>
-      <source dev='/dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse'/>
-    </input>-->
     <input type='evdev'>
       <source dev='/dev/input/by-id/usb-OLKB_Preonic_0-event-kbd' grab='all' repeat='on'/>
     </input>

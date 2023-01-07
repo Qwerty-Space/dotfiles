@@ -20,7 +20,10 @@ shift+at playback
 e grid-nav toggle
 Tab restart
 
-shift+space start
+6 grid-nav on
+7 grid 26x26
+
+Super_L+apostrophe start
 alt+semicolon start,move-right
 Escape end
 

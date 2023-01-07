@@ -39,3 +39,26 @@ class watch_episode(Command):
             files=[f for f in self.fm.thistab.get_selection()],
             app="mpv",
             flags="--x11-name=watch")
+
+
+class tmsu_tag(Command):
+    """:tmsu_tag
+
+    Tags the current file with tmsu
+    """
+
+    def execute(self):
+        cf = self.fm.thisfile
+
+        self.fm.run("tmsu tag \"{0}\" {1}".format(cf.basename, self.rest(1)))
+
+class tmsu_untag(Command):
+    """:tmsu_untag
+
+    Untags the current file with tmsu
+    """
+
+    def execute(self):
+        cf = self.fm.thisfile
+
+        self.fm.run("tmsu untag \"{0}\" {1}".format(cf.basename, self.rest(1)))

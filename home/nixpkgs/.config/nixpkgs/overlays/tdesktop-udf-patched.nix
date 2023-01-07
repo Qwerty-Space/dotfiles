@@ -3,7 +3,7 @@ self: super:
 {
   tdesktop = super.tdesktop.overrideAttrs (oldAttrs: rec {
     patches = (oldAttrs.patches or []) ++ [
-      ./tdesktop-udf-patches/always_delete_for_everyone.patch
+      /*./tdesktop-udf-patches/always_delete_for_everyone.patch*/
       ./tdesktop-udf-patches/always_clear_history_for_everyone.patch
       ./tdesktop-udf-patches/always_pin_without_notify.patch
       ./tdesktop-udf-patches/always_send_as_photo_or_album.patch
