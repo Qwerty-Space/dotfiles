@@ -5,7 +5,7 @@
  */
 
 #sidebar-box {
-  -moz-box-direction: reverse;
+  flex-direction: column-reverse;
 }
 
 #sidebar-switcher-arrow {

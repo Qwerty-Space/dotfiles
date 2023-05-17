@@ -2,9 +2,13 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " install plugins
-Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-commentary'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'preservim/nerdtree'
 Plug 'farmergreg/vim-lastplace'
+Plug 'godlygeek/tabular'
+
+" appearance
 Plug 'itchyny/lightline.vim'
 Plug 'jan-warchol/selenized', { 'rtp': 'editors/vim' }
 

@@ -35,7 +35,7 @@ hc keybind $AltMod-Tab spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh
 # hc keybind $Mod-p spawn rofi -modi "playlist:~/.config/rofi/mpv-rofi-menu.py" -show playlist
 
 hc keybind $Mod-F1 spawn ddcutil -n "ATNM91A020664" setvcp 60 0x11
-hc keybind $Mod-F2 spawn ddcutil -n "ATNM91A020664" setvcp 60 0x12
+hc keybind $Mod-F2 spawn ddcutil -n "ATNM91A020664" setvcp 60 0x0f
 
 ## run things
 hc keybind $Mod-d spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
@@ -153,7 +153,7 @@ hc keybind $Mod-comma  use_index -1 --skip-visible
 hc keybind $Mod-r remove
 hc keybind $Mod-s attr clients.focus.floating toggle
 hc keybind $Mod-f fullscreen toggle
-# hc keybind $Mod-p pseudotile toggle
+hc keybind $Mod-p pseudotile toggle
 # The following cycles through the available layouts within a frame, but skips
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
@@ -241,8 +241,10 @@ hc rule instance="watch" tag="AltMax" index=0
 
 # Steam and Gaming
 hc rule class~"(dis|light)cord" tag="Gaming" index=0
-hc rule class="Steam" tag="Gaming" index=1
 hc rule title="Steam" tag="Gaming" index=0
+hc rule title="Steam" fixedsize tag="Gaming" index=0 pseudotile=on
+hc rule class="steamwebhelper" tag="Gaming" index=1
+hc rule class="Steam" title="Friends List" tag="Gaming" index=1
 hc rule title~"Trade offer with.*" tag="Gaming" index=0
 hc rule title~".+News.*" class="Steam" tag="Gaming" index=0
 hc rule title~".+marketingmessages.+" class="Steam" tag="Gaming" index=0

@@ -48,7 +48,7 @@ shift+n move-right,move-down
 space warp,click 1,end
 semicolon warp,end
 1 click 1
-2 ward,click 2,end
+2 warp,click 2,end
 3 warp,click 3,end
 
 d warp,doubleclick 1,end

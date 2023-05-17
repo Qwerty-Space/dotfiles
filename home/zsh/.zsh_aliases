@@ -32,6 +32,7 @@ alias la='lsd -lA --date "+%F %T" --group-dirs first'
 alias d='du --exclude "./.*" -hd1'
 alias da='du -hd1'
 
+alias peaclock='peaclock --config-dir ~/.config/peaclock'
 
 ## ssh tunnelling
 alias tunnel='bash ~/scripts/tunnel.sh'
