@@ -1,0 +1,114 @@
+set shell zsh
+
+# Warn of nested instances
+&[ $LF_LEVEL -eq 1 ] || lf -remote "send $id echoerr \"Warning: You're in a nested lf instance!\""
+
+cmd yank-dirname $dirname -- "$f" | head -c-1 | xclip -i -selection clipboard
+cmd yank-path $printf '%s' "$fx" | xclip -i -selection clipboard
+cmd yank-name $basename -a -- $fx | head -c-1 | xclip -i -selection clipboard
+cmd yank-name-without-extension &basename -a -- $fx | cut -d. -f1 | head -c-1 | xclip -i -selection clipboard
+
+### open-with
+cmd open-with ${{
+    set -f
+    rifle -l $fx
+    read "method?Open with: "
+    rifle -p $method $fx
+}}
+
+
+### Options
+set hiddenfiles ".*:*.pyc:*.pyo:lost+found:__pycache__"
+cmd open $set -f; rifle -p 0 $fx
+
+### Appearance
+set ratios 2:4:3
+set cursorpreviewfmt "\033[7m"
+set dircounts
+set info 'size'
+# set truncatechar "..."
+
+# dynamically set column ratios
+${{
+    w=$(tput cols)
+    if [ $w -le 80 ]; then
+        lf -remote "send $id set preview false"
+        lf -remote "send $id set ratios 2"
+    else
+        lf -remote "send $id set preview true"
+        lf -remote "send $id set ratios 2:4:3"
+    fi
+}}
+
+### Keybindings
+# reload config
+map <c-r>   :source ~/.config/lf/lfrc; echomsg 'Config reloaded'
+
+# renaming
+map r
+map a       :rename
+map I       :rename; cmd-home
+map A       :rename; cmd-end
+map cc      :rename; cmd-delete-home
+map cC      :rename; cmd-end; cmd-delete-home
+
+# copy/paste/delete
+map y
+map d
+map p
+map c
+
+map yy copy
+map dd cut
+map pp paste
+map dD delete
+map ud clear
+
+map ? doc
+
+map S       $$SHELL
+map cd      push :cd<space>
+
+# archives
+map e
+map ex      $aunpack --each $fx
+map ec      push $apack<space><space>$fx<left><left><left><left>
+
+# tagging
+# to add tmsu tagging
+
+# selecting
+map uv unselect
+map V invert-below
+
+# navigating
+map ge :cd /etc
+map gu :cd /usr
+map go :cd /opt
+map gv :cd /var
+map gm $lf -remote "send $id cd /run/media/$USER"
+map gM :cd /mnt
+map gp :cd /tmp
+map g/ :cd /
+
+# launch programs
+map r open-with
+map <c-a> $trackma-curses
+map P $mediainfo "$fx" | $PAGER
+map du $ncdu
+
+# name is different to avoid recursive calls
+# map p paste_try_cow
+
+map yd yank-dirname
+map yn yank-name
+map y. yank-name-without-extension
+map yp yank-path
+
+# tabs using tmux
+map u
+map gn          $tmux new-window 'cd $(pwd); lf'
+map uq          $tmux new-window 'cd $OLDPWD; lf'
+map <tab>       $tmux select-window -t:+1
+map <backtab>   $tmux select-window -t:-1
+

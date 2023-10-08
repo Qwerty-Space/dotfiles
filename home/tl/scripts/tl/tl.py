@@ -10,5 +10,6 @@ except IndexError:
 
 script_dir = path.dirname(path.realpath(__file__))
 client = TelegramClient(path.join(script_dir, session), 6, "eb06d4abfb49dc3eeb1aeb98ae0f581e").start()
+c = client
 
 print(client.get_me().first_name)

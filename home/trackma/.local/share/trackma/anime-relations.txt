@@ -35,7 +35,7 @@
 - version: 1.3.0
 
 # Update this date when you add, remove or modify a rule.
-- last_modified: 2023-04-09
+- last_modified: 2023-10-06
 
 ::rules
 
@@ -108,6 +108,9 @@
 # Ao Oni The Animation (Movie) -> ~
 - 33820|12478|21898:0 -> ~|~|~:1
 
+# Arknights: Reimei Zensou -> Arknights: Fuyukomori Kaerimichi
+- 50205|45367|140660:9-16 -> 53881|46880|158895:1-8!
+
 # Baccano! -> ~ Specials
 - 2251|2039|2251:14-16 -> 3901|3334|3901:1-3
 
@@ -143,6 +146,9 @@
 
 # Black Lagoon -> ~: The Second Barrage
 - 889|789|889:13-24 -> 1519|1363|1519:1-12!
+
+# Bleach: Sennen Kessen-hen -> ~ - Ketsubetsu-tan
+- 41467|43078|116674:14-26 -> 53998|46903|159322:1-13!
 
 # Boku no Hero Academia -> ~ 2nd Season
 - 31964|11469|21459:14-38 -> 33486|12268|21856:1-25
@@ -181,6 +187,8 @@
 - 31478|11339|21311:26-37 -> 38003|41984|103223:1-12!
 # Bungou Stray Dogs -> ~ 4th Season
 - 31478|11339|21311:38-50 -> 50330|45460|141249:1-13!
+# Bungou Stray Dogs -> ~ 5th Season
+- 31478|11339|21311:51-61 -> 54898|47258|163263:1-11!
 
 # Busou Shoujo Machiavellianism -> ~: Doki! "Goken-darake" no Ian Ryokou
 - 33475|12265|21851:13 -> 35314|14261|98856:1
@@ -306,6 +314,9 @@
 - 23199|8314|20652:13-24 -> 27831|9726|20879:1-12!
 # Durarara!!x2 Shou -> Durarara!!x2 Ketsu
 - 23199|8314|20652:25-36 -> 27833|9725|20880:1-12!
+
+# Edens Zero -> ~ 2nd Season
+- 42192|43521|119683:26-? -> 50002|45847|144932:1-?!
 
 # Fairy Gone -> ~ 2nd Season
 - 39063|42130|107418:13-24 -> 39811|42358|109562:1-12!
@@ -441,6 +452,9 @@
 # Hanyou no Yashahime: Sengoku Otogizoushi -> ~ - Ni no Shou
 - 41911|43180|118399:25-48 -> 48505|44199|131264:1-24!
 
+# Hataraku Maou-sama!! -> ~ 2nd Season
+- 48413|44113|130592:13-24 -> 53200|46550|155168:1-12!
+
 # Hataraku Saibou -> ~: Kaze Shoukougun
 - 37141|14212|100977:14 -> 38733|42007|105662:1
 
@@ -510,10 +524,16 @@
 # Jormungand -> ~: Perfect Order
 - 12413|6726|12413:13-24 -> 13331|6940|13331:1-12!
 
+# Jujutsu Kaisen -> ~ 2nd Season
+- 40748|42765|113415:25-47 -> 51009|45857|145064:1-23!
+
 # K-On! -> ~: Live House!
 - 5680|4240|5680:14 -> 6862|4758|6862:1
 # K-On!! -> ~: Keikaku!
 - 7791|5124|7791:27 -> 9734|5841|9734:1
+
+# Kage no Jitsuryokusha ni Naritakute! -> ~ 2nd Season
+- 48316|44107|130298:21-32 -> 54595|47099|161964:1-12!
 
 # Kaginado -> ~ Season 2
 - 48775|44420|132528:13-? -> 50685|45699|143150:1-?!
@@ -548,6 +568,8 @@
 
 # Kanojo, Okarishimasu -> ~ 2nd Season
 - 40839|43028|113813:13-24 -> 42963|43588|124410:1-12!
+# Kanojo, Okarishimasu -> ~ 3rd Season
+- 40839|43028|113813:25-36 -> 53050|46489|154745:1-12!
 
 # Kara no Kyoukai 1 -> ~ 2,3,4,5,6,7
 - 2593|2357|2593:2 -> 3782|3248|3782:1
@@ -578,6 +600,9 @@
 - 9260|5649|9260:2 -> 31757|11406|21399:1
 # Kizumonogatari I: Tekketsu-hen -> Kizumonogatari III: Reiketsu-hen
 - 9260|5649|9260:3 -> 31758|11407|21400:1
+
+# Kizuna no Allele -> ~ Season 2
+- 51139|46732|156896:13-24 -> 55775|47672|166523:1-12!
 
 # Kobayashi-san Chi no Maid Dragon -> ~: Valentine, Soshite Onsen! - Amari Kitai Shinaide Kudasai
 - 33206|12243|21776:14 -> 35363|13861|98580:1
@@ -655,6 +680,9 @@
 # Magic Knight Rayearth -> ~ II
 - 435|399|435:21-49 -> 1563|1403|1563:1-29!
 
+# Mahoutsukai no Yome Season 2 -> ~ Part 2
+- 52955|46436|154364:13-24 -> 55742|47649|166452:1-12!
+
 # Major S1 -> ~ S2,S3,S4,S5,S6
 - 627|582|627:27-52 -> 558|515|558:1-26!
 - 627|582|627:53-78 -> 1842|1659|1842:1-26!
@@ -684,6 +712,9 @@
 
 # Mobile Suit Gundam Thunderbolt -> ~ 2nd Season
 - 31973|11476|21458:5-8 -> 34391|12755|97853:1-4
+
+# Mononogatari -> ~ 2nd Season
+- 50384|45509|141785:13-24 -> 54883|47269|163205:1-12!
 
 # Monster Farm: Enbanseki no Himitsu -> Monster Farm: Legend e no Michi
 - 1469|1315|1469:49-73 -> 13201|6909|13201:1-25
@@ -807,6 +838,9 @@
 # PriPara -> ~ 3rd Season
 - ?|8555|20742:90-140 -> ?|12683|21559:1-51
 
+# Pokemon -> ~ Advanced Generation
+- 527|486|527:277-468 -> 1564|1404|1564:1-192
+
 # Re:Zero kara Hajimeru Break Time -> Re:Petit kara Hajimeru Isekai Seikatsu
 - 33142|12047|21780:12-25 -> 33569|12313|21891:1-14
 
@@ -924,11 +958,17 @@
 # Shingeki no Kyojin OVA -> Shingeki no Kyojin: Lost Girls
 - 18397|7694|18397:6-8 -> 36106|13718|99634:1-3
 
+# Shinigami Bocchan to Kuro Maid -> ~ 2nd Season
+- 47257|44035|129277:13-? -> 49858|45229|139435:1-?!
+
 # Shokugeki no Souma: San no Sara -> ~ - Toutsuki Ressha-hen
 - 35788|13581|99255:13-24 -> 36949|14092|100773:1-12!
 
 # Shugo Chara! -> ~! Doki
 - 2923|2648|2923:52-102 -> 5262|4019|5262:1-51!
+
+# Shuumatsu no Valkyrie II -> ~ Part 2
+- 49618|44988|138056:11-15 -> 55454|47495|165356:1-5!
 
 # So Ra No Wo To -> ~ Specials
 - 6802|7668|6802:13 -> 8197|4724|8197:2
@@ -950,11 +990,17 @@
 # Spider Riders: Oracle no Yuusha-tachi -> Spider Riders: Yomigaeru Taiyou
 - 2619|2383|2619:27-52 -> 2620|2384|2620:1-26
 
+# Spy Kyoushitsu -> ~ 2nd Season
+- 51252|45966|146323:13-24 -> 54947|47288|163542:1-12!
+
 # Spy x Family -> ~ Part 2
 - 50265|45398|140960:13-25 -> 50602|45619|142838:1-13!
 
 # Steins;Gate 0 -> ~ Special
 - 30484|10788|21127:24 -> 37492|41443|104174:1
+
+# Sugar Apple Fairy Tale -> ~ Part 2
+- 49980|45270|139821:13-24 -> 54842|47231|163079:1-12!
 
 # Suisei no Gargantia -> ~ Specials
 - 16524|7449|16524:14-15 -> 19211|7872|19211:1-2

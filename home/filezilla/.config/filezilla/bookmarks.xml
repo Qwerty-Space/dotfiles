@@ -1,8 +1,12 @@
 <?xml version="1.0"?>
-<FileZilla3 version="3.46.3" platform="*nix">
+<FileZilla3 version="3.65.0" platform="*nix">
 	<Bookmark>
 		<Name>Home</Name>
 		<LocalDir>/home/qwerty/</LocalDir>
+	</Bookmark>
+	<Bookmark>
+		<Name>Music</Name>
+		<LocalDir>/home/qwerty/Music/</LocalDir>
 	</Bookmark>
 	<Bookmark>
 		<Name>Videos</Name>

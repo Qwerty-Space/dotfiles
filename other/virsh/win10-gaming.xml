@@ -1,4 +1,4 @@
-<domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
+<domain type='kvm'>
   <name>win10-gaming</name>
   <uuid>9c870a10-055b-4eff-84e3-9091c07704cf</uuid>
   <metadata>
@@ -6,8 +6,8 @@
       <libosinfo:os id="http://microsoft.com/win/10"/>
     </libosinfo:libosinfo>
   </metadata>
-  <memory unit='KiB'>21484380</memory>
-  <currentMemory unit='KiB'>21484380</currentMemory>
+  <memory unit='GiB'>16</memory>
+  <currentMemory unit='GiB'>16</currentMemory>
   <vcpu placement='static'>12</vcpu>
   <iothreads>1</iothreads>
   <cputune>
@@ -40,7 +40,7 @@
       <vpindex state='on'/>
       <runtime state='on'/>
       <synic state='on'/>
-      <stimer state="on"/>
+      <stimer state='on'/>
       <reset state='off'/>
       <vendor_id state='on' value='whatever'/>
       <frequencies state='on'/>
@@ -181,6 +181,16 @@
     </input>
     <input type='mouse' bus='ps2'/>
     <input type='keyboard' bus='ps2'/>
+    <sound model='ich9'>
+      <codec type='micro'/>
+      <audio id='1'/>
+    </sound>
+    <audio id='1' type='pulseaudio' serverName='/run/user/1000/pulse/native'>
+      <!-- <input latency='20000'/> -->
+      <!-- <output latency='20000'/> -->
+      <input mixingEngine="no"/>
+      <output mixingEngine="no"/>
+    </audio>
     <hostdev mode='subsystem' type='pci' managed='yes'>
       <source>
         <address domain='0x0000' bus='0x2b' slot='0x00' function='0x0'/>
@@ -206,23 +216,8 @@
       </source>
       <address type='usb' bus='0' port='1'/>
     </hostdev>
+    <watchdog model='itco' action='reset'/>
     <memballoon model='none'/>
-    <sound model='ich9'>
-      <codec type='micro'/>
-      <audio id='1'/>
-    </sound>
-    <audio id='1' type='pulseaudio' serverName='/run/user/1000/pulse/native'>
-      <input latency="20000"/>
-      <output latency="20000"/>
-    </audio>
   </devices>
-  <qemu:commandline>
-    <!-- <qemu:arg value='-device'/> -->
-    <!-- <qemu:arg value='ich9-intel-hda,bus=pcie.0'/> -->
-    <!-- <qemu:arg value='-device'/> -->
-    <!-- <qemu:arg value='hda-micro,audiodev=hda'/> -->
-    <!-- <qemu:arg value='-audiodev'/>
-    <qemu:arg value='pa,id=hda,out.latency=200000,server=/run/user/1000/pulse/native instead'/> -->
-  </qemu:commandline>
 </domain>
 

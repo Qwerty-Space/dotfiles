@@ -222,9 +222,10 @@ hc rule windowtype='_NET_WM_WINDOW_TYPE_NORMAL' title~'Wine.+' floating=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 
 hc rule class="Calculator" floating=on
-hc rule instance="dragon-drop" floating=on #floatplacement=center # to be added next version
+hc rule instance="dragon-drop" floating=on floatplacement=center # to be added next version
 hc rule instance="redshift-gtk" floating=on
 hc rule instance="Toolkit" class="firefox" floating=off
+hc rule class="KeePassXC" title~"Unlock (\w+) \- KeePassXC" floating=off pseudotile=on
 # hc rule class="TelegramDesktop" fullscreen=off
 
 ### Window locations ###
@@ -235,22 +236,21 @@ hc rule class="mp3tag" tag="Max" index=0
 hc rule class="TelegramDesktop" tag="Main" index=0 floatplacement=center
 hc rule class="TelegramDesktop", windowtype="_NET_WM_WINDOW_TYPE_UTILITY", tag="Main" index=1
 hc rule class="Spacefm" tag="Main" index=0
-# hc rule instance="urxvtfoo" tag="Main" index=1
 hc rule windowrole="termstart" tag="Main" index=1
 hc rule instance="watch" tag="AltMax" index=0
 
 # Steam and Gaming
 hc rule class~"(dis|light)cord" tag="Gaming" index=0
-hc rule title="Steam" tag="Gaming" index=0
-hc rule title="Steam" fixedsize tag="Gaming" index=0 pseudotile=on
-hc rule class="steamwebhelper" tag="Gaming" index=1
-hc rule class="Steam" title="Friends List" tag="Gaming" index=1
-hc rule title~"Trade offer with.*" tag="Gaming" index=0
-hc rule title~".+News.*" class="Steam" tag="Gaming" index=0
-hc rule title~".+marketingmessages.+" class="Steam" tag="Gaming" index=0
-hc rule title="Settings" class="Steam" tag="Gaming" index=0
-hc rule title~"Gift.*" class="Steam" tag="Gaming" index=0
-hc rule title="Image Popout" class="Steam" tag="Gaming" index=0
+hc rule class="steam" tag="Gaming" index=0
+hc rule class="steam" fixedsize tag="Gaming" index=0 pseudotile=on
+hc rule class="steam" title="Friends List" tag="Gaming" index=1
+# hc rule instance="steamwebhelper" tag="Gaming" index=1
+# hc rule title~"Trade offer with.*" tag="Gaming" index=0
+# hc rule title~"Special Offers" class="steam" tag="Gaming" index=0
+# hc rule title~".+marketingmessages.+" class="Steam" tag="Gaming" index=0
+# hc rule title="Settings" class="steam" tag="Gaming" index=0
+# hc rule title~"Gift.*" class="steam" tag="Gaming" index=0
+# hc rule title="Image Popout" class="steam" tag="Gaming" index=0
 hc rule instance="streaming_client" tag="AltMax" index=0
 hc rule instance~"Minecraft.*" tag="AltMax" index=0
 

@@ -113,3 +113,10 @@ audiocheck() {
     find "$1" -type f -iname '*.flac' -print0 | xargs --null flac -wst
 }
 
+# Download YouTube thumbnails
+yt-tdl() {
+    yt-dlp --skip-download --write-thumbnail $@
+}
+
+
+

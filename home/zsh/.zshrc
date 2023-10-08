@@ -106,9 +106,18 @@ if [[ $TERM == "xterm-256color" ]]; then
     cat "$HOME/.config/motd/$hostname" 2> /dev/null
 fi
 
+# tere
+tere() {
+    local result=$(command tere "$@")
+    [ -n "$result" ] && cd -- "$result"
+}
+
 # ibus stuff
 GTK_IM_MODULE=ibus
 QT_IM_MODULE=ibus
 XMODIFIERS=@im=ibus
 
-#[[ -z "$TMUX" ]] && exec tmux
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
+    tmux >/dev/null 2>&1
+fi
+
