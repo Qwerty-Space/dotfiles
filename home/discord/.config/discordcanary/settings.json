@@ -1,7 +1,8 @@
 {
   "openasar": {
     "setup": true,
-    "css": "/* Add your own Custom CSS here.\nHave a theme you want to use? Copy and paste the contents here.\nYou need to restart (click the restart button) after changing. */\n\n:root {\n    --font-primary: nasin-nanpa,\"gg sans\",\"Noto Sans\",\"Helvetica Neue\",Helvetica,Arial,sans-serif;\n    --font-display: nasin-nanpa,\"gg sans\",\"Noto Sans\",\"Helvetica Neue\",Helvetica,Arial,sans-serif;\n    --font-code: nasin-nanpa,Consolas,\"Andale Mono WT\",\"Andale Mono\",\"Lucida Console\",\"Lucida Sans Typewriter\",\"DejaVu Sans Mono\",\"Bitstream Vera Sans Mono\",\"Liberation Mono\",\"Nimbus Mono L\",Monaco,\"Courier New\",Courier,monospace;\n    --font-headline: nasin-nanpa,\"ABC Ginto Nord\",\"Noto Sans\",\"Helvetica Neue\",Helvetica,Arial,sans-serif;\n}\n\n\n[aria-posinset=\"2\"], [aria-posinset=\"3\"] {\n    display: none;\n}\n"
+    "css": "/* Add your own Custom CSS here.\nHave a theme you want to use? Copy and paste the contents here.\nYou need to restart (click the restart button) after changing. */\n\n:root {\n    --font-primary: nasin-nanpa,\"gg sans\",\"Noto Sans\",\"Helvetica Neue\",Helvetica,Arial,sans-serif;\n    --font-display: nasin-nanpa,\"gg sans\",\"Noto Sans\",\"Helvetica Neue\",Helvetica,Arial,sans-serif;\n    --font-code: nasin-nanpa,Consolas,\"Andale Mono WT\",\"Andale Mono\",\"Lucida Console\",\"Lucida Sans Typewriter\",\"DejaVu Sans Mono\",\"Bitstream Vera Sans Mono\",\"Liberation Mono\",\"Nimbus Mono L\",Monaco,\"Courier New\",Courier,monospace;\n    --font-headline: nasin-nanpa,\"ABC Ginto Nord\",\"Noto Sans\",\"Helvetica Neue\",Helvetica,Arial,sans-serif;\n}\n\n\n[aria-posinset=\"2\"], [aria-posinset=\"3\"] {\n    display: none;\n}\n",
+    "quickstart": true
   },
   "IS_MAXIMIZED": false,
   "IS_MINIMIZED": false,
