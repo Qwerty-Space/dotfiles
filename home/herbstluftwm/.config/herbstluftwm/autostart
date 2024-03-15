@@ -225,7 +225,7 @@ hc rule class="Calculator" floating=on
 hc rule instance="dragon-drop" floating=on floatplacement=center # to be added next version
 hc rule instance="redshift-gtk" floating=on
 hc rule instance="Toolkit" class="firefox" floating=off
-hc rule class="KeePassXC" title~"Unlock (\w+) \- KeePassXC" floating=off pseudotile=on
+hc rule class="KeePassXC" title~"Unlock (\w+) \- KeePassXC" floating=off pseudotile=on floatplacement=center
 # hc rule class="TelegramDesktop" fullscreen=off
 
 ### Window locations ###

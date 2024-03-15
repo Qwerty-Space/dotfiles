@@ -39,6 +39,7 @@ alias tunnel='bash ~/scripts/tunnel.sh'
 alias ssh_tunnel='bash ~/scripts/tunnel.sh'
 
 ## misc
+alias onlyoffice='onlyoffice-desktopeditors'
 alias ff='firefox'
 alias slock='~/scripts/lock off'
 alias hc='herbstclient'

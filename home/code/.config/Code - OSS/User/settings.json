@@ -1,5 +1,4 @@
 {
-    "workbench.activityBar.visible": true,
     "workbench.colorTheme": "Tomorrow Night Blue",
     "files.hotExit": "off",
     "workbench.startupEditor": "none",
@@ -27,7 +26,7 @@
     "vscode-neovim.useCtrlKeysForNormalMode": false,
     "python.defaultInterpreterPath": "/usr/bin/python",
     "python.languageServer": "Jedi",
-    "workbench.editor.untitled.hint": "hidden",
     "security.workspace.trust.banner": "never",
     "security.workspace.trust.enabled": false,
+    "workbench.editor.empty.hint": "hidden",
 }

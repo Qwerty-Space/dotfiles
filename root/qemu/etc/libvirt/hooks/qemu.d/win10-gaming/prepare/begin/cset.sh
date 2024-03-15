@@ -28,12 +28,29 @@ VM_NAME="$1"
 VM_ACTION="$2/$3"
 
 function shield_vm() {
-    cset -m set -c $TOTAL_CORES -s machine.slice
-    cset -m shield --kthread on --cpu $VIRT_CORES
+    cpupower -c $VIRT_CORES frequency-set -g performance
+    echo "set to performance"
+
+    sync
+    echo 3 > /proc/sys/vm/drop_caches
+    echo 1 > /proc/sys/vm/compact_memory
+
+    systemctl set-property --runtime -- user.slice AllowedCPUs=$HOST_CORES
+    systemctl set-property --runtime -- system.slice AllowedCPUs=$HOST_CORES
+    systemctl set-property --runtime -- init.scope AllowedCPUs=$HOST_CORES
+
+    sysctl vm.stat_interval=30
+    sysctl kernel.watchdog=0
 }
 
 function unshield_vm() {
-    cset -m shield --reset
+    systemctl set-property --runtime -- user.slice AllowedCPUs=$TOTAL_CORES
+    systemctl set-property --runtime -- system.slice AllowedCPUs=$TOTAL_CORES
+    systemctl set-property --runtime -- init.scope AllowedCPUs=$TOTAL_CORES
+
+    sysctl vm.stat_interval=1
+    sysctl kernel.watchdog=1
+    cpupower -c $VIRT_CORES frequency-set -g ondemand
 }
 
 # For convenient manual invocation
