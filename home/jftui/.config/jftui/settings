@@ -1,0 +1,9 @@
+server=http://127.0.0.1:8096
+token=a5e503d184a84e85937e93d37b62ccd2
+userid=ce77973c33704bbeab2c2f7a61b58880
+ssl_verifyhost=true
+client=jftui
+device=samurai
+deviceid=6535763
+version=0.7.2
+try_local_files=no

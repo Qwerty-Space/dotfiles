@@ -12,43 +12,68 @@ res="1920x1080"
 blur_shrink=$(echo "scale=2; 20 / $blur_level" | bc)
 blur_sigma=$(echo "scale=2; 0.6 * $blur_level" | bc)
 
+# Default values
+force=false
+file_path=""
+
+# Parse command-line arguments
+while [[ $# -gt 0 ]]; do
+	case "$1" in
+	-f | --force)
+		force=true
+		shift
+		;;
+	*)
+		# Assume any other argument is the file path
+		file_path="$1"
+		shift
+		;;
+	esac
+done
 
 shuffle() {
-    if [ ! -e "$safepath" ]; then
-        bg=$(find "/home/qwerty/Saved Pictures/Wallpapers/Desktop" -type f -and -not -iname '*.gif' | shuf -n 1)
-    elif [ -e "$safepath" ]; then
-        bg=$(find "/home/qwerty/Saved Pictures/Wallpapers/Desktop" -type f -and -not -iname '*.gif' -and -not -ipath '*/NSFW/*' | shuf -n 1)
-    fi
-    echo "Found wallpaper $bg" >&2
-    echo "$bg"
+	if [ ! -e "$safepath" ]; then
+		bg=$(find "/home/qwerty/Saved Pictures/Wallpapers/Desktop" -type f -and -not -iname '*.gif' | shuf -n 1)
+	elif [ -e "$safepath" ]; then
+		bg=$(find "/home/qwerty/Saved Pictures/Wallpapers/Desktop" -type f -and -not -iname '*.gif' -and -not -ipath '*/NSFW/*' | shuf -n 1)
+	fi
+	echo "Found wallpaper $bg" >&2
+	echo "$bg"
 }
 
 apply_blur() {
-    convert "$1" \
-        -scale "$res" -gravity center -extent "$res" \
-        -filter Gaussian \
-        -resize "$blur_shrink%" \
-        -define "filter:sigma=$blur_sigma" \
-        -resize "$res^" -gravity center -extent "$res" \
-        -fill black -colorize $dim_level \
-        "$lockimg"
+	convert "$1" \
+		-scale "$res" -gravity center -extent "$res" \
+		-filter Gaussian \
+		-resize "$blur_shrink%" \
+		-define "filter:sigma=$blur_sigma" \
+		-resize "$res^" -gravity center -extent "$res" \
+		-fill black -colorize $dim_level \
+		"$lockimg"
 
-    echo "Applied the blur filter" >&2
-    echo "$lockimg"
+	echo "Applied the blur filter" >&2
+	echo "$lockimg"
 }
 
 set_wp() {
-    wallpaper=$(shuffle)
+	wallpaper=$1
+	if [ -z $1 ]; then
+		wallpaper=$(shuffle)
+	fi
+	echo $wallpaper
 
-    lockimg=$(apply_blur "$wallpaper")
+	lockimg=$(apply_blur "$wallpaper")
 
-    feh --bg-fill "$wallpaper"
-    echo "Set wallpaper to $(basename "$wallpaper")" >&2
+	feh --bg-fill "$wallpaper"
+	echo "Set wallpaper to $(basename "$wallpaper")" >&2
 }
 
-if [ ! -e "$pausepath" ] || [ "$1" == "force"  ]; then
-    if [ "$1" == "force" ]; then
-        dunstify -a "$USER@$(cat /etc/hostname)" "Randomising wallpaper"
-    fi
-    set_wp
+if [ "$force" == true ]; then
+	dunstify -a "$USER@$(cat /etc/hostname)" "Randomising wallpaper"
+	set_wp
+elif [ -n "$file_path" ]; then
+	set_wp "$file_path"
+elif [ ! -e "$pausepath" ]; then
+	set_wp
 fi
+
