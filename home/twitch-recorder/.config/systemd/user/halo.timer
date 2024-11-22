@@ -1,0 +1,10 @@
+[Unit]
+Description=Run every minute
+
+[Timer]
+OnCalendar=*:*:0
+Unit=halo.service
+
+[Install]
+WantedBy=timers.target
+

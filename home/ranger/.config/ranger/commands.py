@@ -4,7 +4,6 @@
 # documentation.  Do NOT add them all here, or you may end up with defunct
 # commands when upgrading ranger.
 
-# A simple command for demonstration purposes follows.
 # -----------------------------------------------------------------------------
 
 from __future__ import (absolute_import, division, print_function)
@@ -16,6 +15,11 @@ from shlex import quote
 # You always need to import ranger.api.commands here to get the Command class:
 from ranger.api.commands import Command
 
+class update_tmux_title(Command):
+    """Sets the tmux title to ranger"""
+
+    def execute(self):
+        self.fm.run("tmux rename-window ranger")
 
 class x_copy(Command):
     """ Copies a file to the x clipboard """
@@ -62,3 +66,4 @@ class tmsu_untag(Command):
         cf = self.fm.thisfile
 
         self.fm.run("tmsu untag \"{0}\" {1}".format(cf.basename, self.rest(1)))
+

@@ -7,6 +7,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'preservim/nerdtree'
 Plug 'farmergreg/vim-lastplace'
 Plug 'godlygeek/tabular'
+Plug 'folke/which-key.nvim'
 
 " appearance
 Plug 'itchyny/lightline.vim'
