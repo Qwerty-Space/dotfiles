@@ -5,6 +5,8 @@ export BROWSER=firefox
 
 export QMK_HOME="$HOME/.qmk_firmware/qmk_firmware"
 
+export GOPATH="$HOME/.go"
+
 # Add ~/.local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
