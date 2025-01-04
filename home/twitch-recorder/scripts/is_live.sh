@@ -12,9 +12,11 @@ function is_live() {
   # Convert Unicode escape sequences to UTF-8 (e.g., \u003e -> >)
   local utf8_description=$(echo -e "$description" | sed 's/\\u\([0-9a-fA-F]\{4\}\)/\\x\1/g' | while read -r line; do echo -e "$line"; done)
   # Convert to a safe filename
-  local filename=$(echo "$utf8_description" | tr -cd '[:alnum:][:space:]._-')
+  local title=$(echo "$utf8_description" | tr -cd '[:alnum:][:space:]._-')
   # Get today's date
   local now=$(date -u "+%Y-%m-%d")
+  # Combine title and date into filename
+  local filename="$now $title.mp4"
 
   # Check if the content contains the string "isLiveBroadcast"
   if [[ $content == *"isLiveBroadcast"* ]]; then
@@ -22,8 +24,11 @@ function is_live() {
     notify-send ""
     dunstify -a "$USER@$(cat /etc/hostname)" "Recording $channel_name's stream"
     echo "Steam Title:  $utf8_description"
-    # Download the stream, converting the video to 30 FPS with a bitrate of 2500K
-    yt-dlp -o "$now $filename.%(ext)s" --postprocessor-args "-vf fps=30 -b:v 2500k" $channel_link
+    # Download the stream, and compress the video
+    streamlink --twitch-disable-ads -o "Uncompressed $filename" $channel_link best
+    ffmpeg -i "Uncompressed $filename" -r 30 -b:v 1.5M "$filename"
+    rm "Uncompressed $filename"
+    # yt-dlp -o "$now $filename.%(ext)s" --postprocessor-args "-r 30 -b:v 2M" $channel_link
     dunstify -a "$USER@$(cat /etc/hostname)" "$channel_name's stream downloaded"
   else
     echo "$channel_name is not live :(" # Print a message if the channel is not live
