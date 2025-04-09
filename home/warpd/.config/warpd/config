@@ -1,0 +1,18 @@
+# unbind problematic key
+hint_oneshot_key: A-M-z
+
+# Arrow key movement
+left: Left
+right: Right
+up: Up
+down: Down
+
+
+hint_activation_key: M-h
+hint2_activation_key: A-M-h
+activation_key: M-S-c
+
+hint: h
+hint2: H
+
+buttons: m , .
