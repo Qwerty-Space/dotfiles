@@ -18,10 +18,12 @@ function is_live() {
   # Combine title and date into filename
   local filename="$now $title.mp4"
 
-  # Check if the content contains the string "isLiveBroadcast"
-  if [[ $content == *"isLiveBroadcast"* ]]; then
+  # Check if channel is live using streamlink
+  streamlink --stream-url $channel_link
+
+  # If streamlink outputs 0, then the channel is live
+  if [ $? -eq 0 ]; then
     echo "$channel_name is live" # Print a message if the channel is live
-    notify-send ""
     dunstify -a "$USER@$(cat /etc/hostname)" "Recording $channel_name's stream"
     echo "Steam Title:  $utf8_description"
     # Download the stream, and compress the video
