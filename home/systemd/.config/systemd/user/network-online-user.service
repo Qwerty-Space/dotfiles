@@ -1,8 +1,0 @@
-[Unit]
-Description=User Wait for Network to be Configured
-
-[Service]
-Type=oneshot
-ExecStart=/lib/systemd/systemd-networkd-wait-online
-RemainAfterExit=yes
-

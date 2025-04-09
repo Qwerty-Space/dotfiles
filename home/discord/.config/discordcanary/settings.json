@@ -7,12 +7,13 @@
   "IS_MAXIMIZED": false,
   "IS_MINIMIZED": false,
   "WINDOW_BOUNDS": {
-    "x": 1930,
-    "y": 10,
+    "x": 10,
+    "y": 42,
     "width": 1373,
-    "height": 1060
+    "height": 1028
   },
   "SKIP_HOST_UPDATE": true,
   "trayBalloonShown": true,
-  "chromiumSwitches": {}
+  "chromiumSwitches": {},
+  "BACKGROUND_COLOR": "#121214"
 }

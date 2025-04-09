@@ -1,0 +1,8 @@
+[Unit]
+Description=timer for rclone
+
+[Timer]
+OnBootSec=2min
+
+[Install]
+WantedBy=timers.target
