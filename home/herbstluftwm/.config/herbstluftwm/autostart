@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 hc() {
-	herbstclient "$@"
+  herbstclient "$@"
 }
 
 hc emit_hook reload
@@ -28,7 +28,7 @@ hc keybind XF86AudioMute spawn pactl set-sink-mute @DEFAULT_SINK@ toggle
 hc keybind XF86AudioLowerVolume spawn pactl set-sink-volume @DEFAULT_SINK@ -5%
 hc keybind XF86AudioRaiseVolume spawn pactl set-sink-volume @DEFAULT_SINK@ +5%
 hc keybind $AltMod-Tab spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
-	-run-command "/bin/zsh -i -c '{cmd}'" -show window
+  -run-command "/bin/zsh -i -c '{cmd}'" -show window
 
 # hc keybind $Mod-m spawn rofi -modi "bindings:~/.config/rofi/mpv-rofi-menu.py" -show bindings
 # hc keybind $Mod-p spawn rofi -modi "playlist:~/.config/rofi/mpv-rofi-menu.py" -show playlist
@@ -38,7 +38,7 @@ hc keybind $Mod-F2 spawn ddcutil -n "ATNM91A020664" setvcp 60 0x0f
 
 ## run things
 hc keybind $Mod-d spawn rofi -run-list-command ". ~/.config/rofi/aliases.sh" \
-	-run-command "/bin/zsh -i -c '{cmd}'" -show run
+  -run-command "/bin/zsh -i -c '{cmd}'" -show run
 hc keybind Print spawn flameshot gui
 hc keybind $AltMod-Print spawn flameshot screen -c
 hc keybind $Mod-Print spawn ~/scripts/screenrecord
@@ -105,12 +105,12 @@ hc set swap_monitors_to_get_tag 0
 
 hc rename default "${tag_names[0]}" || true
 for i in ${!tag_names[@]}; do
-	hc add "${tag_names[$i]}"
-	key="${tag_keys[$i]}"
-	if ! [ -z "$key" ]; then
-		hc keybind "$Mod-$key" use_index "$i"
-		hc keybind "$Mod-Shift-$key" move_index "$i"
-	fi
+  hc add "${tag_names[$i]}"
+  key="${tag_keys[$i]}"
+  if ! [ -z "$key" ]; then
+    hc keybind "$Mod-$key" use_index "$i"
+    hc keybind "$Mod-Shift-$key" move_index "$i"
+  fi
 done
 
 MainLayout="(split horizontal:0.550000:1
@@ -134,7 +134,7 @@ hc load Split "$SplitLayout"
 hc load Gaming "$GamingLayout"
 
 random_char() {
-	echo $(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 8 | head -n 1)
+  echo $(cat /dev/urandom | tr -dc 'a-z0-9' | fold -w 8 | head -n 1)
 }
 
 # create tag
@@ -157,9 +157,9 @@ hc keybind $Mod-p pseudotile toggle
 # layouts, if the layout change wouldn't affect the actual window positions.
 # I.e. if there are two windows within a frame, the grid layout is skipped.
 hc keybind $Mod-space \
-	or , and . compare tags.focus.curframe_wcount = 2 \
-	. cycle_layout +1 vertical horizontal max vertical grid \
-	, cycle_layout +1
+  or , and . compare tags.focus.curframe_wcount = 2 \
+  . cycle_layout +1 vertical horizontal max vertical grid \
+  , cycle_layout +1
 
 # mouse
 hc mouseunbind --all
@@ -269,10 +269,10 @@ hc detect_monitors
 # panel=~/.config/herbstluftwm/panel.sh
 # [ -x "$panel" ] || panel=/etc/xdg/herbstluftwm/panel.sh
 for monitor in $(herbstclient list_monitors | cut -d: -f1); do
-	# start it on each monitor
-	# "$panel" $monitor &
-	hc pad 0 27 0 0
-	# polybar -r qwerty &
+  # start it on each monitor
+  # "$panel" $monitor &
+  hc pad 0 27 0 0
+  # polybar -r qwerty &
 done
 
 # for m in $(polybar --list-monitors | cut -d":" -f1); do
@@ -285,36 +285,35 @@ killall -q polybar
 polybar -r qwerty &
 
 if hc silent new_attr bool my_not_first_autostart; then
-	numlockx &
-	source ~/.fehbg
-	ibus-daemon -drxR
-	# xss-lock ~/scripts/lock &
-	/home/scripts/tunnel.sh
-	termite -r termstart &
-	nm-applet &
-	blueman-applet &
-	flameshot &
-	dunst &
-	udiskie --tray &
-	redshift-gtk &
-	telegram-desktop &
-	keepassxc &
+  numlockx &
+  source ~/.fehbg
+  ibus-daemon -drxR
+  # xss-lock ~/scripts/lock &
+  /home/scripts/tunnel.sh
+  termite -r termstart &
+  nm-applet &
+  blueman-applet &
+  flameshot &
+  dunst &
+  udiskie --tray &
+  redshift-gtk &
+  telegram-desktop &
+  keepassxc &
 
-	if [[ $(cat /etc/hostname) == "samurai" ]]; then
-		# view certain tags on login
-		hc focus_monitor 0
-		hc use_index 4
-		hc focus_monitor 1
-		hc use_index 0
+  if [[ $(cat /etc/hostname) == "samurai" ]]; then
+    # view certain tags on login
+    hc focus_monitor 0
+    hc use_index 4
+    hc focus_monitor 1
+    hc use_index 0
 
-		steam &
-		discord-canary &
-		scream -o pulse -i virbr0 &
-		solaar -w hide &
-		mntzeus &
-		keynav
-		barrier &
-	fi
+    steam &
+    discord-canary &
+    # scream -o pulse -i virbr0 &
+    solaar -w hide &
+    mntzeus &
+    # keynav
+  fi
 fi
 sleep 2s
 pkill compton
