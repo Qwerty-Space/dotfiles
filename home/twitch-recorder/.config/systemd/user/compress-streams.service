@@ -1,0 +1,10 @@
+[Unit]
+Description=Compress streams downloaded by the stream downloader script
+After=network-online-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/qwerty/scripts/compress_streams.sh "/home/qwerty/Videos/Relaxing/ASMR/"
+
+[Install]
+WantedBy=default.target
