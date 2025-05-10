@@ -1,0 +1,10 @@
+[Unit]
+Description=Compress streams downloaded by twitch recorder
+
+[Timer]
+OnCalendar=02:00
+Unit=compress-streams.service
+
+[Install]
+WantedBy=timers.target
+
