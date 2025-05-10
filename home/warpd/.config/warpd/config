@@ -8,11 +8,24 @@ up: Up
 down: Down
 
 
-hint_activation_key: M-h
-hint2_activation_key: A-M-h
+hint_activation_key: A-M-h
+hint2_activation_key: M-h
 activation_key: M-S-c
 
-hint: h
-hint2: H
+hint: H
+hint2: h
 
+# dvorak layout
+hint_chars: ,.pyfgcrlaoeuidhtns;qjkxbmwvz
+
+# show second hints in a 3x3 grid like so:
+# ,.p
+# oeu
+# qjk
+hint2_chars: ,.poeuqjk
+hint2_grid_size: 3
+
+screen_chars: etonas
+
+# left middle right
 buttons: m , .
