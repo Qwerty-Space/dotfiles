@@ -220,6 +220,7 @@ hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_NORMAL' title~'Wine.+' floating=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 
+hc rule class="zenity" floating=on
 hc rule class="Calculator" floating=on
 hc rule instance="dragon-drop" floating=on floatplacement=center # to be added next version
 hc rule instance="redshift-gtk" floating=on
