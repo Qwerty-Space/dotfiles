@@ -46,8 +46,8 @@ hc keybind $Mod-w spawn ~/.config/herbstluftwm/mpv_clipboard.sh
 
 ## wallpaper things
 hc keybind $Mod-$AltMod-w spawn ~/scripts/wallpaper_changer --force
-hc keybind $Mod-Control-w spawn ~/scripts/pause_wallpaper.sh
-hc keybind $Mod-$AltMod-Control-w spawn ~/scripts/safe_wallpaper.sh
+hc keybind $Mod-Control-w spawn ~/scripts/pause_wallpaper
+hc keybind $Mod-$AltMod-Control-w spawn ~/scripts/safe_wallpaper
 
 # basic movement
 # focusing clients
@@ -294,7 +294,7 @@ if hc silent new_attr bool my_not_first_autostart; then
   source ~/.fehbg
   ibus-daemon -drxR
   # xss-lock ~/scripts/lock &
-  /home/scripts/tunnel.sh
+  /home/scripts/tunnel
   termite -r termstart &
   nm-applet &
   blueman-applet &

@@ -35,8 +35,8 @@ alias da='du -hd1'
 alias peaclock='peaclock --config-dir ~/.config/peaclock'
 
 ## ssh tunnelling
-alias tunnel='bash ~/scripts/tunnel.sh'
-alias ssh_tunnel='bash ~/scripts/tunnel.sh'
+alias tunnel='bash ~/scripts/tunnel'
+alias ssh_tunnel='bash ~/scripts/tunnel'
 
 ## misc
 alias onlyoffice='onlyoffice-desktopeditors'
