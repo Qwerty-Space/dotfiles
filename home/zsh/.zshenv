@@ -11,5 +11,8 @@ export GOPATH="$HOME/.go"
 # Add ~/.local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+# Add ~/scripts/ to PATH
+export PATH="$HOME/scripts:$PATH"
+
 # Add cargo binaries to path
 export PATH="$PATH:$HOME/.cargo/bin"
