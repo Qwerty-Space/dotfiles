@@ -15,5 +15,6 @@
   "SKIP_HOST_UPDATE": true,
   "trayBalloonShown": true,
   "chromiumSwitches": {},
-  "BACKGROUND_COLOR": "#121214"
+  "BACKGROUND_COLOR": "#121214",
+  "offloadAdmControls": false
 }
