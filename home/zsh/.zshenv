@@ -1,4 +1,5 @@
 export EDITOR=vim
+export SYSTEMD_EDITOR=$EDITOR
 export PAGER=less
 export VISUAL=$EDITOR
 export BROWSER=firefox
