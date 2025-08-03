@@ -34,7 +34,6 @@ fi
 parent_url="${url%/}"
 # Remove the last directory
 parent_url="${parent_url%/*}"
-echo "parent_url" $parent_url
 
 # Construct the command
 if [ -n "$auth" ]; then
