@@ -1,0 +1,66 @@
+#!/bin/bash
+
+usage() {
+  echo ""
+  echo "Usage: $0 -u|--url <URL> [-a|--auth <AUTH>] [-e|--extensions <EXTENSIONS>] [-n|--no-number] [-h|--help]"
+  echo ""
+  printf "%-24s %s\n" "-u, --url <URL>" "The URL to fetch links from (required)."
+  printf "%-24s %s\n" "-a, --auth <AUTH>" "Optional authentication in the format 'username:password'."
+  printf "%-24s %s\n" "-e, --extensions <EXT>" "Optional comma-separated list of file extensions to filter links."
+  printf "%-24s %s\n" "-n, --no-number" "Optional:  Do not number the links in the output."
+  printf "%-24s %s\n" "-h, --help" "Display this help message."
+  exit 1
+}
+
+# Parse named arguments
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -u|--url) url="$2"; shift ;;
+        -a|--auth) auth="$2"; shift ;;
+        -e|--extensions) extensions="$2"; shift ;;
+        -n|--no-number) number_links=false ;;
+        -h|--help) usage ;;
+        *) echo "Unknown parameter passed: $1"; usage ;;
+    esac
+    shift
+done
+
+# Check if URL is provided
+if [ -z "$url" ]; then
+    echo "Error: URL is required."
+    usage
+fi
+
+parent_url="${url%/}"
+# Remove the last directory
+parent_url="${parent_url%/*}"
+
+# Construct the command
+if [ -n "$auth" ]; then
+    auth_option="-auth $auth"
+else
+    auth_option=""
+fi
+
+# Convert comma-separated extensions to a regex pattern if extensions are provided
+if [ -n "$extensions" ]; then
+    extension_pattern=$(echo "$extensions" | sed 's/,/\\|/g; s/^/\\./; s/$/$/')
+fi
+
+number_links=true
+# Fetch links, filter out unwanted lines, and store them in a variable
+links=$(lynx $auth_option -listonly -dump "$url" |
+grep -v '\.\.' |
+grep -v -e '^References$' |
+grep -v -e '^\s*$' |
+grep -v -e "${parent_url}/?$" |
+grep -E "$extension_pattern" | 
+awk '{print $NF}')
+
+# Conditionally run nl based on the variable
+if [ "$number_links" = true ]; then
+    echo "$links" | nl -w1 -s'. ' | sed 's/^ *//; s/ *$//; G'
+else
+    echo "$links" | sed 's/^ *//; s/ *$//; G'
+fi
+
