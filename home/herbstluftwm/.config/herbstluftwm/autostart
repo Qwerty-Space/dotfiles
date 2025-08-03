@@ -209,6 +209,8 @@ hc set smart_frame_surroundings 1
 hc set mouse_recenter_gap 0
 
 # rules
+# instance:  the first entry in client’s WM_CLASS.
+# class: the second entry in client’s WM_CLASS.
 hc unrule -F
 hc rule focus=on # normally focus new clients
 hc set focus_follows_mouse 1
@@ -220,12 +222,14 @@ hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_NORMAL' title~'Wine.+' floating=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 
+hc rule class="Mullvad VPN" floating=on floatplacement=center
 hc rule class="zenity" floating=on
 hc rule class="Calculator" floating=on
-hc rule instance="dragon-drop" floating=on floatplacement=center # to be added next version
+hc rule class="SGDBoop" floating=on floatplacement=center
+hc rule instance="dragon-drop" floating=on floatplacement=center
 hc rule instance="redshift-gtk" floating=on
 hc rule instance="Toolkit" class="firefox" floating=off
-hc rule class="KeePassXC" title~"Unlock (\w+) \- KeePassXC" floating=off pseudotile=on floatplacement=center
+hc rule class="KeePassXC" title~"Unlock (\w+) \- KeePassXC" floating=on floatplacement=center
 # hc rule class="TelegramDesktop" fullscreen=off
 
 ### Window locations ###
@@ -298,7 +302,7 @@ if hc silent new_attr bool my_not_first_autostart; then
   dunst &
   udiskie --tray &
   redshift-gtk &
-  telegram-desktop &
+  Telegram &
   keepassxc &
 
   if [[ $(cat /etc/hostname) == "samurai" ]]; then
@@ -318,7 +322,5 @@ if hc silent new_attr bool my_not_first_autostart; then
   fi
 fi
 sleep 2s
-pkill compton
 pkill picom
-compton --config ~/.config/compton/compton-kawase.conf &
-# picom --config ~/.config/picom/picom-kawase.conf &
+picom --config ~/.config/picom/picom.conf &
