@@ -34,6 +34,7 @@ fi
 parent_url="${url%/}"
 # Remove the last directory
 parent_url="${parent_url%/*}"
+echo "parent_url" $parent_url
 
 # Construct the command
 if [ -n "$auth" ]; then
@@ -53,7 +54,7 @@ links=$(lynx $auth_option -listonly -dump "$url" |
 grep -v '\.\.' |
 grep -v -e '^References$' |
 grep -v -e '^\s*$' |
-grep -v -e "${parent_url}/?$" |
+grep -v -E "${parent_url}/* *$" |
 grep -E "$extension_pattern" | 
 awk '{print $NF}')
 
