@@ -1,0 +1,9 @@
+extractor:
+  cookies:
+    - firefox
+  twitter:
+    directory:
+      - "twitter"
+      - "{author['nick']} - {author['name']}"
+    filename: "{date:%Y-%m-%d} {tweet_id}_{num}.{extension}"
+
