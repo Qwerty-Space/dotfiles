@@ -244,16 +244,16 @@ hc rule windowrole="termstart" tag="Main" index=1
 hc rule instance="watch" tag="AltMax" index=0
 
 # Steam and Gaming
-hc rule class~"(dis|light)cord" tag="Gaming" index=0
-hc rule class="steam" tag="Gaming" index=0
+hc rule class~"(dis|light)cord.*" tag="Gaming" index=0
+hc rule class="steam" tag="Gaming" index=1
+hc rule class="steam" title="Steam" tag="Gaming" index=0
 hc rule class="steam" fixedsize tag="Gaming" index=0 pseudotile=on
 hc rule class="steam" title="Friends List" tag="Gaming" index=1
-# hc rule instance="steamwebhelper" tag="Gaming" index=1
-# hc rule title~"Trade offer with.*" tag="Gaming" index=0
-# hc rule title~"Special Offers" class="steam" tag="Gaming" index=0
+hc rule title~"Trade offer with.*" tag="Gaming" index=0
+hc rule title~"Special Offers" class="steam" tag="Gaming" index=0
 # hc rule title~".+marketingmessages.+" class="Steam" tag="Gaming" index=0
-# hc rule title="Settings" class="steam" tag="Gaming" index=0
-# hc rule title~"Gift.*" class="steam" tag="Gaming" index=0
+hc rule title="Settings" class="steam" tag="Gaming" index=0
+hc rule title~".*Gift.*" class="steam" tag="Gaming" index=0
 # hc rule title="Image Popout" class="steam" tag="Gaming" index=0
 hc rule instance="streaming_client" tag="AltMax" index=0
 hc rule instance~"Minecraft.*" tag="AltMax" index=0
