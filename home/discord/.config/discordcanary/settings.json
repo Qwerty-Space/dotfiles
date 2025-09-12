@@ -7,14 +7,15 @@
   "IS_MAXIMIZED": false,
   "IS_MINIMIZED": false,
   "WINDOW_BOUNDS": {
-    "x": 1930,
-    "y": 10,
-    "width": 1373,
-    "height": 1060
+    "x": 3,
+    "y": 35,
+    "width": 1914,
+    "height": 1042
   },
   "SKIP_HOST_UPDATE": true,
   "trayBalloonShown": true,
   "chromiumSwitches": {},
   "BACKGROUND_COLOR": "#121214",
-  "offloadAdmControls": false
+  "offloadAdmControls": false,
+  "enableHardwareAcceleration": true
 }
