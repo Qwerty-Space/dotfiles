@@ -8,6 +8,9 @@ unsetopt beep
 setopt hist_ignore_all_dups
 setopt hist_expire_dups_first
 setopt hist_find_no_dups
+setopt correct
+setopt correct_all
+setopt dvorak
 
 # completion
 autoload -Uz compinit; compinit
@@ -54,10 +57,12 @@ eval $(dircolors ~/.dir_colors)
 bindkey -e
 bindkey "\e[5~" beginning-of-history    # PAGE UP
 bindkey "\e[6~" end-of-history          # PAGE DOWN
-bindkey "\e[7~" beginning-of-line       # HOME
-bindkey "\e[8~" end-of-line             # END
 bindkey "\e[3~" delete-char             # DELETE
 bindkey "\e[2~" quoted-insert           # INSERT
+bindkey "^[[1~" beginning-of-line       # HOME
+bindkey "^[[4~" end-of-line             # END
+bindkey "^[[3;5~" kill-word             # CTRL+DELETE
+bindkey "^H" backward-kill-word         # CTRL+BACKSPACE
 
 vi-forward-nonword() {
     zle vi-forward-word-end
