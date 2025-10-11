@@ -50,7 +50,7 @@ function unshield_vm() {
 
     sysctl vm.stat_interval=1
     sysctl kernel.watchdog=1
-    cpupower -c $VIRT_CORES frequency-set -g ondemand
+    cpupower -c $VIRT_CORES frequency-set -g powersave
 }
 
 # For convenient manual invocation
