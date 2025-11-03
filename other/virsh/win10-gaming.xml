@@ -10,6 +10,7 @@
   <currentMemory unit='KiB'>16777216</currentMemory>
   <vcpu placement='static'>12</vcpu>
   <iothreads>1</iothreads>
+  <iothreadpin cpuset='0-1,8-9' iothread='1'/>
   <cputune>
     <vcpupin vcpu='0' cpuset='4'/>
     <vcpupin vcpu='1' cpuset='12'/>
@@ -26,7 +27,7 @@
     <emulatorpin cpuset='0-1,8-9'/>
   </cputune>
   <os>
-    <type arch='x86_64' machine='pc-q35-5.0'>hvm</type>
+    <type arch='x86_64' machine='q35'>hvm</type>
     <loader readonly='yes' type='pflash'>/usr/share/edk2-ovmf/x64/OVMF_CODE.4m.fd</loader>
     <nvram>/var/lib/libvirt/qemu/nvram/win10-gaming_VARS.fd</nvram>
     <smbios mode='host'/>
@@ -62,7 +63,6 @@
     <topology sockets='1' dies='1' clusters='1' cores='6' threads='2'/>
     <feature policy='require' name='topoext'/>
     <feature policy='disable' name='svm'/>
-    <feature policy='disable' name='hypervisor'/>
   </cpu>
   <clock offset='localtime'>
     <timer name='rtc' tickpolicy='catchup'/>
@@ -80,14 +80,14 @@
   <devices>
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type='block' device='disk'>
-      <driver name='qemu' type='raw' cache='none' io='native' discard='unmap'/>
+      <driver name='qemu' type='raw' cache='none' iothread='1' io='native' discard='unmap'/>
       <source dev='/dev/sdb'/>
       <target dev='vda' bus='virtio'/>
       <boot order='2'/>
       <address type='pci' domain='0x0000' bus='0x03' slot='0x00' function='0x0'/>
     </disk>
     <disk type='block' device='disk'>
-      <driver name='qemu' type='raw' cache='none' io='native'/>
+      <driver name='qemu' type='raw' cache='none' iothread='1' io='native'/>
       <source dev='/dev/sdc'/>
       <target dev='vdb' bus='virtio'/>
       <address type='pci' domain='0x0000' bus='0x07' slot='0x00' function='0x0'/>
