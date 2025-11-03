@@ -16,3 +16,6 @@ export PATH="$HOME/scripts:$PATH"
 
 # Add cargo binaries to path
 export PATH="$PATH:$HOME/.cargo/bin"
+
+export XDG_CONFIG_HOME=$HOME/.config
+
