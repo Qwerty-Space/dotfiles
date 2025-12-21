@@ -12,4 +12,8 @@
 		<Name>Videos</Name>
 		<LocalDir>/home/qwerty/Videos/Videos/</LocalDir>
 	</Bookmark>
+	<Bookmark>
+		<Name>tmp</Name>
+		<LocalDir>/tmp/</LocalDir>
+	</Bookmark>
 </FileZilla3>
