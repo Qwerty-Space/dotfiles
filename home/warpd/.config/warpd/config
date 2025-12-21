@@ -11,6 +11,7 @@ down: Down
 hint_activation_key: A-M-h
 hint2_activation_key: M-h
 activation_key: M-S-c
+history_activation_key: M-;
 
 hint: H
 hint2: h
