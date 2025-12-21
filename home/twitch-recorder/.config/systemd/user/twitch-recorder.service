@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the live checker every minute
+After=network-online-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/qwerty/scripts/is_live.sh <twitch-account> "/path/to/files"
+
+[Install]
+WantedBy=default.target
