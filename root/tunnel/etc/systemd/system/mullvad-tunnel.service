@@ -1,0 +1,12 @@
+[Unit]
+Description=Runs multiple SSH tunnels with autossh
+After=network.target
+
+[Service]
+User=qwerty
+Group=qwerty
+Environment="AUTOSSH_GATETIME=0"
+ExecStart=/usr/bin/autossh -M 0 -N -D 50206 -o "ControlMaster=no" -o "ExitOnForwardFailure=yes" -o "ServerAliveInterval=30" -o "ServerAliveCountMax=3" -l user 192.168.1.206
+
+[Install]
+WantedBy=multi-user.target

@@ -1,6 +1,14 @@
 #!/bin/bash
 # ssh tunnel
 
-ssh -D 50203 -l qwertyspace gegenees -f -N
-ssh -D 50204 -l qwerty shintaku -f -N
-ssh -D 50205 -l boba blueberry -f -N
+# # ssh
+# ssh -D 50203 -l qwertyspace gegenees -f -N
+# ssh -D 50204 -l qwerty shintaku -f -N
+# ssh -D 50205 -l boba blueberry -f -N
+# ssh -D 50206 -l user 192.168.1.206 -f -N
+
+# autossh
+autossh -M 0 -N -D 50203 -o "ExitOnForwardFailure=yes" -o "ServerAliveInterval=30" -o "ServerAliveCountMax=3" -l qwertyspace gegenees
+autossh -M 0 -N -D 50204 -o "ExitOnForwardFailure=yes" -o "ServerAliveInterval=30" -o "ServerAliveCountMax=3" -l qwerty shintaku
+autossh -M 0 -N -D 50205 -o "ExitOnForwardFailure=yes" -o "ServerAliveInterval=30" -o "ServerAliveCountMax=3" -l boba blueberry
+autossh -M 0 -N -D 50206 -o "ExitOnForwardFailure=yes" -o "ServerAliveInterval=30" -o "ServerAliveCountMax=3" -l user 192.168.1.206
