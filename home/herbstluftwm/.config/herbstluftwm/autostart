@@ -245,6 +245,7 @@ hc rule instance="watch" tag="AltMax" index=0
 
 # Steam and Gaming
 hc rule class~"(dis|light)cord.*" tag="Gaming" index=0
+hc rule class~"vesktop.*" tag="Gaming" index=0
 hc rule class="steam" tag="Gaming" index=1
 hc rule title="Steam" tag="Gaming" index=1
 hc rule class="steam" title="Steam" tag="Gaming" index=0
@@ -252,6 +253,7 @@ hc rule class="steam" fixedsize tag="Gaming" index=0 pseudotile=on
 hc rule class="steam" title="Friends List" tag="Gaming" index=1
 hc rule title~"Trade offer with.*" tag="Gaming" index=0
 hc rule title~"Special Offers" class="steam" tag="Gaming" index=0
+hc rule title~"Steam Settingr" class="steam" tag="Gaming" index=0
 # hc rule title~".+marketingmessages.+" class="Steam" tag="Gaming" index=0
 hc rule title="Settings" class="steam" tag="Gaming" index=0
 hc rule title~".*Gift.*" class="steam" tag="Gaming" index=0
@@ -314,7 +316,8 @@ if hc silent new_attr bool my_not_first_autostart; then
     hc use_index 0
 
     steam &
-    discord-canary &
+    # discord-canary &
+    discord-canary --proxy-server=socks5://127.0.0.1:50206 &
     # scream -o pulse -i virbr0 &
     solaar -w hide &
     mntzeus &
