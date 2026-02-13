@@ -93,8 +93,8 @@ vol() {
 
 # Compare two directories
 dirdiff() {
-    find "$1/" "$2/" "$2/" -printf '%P\n' | sort | uniq -u | sed "s/^/$1\//"
-    find "$1/" "$1/" "$2/" -printf '%P\n' | sort | uniq -u | sed "s/^/$2\//"
+  find "$1/" "$2/" "$2/" -printf '%P\n' | sort | uniq -u | awk -v p="$1/" '{print p $0}'
+  find "$1/" "$1/" "$2/" -printf '%P\n' | sort | uniq -u | awk -v p="$2/" '{print p $0}'
 }
 
 # Copy files with a progress bar
