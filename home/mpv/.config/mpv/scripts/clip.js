@@ -71,6 +71,7 @@ function on_clip() {
 
   if (sub_track && vid_track) {
     cmd.push('-vf');
+
     cmd.push('subtitles=f=' + ffmpeg_filter_escape(path) + ':si=' + (sub_track.id - 1));
   }
 
@@ -95,3 +96,4 @@ function cancel_clip() {
 read_options();
 mp.add_key_binding('ctrl+x', 'start-clip', on_clip);
 mp.add_key_binding('ctrl+X', 'cancel-clip', cancel_clip);
+
