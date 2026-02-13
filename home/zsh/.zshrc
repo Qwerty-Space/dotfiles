@@ -23,7 +23,42 @@ _comp_options+=(globdots)
 autoload -Uz promptinit
 promptinit
 
-PROMPT="%F{blue}%B[%m %F{red}%~%F{blue}]%f%b "
+# PROMPT="%F{blue}%B[%m %F{red}%~%F{blue}]%f%b "
+# Prompt with root-colour swap and path wrap at >33 columns (no extra spaces inside brackets)
+build_prompt() {
+  local usercol pathcol reset bold close maxlen=33 expandedpath pathlen arrow
+
+  arrow='↳'                # change to '›' or '→' if you prefer
+
+  if [[ $EUID -eq 0 ]]; then
+    usercol='%F{red}'
+    pathcol='%F{blue}'
+  else
+    usercol='%F{blue}'
+    pathcol='%F{red}'
+  fi
+
+  reset='%f'
+  bold='%B'
+  close='%b'
+
+  NEWLINE=$'\n'
+
+  # measure visible length of %~
+  expandedpath=$(print -P -- "%~")
+  pathlen=${#expandedpath}
+
+  if (( pathlen > maxlen )); then
+    # path on first line; prompt (host in brackets + arrow) on second line
+    PROMPT="${usercol}${bold}[${reset}${usercol}%m ${pathcol}%~${usercol}${bold}]${NEWLINE} ${pathcol}${arrow}${reset}${close} "
+  else
+    # single-line: [host path]
+    PROMPT="${usercol}${bold}[${reset}${usercol}%m ${pathcol}%~${usercol}${bold}]${reset}${close} "
+  fi
+}
+
+precmd_functions+=(build_prompt)
+
 # RPROMPT="%F{red}%B%U[%m %F{blue}%~%F{red}]%f%b%u "
 
 # window title
