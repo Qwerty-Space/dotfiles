@@ -1,0 +1,12 @@
+[Trigger]
+Operation = Upgrade
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Clean AUR cache
+When = PostTransaction
+Exec = /usr/bin/paru --noconfirm -Sca
+
