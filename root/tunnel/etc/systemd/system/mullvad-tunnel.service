@@ -1,5 +1,5 @@
 [Unit]
-Description=Runs multiple SSH tunnels with autossh
+Description=Runs an SSH tunnel with autossh
 After=network.target
 
 [Service]
