@@ -120,5 +120,3 @@ yt-tdl() {
     yt-dlp --skip-download --write-thumbnail $@
 }
 
-# discord proxy
-alias discord-canary='/usr/bin/discord-canary --proxy-server=socks5://127.0.0.1:50206'
