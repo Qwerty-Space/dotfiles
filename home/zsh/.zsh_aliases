@@ -117,6 +117,9 @@ audiocheck() {
 
 # Download YouTube thumbnails
 yt-tdl() {
-    yt-dlp --skip-download --write-thumbnail $@
+  THUMB=$(yt-dlp --skip-download --write-thumbnail "$@" 2>&1 \
+    | awk -F': ' '/Writing video thumbnail/ {file=$NF} END{print file}')
+  magick "$THUMB" "$THUMB.jpg"
+  rm -- "$THUMB"
 }
 
