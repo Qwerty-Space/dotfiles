@@ -66,6 +66,7 @@ filename="/tmp/sr-$DATE.mp4"
 
 copy_name
 ffmpeg \
+    -f lavfi -i anullsrc=r=48000:cl=mono \
     -video_size ${W}x$H \
     -framerate 60 \
     -f x11grab \
