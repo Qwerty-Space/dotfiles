@@ -7,3 +7,8 @@
 #sidebar-close {
   visibility: collapse;
 }
+
+#sidebar-panel-header {
+    visibility: collapse;
+}
+

@@ -12,3 +12,6 @@
 
 /* Reduce padding in navbar */
 @import "compact-navbar-breakout.css";
+
+/* Reduce sidebar borders */
+@import "sidebar-borders.css";

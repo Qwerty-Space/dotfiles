@@ -1,0 +1,15 @@
+#sidebar-box {
+    border-start-start-radius: 0px !important;
+    border: transparent !important;
+    padding: 0px !important;
+}
+
+#sidebar-splitter {
+    width: 4px !important;
+    border: 4px !important;
+}
+
+:root {
+    --border-radius-medium: 0px !important;
+    --chrome-content-separator-color: transparent !important;
+}
