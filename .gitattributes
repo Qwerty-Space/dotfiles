@@ -1,1 +1,3 @@
-tauon.conf filter=clean-tokens
+**/tauon.conf filter=clean-tokens
+**/syncplay.ini filter=clean-tokens
+**/feishin-settings.json filter=clean-tokens
