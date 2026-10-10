@@ -1,0 +1,154 @@
+#!/bin/bash
+
+# Parse command-line arguments
+input_path="$1"
+pattern="$2"
+output_dir="$3"
+max_size_str="$4"
+
+# Validate inputs
+if [[ -z "$input_path" || -z "$pattern" || -z "$output_dir" || -z "$max_size_str" ]]; then
+    echo "Usage: $0 <input_path> <pattern> <output_dir> <max_size>"
+    echo "Example: $0 /home/user/files '*.txt' /home/user/output 100KB"
+    exit 1
+fi
+
+# Convert max_size to bytes
+convert_to_bytes() {
+    local size_str="$1"
+    local num=$(echo "$size_str" | sed 's/[^0-9.]*//g')
+    local unit=$(echo "$size_str" | sed 's/[0-9.]*//g')
+
+    local multiplier
+    case "$unit" in
+        B|b) multiplier=1 ;;
+        KB|Kb|kb) multiplier=1000 ;;
+        KiB|KIB|kib) multiplier=1024 ;;
+        MB|Mb|mb) multiplier=1000000 ;;
+        MiB|MIB|mib) multiplier=1048576 ;;
+        GB|Gb|gb) multiplier=1000000000 ;;
+        GiB|GIB|gib) multiplier=1073741824 ;;
+        *) echo "Invalid unit: $unit" >&2; exit 1 ;;
+    esac
+
+    echo "$num * $multiplier" | bc | xargs printf "%.0f"
+}
+
+max_size=$(convert_to_bytes "$max_size_str")
+echo "Debug:  max_size = $max_size bytes" >&2
+if [[ -z "$max_size" ]]; then
+    exit 1
+fi
+
+# Validate input path and output directory
+if [[ ! -d "$input_path" ]]; then
+    echo "Error: Input path '$input_path' is not a directory" >&2
+    exit 1
+fi
+
+if [[ ! -d "$output_dir" ]]; then
+    echo "Error: Output directory '$output_dir' does not exist" >&2
+    exit 1
+fi
+
+# Find all matching files and sort them
+mapfile -t files < <(find "$input_path" -maxdepth 1 -type f -name "$pattern" | sort)
+
+if [[ ${#files[@]} -eq 0 ]]; then
+    echo "No files matching pattern '$pattern' found in '$input_path'" >&2
+    exit 1
+fi
+
+# Group files by size and create zip files
+declare -a group
+current_size=0
+first_file_num=1
+file_index=0
+
+while (( file_index < ${#files[@]} )); do
+    group=()
+    current_size=0
+    group_start=$((file_index + 1))
+
+    # Build a group
+    while (( file_index < ${#files[@]} )); do
+        file="${files[$file_index]}"
+        file_size=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file" 2>/dev/null)
+
+        # Check if adding this file would exceed max_size
+        if (( current_size + file_size > max_size )) && (( ${#group[@]} > 0 )); then
+            break
+        fi
+
+        group+=("$file")
+        ((current_size += file_size))
+        ((file_index++))
+    done
+
+    # Create zip for current group
+    group_end=$((file_index))
+    # zip_name=$(printf "%02d-%02d.zip" "$group_start" "$group_end")
+
+    # Name the zip file
+    if (( group_start == group_end )); then
+        zip_name=$(printf "%02d.zip" "$group_start")
+    else
+        zip_name=$(printf "%02d-%02d.zip" "$group_start" "$group_end")
+    fi
+
+    zip_path="$output_dir/$zip_name"
+
+    # Skip if zip already exists
+    if [[ -f "$zip_path" ]]; then
+        echo "Skipped: $zip_name (already exists)"
+        continue
+    fi
+
+    # Use apack to create the zip
+    apack "$zip_path" "${group[@]}"
+
+    if [[ $? -ne 0 ]]; then
+        echo "Error creating zip file: $zip_name" >&2
+        exit 1
+    fi
+
+    # Check the actual zip file size
+    zip_size=$(stat -f%z "$zip_path" 2>/dev/null || stat -c%s "$zip_path" 2>/dev/null)
+
+    if (( zip_size >= max_size )); then
+        echo "Warning: $zip_name exceeds max size ($(numfmt --to=iec-i --suffix=B --format='%.2f' $zip_size 2>/dev/null || echo $zip_size bytes)). Removing last file and regrouping..."
+
+        # Remove the zip file
+        rm "$zip_path"
+
+        # Remove the last file from the group and put it back into the queue
+        unset 'group[-1]'
+        ((file_index--))
+
+        # Recreate the zip with the reduced group
+        if (( ${#group[@]} > 0 )); then
+            zip_name=$(printf "%02d-%02d.zip" "$group_start" "$((file_index))")
+            zip_path="$output_dir/$zip_name"
+
+            # Skip if this zip already exists
+            if [[ -f "$zip_path" ]]; then
+                echo "Skipped: $zip_name (already exists)"
+                continue
+            fi
+
+            apack "$zip_path" "${group[@]}"
+
+            if [[ $? -ne 0 ]]; then
+                echo "Error creating zip file: $zip_name" >&2
+                exit 1
+            fi
+
+            echo "Created: $zip_name (${#group[@]} files, $(numfmt --to=iec-i --suffix=B --format='%.2f' $zip_size 2>/dev/null || echo $zip_size bytes))"
+        fi
+    else
+        echo "Created: $zip_name (${#group[@]} files, $(numfmt --to=iec-i --suffix=B --format='%.2f' $zip_size 2>/dev/null || echo $zip_size bytes))"
+    fi
+done
+
+echo "Completed successfully!"
+
