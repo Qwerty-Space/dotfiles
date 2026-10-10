@@ -1,4 +1,4 @@
 #!/bin/bash
 # Remove parts of lines
-sed 's/"password":"\w\+"//g' "$1"
+sed 's/"password":"\w\+"//g'
 
