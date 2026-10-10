@@ -54,6 +54,9 @@ alias virt='virsh -c qemu:///system'
 # Scripts
 alias screenshot='/home/qwerty/scripts/screenshot'
 
+# Vesktop proxy
+alias vesktop-proxy='vesktop --proxy-server=socks5://127.0.0.1:50206'
+
 mntzeus() {
     sshfs qwertyspace@zeus.feralhosting.com:/media/sdh1/home/qwertyspace /mnt/zeus -o reconnect
     if [[ "$1" == "cd" ]]; then
@@ -117,9 +120,13 @@ audiocheck() {
 
 # Download YouTube thumbnails
 yt-tdl() {
-  THUMB=$(yt-dlp --skip-download --write-thumbnail "$@" 2>&1 \
+  echo "yt-dlp --skip-download --write-thumbnail $@" >&2
+  THUMB=$(yt-dlp --skip-download --write-thumbnail "$@" 2>&1 | tee /dev/stderr \
     | awk -F': ' '/Writing video thumbnail/ {file=$NF} END{print file}')
   magick "$THUMB" "$THUMB.jpg"
   rm -- "$THUMB"
 }
+
+# yt-dlp proxy
+alias yt-dlp-proxy='yt-dlp --proxy "socks5://127.0.0.1:50206"'
 
