@@ -1,5 +1,16 @@
 # dotfiles
 
+### Setup
+The filters need to be setup to avoid leaking passwords and stuff
+```
+git config filter.remove-line.clean './.git-filter-remove-line.sh'
+git config filter.remove-line.smudge 'cat'
+
+git config filter.remove-section.clean './.git-filter-remove-section.sh'
+git config filter.remove-section.smudge 'cat'
+```
+
+
 ### Directory tree example:
 ```
 ~/.dotfiles
