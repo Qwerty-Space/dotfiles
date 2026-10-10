@@ -109,8 +109,8 @@ jump-playlist-6 6 Ctrl
 jump-playlist-7 7 Ctrl
 jump-playlist-8 8 Ctrl
 jump-playlist-9 9 Ctrl
-toggle-right-panel MB5
-toggle-gallery MB4
+toggle-right-panel
+toggle-gallery
 
 regenerate-playlist R Alt
 clear-queue Q Shift Alt
@@ -130,3 +130,5 @@ toggle-mute M Ctrl
 toggle-artistinfo O Ctrl
 cycle-theme ] Ctrl
 cycle-theme-reverse [ Ctrl
+cycle-layouts MB5
+cycle-layouts-reverse MB4
