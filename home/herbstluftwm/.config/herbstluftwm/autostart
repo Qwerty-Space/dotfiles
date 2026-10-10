@@ -251,15 +251,19 @@ hc rule title="Steam" tag="Gaming" index=1
 hc rule class="steam" title="Steam" tag="Gaming" index=0
 hc rule class="steam" fixedsize tag="Gaming" index=0 pseudotile=on
 hc rule class="steam" title="Friends List" tag="Gaming" index=1
+hc rule title="Image Popout" class="steam" tag="Gaming" floating=on
 hc rule title~"Trade offer with.*" tag="Gaming" index=0
 hc rule title~"Special Offers" class="steam" tag="Gaming" index=0
-hc rule title~"Steam Settingr" class="steam" tag="Gaming" index=0
+hc rule title~"Steam Settings" class="steam" tag="Gaming" index=0
 # hc rule title~".+marketingmessages.+" class="Steam" tag="Gaming" index=0
 hc rule title="Settings" class="steam" tag="Gaming" index=0
+hc rule title="Recordings & Screenshots" class="steam" tag="Gaming" index=0
 hc rule title~".*Gift.*" class="steam" tag="Gaming" index=0
 # hc rule title="Image Popout" class="steam" tag="Gaming" index=0
 hc rule instance="streaming_client" tag="AltMax" index=0
 hc rule instance~"Minecraft.*" tag="AltMax" index=0
+hc rule instance="steam_app_4162040" title="Zenless Zone Zero" pseudotile=on tag="Gaming" index=0
+hc rule instance="steam_app_4162040" title="ZenlessZoneZero" tag="AltMax" fullscreen=on
 
 ### /Window locations ###
 
@@ -316,11 +320,12 @@ if hc silent new_attr bool my_not_first_autostart; then
     hc use_index 0
 
     steam &
-    discord-canary &
+    # discord &
+    vesktop --proxy-server=socks5://127.0.0.1:50206 &
     # discord-canary --proxy-server=socks5://127.0.0.1:50206 &
     # scream -o pulse -i virbr0 &
     solaar -w hide &
-    mntzeus &
+    # mntzeus &
     # keynav
     warpd
   fi
