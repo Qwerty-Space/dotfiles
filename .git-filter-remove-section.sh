@@ -1,4 +1,4 @@
 #!/bin/bash
 # Remove parts of lines
-sed 's/"password":"\w\+"//g'
+sed -E 's/("enabled":)false(,"password":)"\w+"/\1false\2""/g'
 
