@@ -1,23 +1,56 @@
 #!/bin/bash
 
+name=$(basename $0)
+
 usage() {
   echo ""
-  echo "Usage: $0 -u|--url <URL> [-a|--auth <AUTH>] [-e|--extensions <EXTENSIONS>] [-n|--no-number] [-h|--help]"
+  echo "Usage: $name -u|--url <URL> [-a|--auth <USERNAME:PASSWORD>] ([-e|--extensions <EXTENSIONS>] | [-p|--pattern <PATTERN>]) [-n|--no-number] [-h|--help]"
   echo ""
   printf "%-24s %s\n" "-u, --url <URL>" "The URL to fetch links from (required)."
-  printf "%-24s %s\n" "-a, --auth <AUTH>" "Optional authentication in the format 'username:password'."
+  printf "%-24s %s\n" "-a, --auth <USERNAME:PASSWORD>" "Optional authentication in the format 'username:password'."
   printf "%-24s %s\n" "-e, --extensions <EXT>" "Optional comma-separated list of file extensions to filter links."
-  printf "%-24s %s\n" "-n, --no-number" "Optional:  Do not number the links in the output."
+  printf "%-24s %s\n" "-p, --pattern <PATTERN>" "Optional regex pattern to filter links matching the pattern."
+  printf "%-24s %s\n" "                        " "See man grep(1) for regex pattern syntax."
+  printf "%-24s %s\n" "-n, --no-number" "Optional: Do not number the links in the output."
   printf "%-24s %s\n" "-h, --help" "Display this help message."
+  echo ""
+  echo "Examples:"
+  echo "  Filter links by file extension:"
+  echo "    $name -u 'https://example.com' -e 'pdf,txt'"
+  echo ""
+  echo "  Filter links matching a regex pattern:"
+  echo "    $name -u 'https://example.com' -p 'report.*2024'"
+  echo ""
+  echo "  Filter with authentication and no numbering:"
+  echo "    $name -u 'https://example.com' -a 'user:pass' -p 'download' -n"
+  echo ""
+  echo "  Common regex patterns:"
+  echo "    'api.*json'      - Links containing 'api' followed by 'json'"
+  echo "    '^https'         - Links starting with https"
+  echo "    'download|file'  - Links matching either 'download' or 'file'"
+  echo ""
   exit 1
 }
+# Initialize number_links before parsing arguments
+number_links=true
 
 # Parse named arguments
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -u|--url) url="$2"; shift ;;
         -a|--auth) auth="$2"; shift ;;
-        -e|--extensions) extensions="$2"; shift ;;
+        -e|--extensions) 
+            if [ -n "$pattern" ]; then
+                echo "Error: -e|--extensions and -p|--pattern are mutually exclusive."
+                usage
+            fi
+            extensions="$2"; shift ;;
+        -p|--pattern) 
+            if [ -n "$extensions" ]; then
+                echo "Error: -e|--extensions and -p|--pattern are mutually exclusive."
+                usage
+            fi
+            pattern="$2"; shift ;;
         -n|--no-number) number_links=false ;;
         -h|--help) usage ;;
         *) echo "Unknown parameter passed: $1"; usage ;;
@@ -47,15 +80,25 @@ if [ -n "$extensions" ]; then
     extension_pattern=$(echo "$extensions" | sed 's/,/\\|/g; s/^/\\./; s/$/$/')
 fi
 
-number_links=true
 # Fetch links, filter out unwanted lines, and store them in a variable
 links=$(lynx $auth_option -listonly -dump "$url" |
 grep -v '\.\.' |
 grep -v -e '^References$' |
 grep -v -e '^\s*$' |
-grep -v -E "${parent_url}/* *$" |
-grep -E "$extension_pattern" | 
-awk '{print $NF}')
+grep -v -E "${parent_url}/* *$")
+
+# Filter by extension pattern if provided
+if [ -n "$extension_pattern" ]; then
+    links=$(echo "$links" | grep -E "$extension_pattern")
+fi
+
+# Filter by pattern if provided
+if [ -n "$pattern" ]; then
+    links=$(echo "$links" | grep -E "$pattern")
+fi
+
+# Extract URLs (last field) from remaining lines
+links=$(echo "$links" | awk '{print $NF}')
 
 # Conditionally run nl based on the variable
 if [ "$number_links" = true ]; then
