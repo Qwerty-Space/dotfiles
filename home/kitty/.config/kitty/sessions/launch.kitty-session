@@ -1,0 +1,7 @@
+new_tab ranger
+launch ranger
+new_tab btop
+launch btop
+new_tab
+launch zsh
+
