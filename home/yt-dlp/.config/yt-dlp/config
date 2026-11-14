@@ -1,6 +1,6 @@
 # --proxy socks5://127.0.0.1:50206
 
--t mkv --write-thumbnail --embed-thumbnail --embed-metadata
+-t mkv --no-write-thumbnail --embed-thumbnail --embed-metadata
 
 -o '%(upload_date>%Y-%m-%d)s %(title)s [%(id)s].%(ext)s'
 
