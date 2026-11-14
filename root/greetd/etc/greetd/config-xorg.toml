@@ -1,0 +1,11 @@
+[terminal]
+# The VT to run the greeter on. Can be "next", "current" or a number
+# designating the VT.
+vt = 1
+
+# The default session, also known as the greeter.
+[default_session]
+command = "tuigreet --cmd 'startx /home/qwerty/.xinitrc'"
+# command = "sway --config /etc/greetd/sway-config"
+# command = "sway --config /home/qwerty/.dotfiles/root/greetd/etc/greetd/sway-config"
+user = "greeter"
