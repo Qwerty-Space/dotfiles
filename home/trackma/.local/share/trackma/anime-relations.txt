@@ -35,7 +35,7 @@
 - version: 1.3.0
 
 # Update this date when you add, remove or modify a rule.
-- last_modified: 2026-08-03
+- last_modified: 2026-10-19
 
 ::rules
 
@@ -105,6 +105,9 @@
 - 21995|8246|20596:0 -> 24151|8488|20837:1
 - 21995|8246|20596:13 -> 24151|8488|20837:2
 
+# Ao no Hako -> ~ Season 2
+- 57181|48239|170942:26-37 -> 61323|49752|189123:1-12
+
 # Ao Oni The Animation (Movie) -> ~
 - 33820|12478|21898:0 -> ~|~|~:1
 
@@ -146,6 +149,9 @@
 - 530|489|530:167-200 -> 996|886|996:1-34!
 # Bishoujo Senshi Sailor Moon Crystal -> ~ Season III
 - 14751|7163|14751:27-39 -> 31733|11415|21462:1-13!
+
+# Black Clover -> ~ 2nd Season
+- 34572|13209|97940:171-? -> 61967|50024|195604:1-?!
 
 # Black Lagoon -> ~: The Second Barrage
 - 889|789|889:13-24 -> 1519|1363|1519:1-12!
@@ -237,6 +243,9 @@
 # Chihayafuru 2 -> ~: Waga Mi Yo ni Furu Nagame Seshi Ma ni
 - 14397|7123|14397:26 -> 18745|7814|18745:1
 
+# Chitose-kun wa Ramune Bin no Naka -> ~ Part 2
+- 59517|49122|180082:14-24 -> 62484|50966|198727:1-11
+
 # Chobits -> ~ Recap
 - 59|40|59:27 -> 1311|1176|1311:1
 
@@ -306,6 +315,9 @@
 
 # Diamond no Ace OVA -> ~ Second Season OVA
 - 25341|8792|20861:4-5 -> 34349|12725|98582:1-2
+
+# Diamond no Ace act II Second Season -> ~ Part 2
+- 58877|48878|177634:14-25 -> 64505|50822|213658:1-12!
 
 # Dies Irae -> ~: Reimei
 - 32271|11212|?:0 -> 36524|13919|?:1
@@ -677,6 +689,9 @@
 # Kidou Senshi Gundam: Suisei no Majo -> ~ Season 2
 - 49828|45217|139274:13-24 -> 53199|46561|155158:1-12!
 
+# Kikansha no Mahou wa Tokubetsu desu -> ~ 2nd Season
+- 54852|47240|163142:13-? -> 57612|48397|172192:1-?!
+
 # Kimi ni Todoke 2nd Season -> ~: Kataomoi
 - 9656|5820|9656:0 -> 10152|6055|10152:1
 
@@ -722,6 +737,9 @@
 # Kono Subarashii Sekai ni Shukufuku wo! -> ~ OVA
 - 30831|10941|21202:11 -> 32380|11752|21574:1
 
+# Koori no Jouheki -> ~ 2nd Season
+- 60852|50465|186497:15-? -> 64534|50827|213805:1-?
+
 # Kore wa Zombie Desu ka? -> ~ OVA
 - 8841|5507|8841:13 -> 10209|6079|10209:1
 # Kore wa Zombie Desu ka? of the Dead -> Kore wa Zombie Desu ka? OVA
@@ -736,6 +754,8 @@
 
 # Kusuriya no Hitorigoto -> ~ 2nd Season
 - 54492|47083|161645:25-48 -> 58514|48649|176301:1-24!
+# Kusuriya no Hitorigoto -> ~ 3rd Season
+- 54492|47083|161645:49-60 -> 61987|50021|195516:1-12!
 
 # Kyokou Suiri -> ~ 2nd Season
 - 39017|42117|107201:13-24 -> 44204|43755|126529:1-12!
@@ -782,6 +802,9 @@
 
 # Magic Knight Rayearth -> ~ II
 - 435|399|435:21-49 -> 1563|1403|1563:1-29!
+
+# Mahou no Shimai LuluttoLilly -> ~ Part 2
+- 59176|49677|178749:13-? -> 63667|50996|209032:1-?!
 
 # Mahoutsukai no Yome Season 2 -> ~ Part 2
 - 52955|46436|154364:13-24 -> 55742|47649|166452:1-12!
@@ -1253,6 +1276,8 @@
 
 # Tensei Kizoku, Kantei Skill de Nariagaru -> ~ 2nd Season
 - 55265|47481|164702:13-24 -> 59131|48979|178434:1-12!
+# Tensei Kizoku, Kantei Skill de Nariagaru -> ~ 3rd Season
+- 55265|47481|164702:25-? -> 60601|49437|185756:1-?!
 
 # Tensei shitara Dainana Ouji Datta node, Kimama ni Majutsu wo Kiwamemasu -> ~ 2nd Season
 - 53516|46704|156415:13-24 -> 59095|48968|178090:1-12!
@@ -1402,6 +1427,9 @@
 # Yama no Susume 2nd Season -> ~ Specials
 - 21435|8201|20485:25 -> 27887|9783|21003:2
 
+# Yasei no Last Boss ga Arawareta! -> ~ 2nd Season
+- 59644|49147|180523:13-? -> 63140|50404|204389:1-?!
+
 # Yomigaeru Sora: Rescue Wings -> ~ Special
 - 798|712|798:13 -> 1843|1660|1843:1
 
@@ -1425,6 +1453,9 @@
 - 30790|10940|21194:0 -> ~|~|~:1
 # Yowamushi Pedal Movie -> ~
 - 30413|10769|21114:0 -> ~|~|~:1
+
+# Yozakura-san Chi no Daisakusen 2nd Season -> ~ Part 2
+- 60055|49269|182578:13-? -> 64503|50823|213657:1-?
 
 # Yu☆Gi☆Oh! Zexal -> ~ Second
 - 10015|5995|10015:74-146 -> 15489|7263|15489:1-73!
