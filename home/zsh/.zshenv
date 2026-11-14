@@ -19,3 +19,5 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 export XDG_CONFIG_HOME=$HOME/.config
 
+# QT Theme
+export QT_QPA_PLATFORMTHEME=qt6ct

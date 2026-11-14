@@ -31,11 +31,11 @@ build_prompt() {
   arrow='↳'                # change to '›' or '→' if you prefer
 
   if [[ $EUID -eq 0 ]]; then
-    usercol='%F{red}'
-    pathcol='%F{blue}'
+    usercol='%F{9}'  # bright red
+    pathcol='%F{12}' # bright blue
   else
-    usercol='%F{blue}'
-    pathcol='%F{red}'
+    usercol='%F{12}' # bright blue
+    pathcol='%F{9}'  # bright red
   fi
 
   reset='%f'
@@ -74,7 +74,18 @@ function xterm_title_preexec () {
     [[ "$TERM" == 'screen'* ]] && { print -Pn -- '\e_\005{g}[%n\005{-}@\005{m}%m\005{-} \005{B}%~]\005{-}] ' && print -n -- "${(q)1}\e\\"; }
 }
 
-if [[ "$TERM" == (alacritty*|gnome*|konsole*|putty*|rxvt*|screen*|tmux*|xterm*) ]]; then
+function kitty_title_precmd () {
+    print -Pn -- '\e]2;zsh\a'
+}
+
+function kitty_title_preexec () {
+    print -n -- "\e]2;${1%% *}\a"
+}
+
+if [[ "$TERM" == "xterm-kitty" ]]; then
+    add-zsh-hook -Uz precmd kitty_title_precmd
+    add-zsh-hook -Uz preexec kitty_title_preexec
+elif [[ "$TERM" == (alacritty*|gnome*|konsole*|putty*|rxvt*|screen*|tmux*|xterm*) ]]; then
     add-zsh-hook -Uz precmd xterm_title_precmd
     add-zsh-hook -Uz preexec xterm_title_preexec
 fi
@@ -96,6 +107,8 @@ bindkey "\e[3~" delete-char             # DELETE
 bindkey "\e[2~" quoted-insert           # INSERT
 bindkey "^[[1~" beginning-of-line       # HOME
 bindkey "^[[4~" end-of-line             # END
+bindkey "\e[H" beginning-of-line       # HOME
+bindkey "\e[F" end-of-line             # END
 bindkey "^[[3;5~" kill-word             # CTRL+DELETE
 bindkey "^H" backward-kill-word         # CTRL+BACKSPACE
 
@@ -142,10 +155,13 @@ source /etc/profile.d/vte.sh
 # Show the motd
 # generated with:
 # figlet -otf shadow qwerty@ && figlet -ktf shadow <hostname>
-if [[ $TERM == "xterm-256color" ]]; then
-    hostname=$(cat /etc/hostname)
-    cat "$HOME/.config/motd/$hostname" 2> /dev/null
-fi
+hostname=$(cat /etc/hostname)
+cat "$HOME/.config/motd/$hostname" 2> /dev/null
+
+# if [[ $TERM == "xterm-256color" ]]; then
+#     hostname=$(cat /etc/hostname)
+#     cat "$HOME/.config/motd/$hostname" 2> /dev/null
+# fi
 
 # tere
 tere() {
@@ -153,12 +169,28 @@ tere() {
     [ -n "$result" ] && cd -- "$result"
 }
 
-# ibus stuff
-GTK_IM_MODULE=ibus
-QT_IM_MODULE=ibus
-XMODIFIERS=@im=ibus
 
-if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
-    tmux >/dev/null 2>&1
+### Run tmux in terminal
+# Terminals where tmux should not start automatically
+tmux_excluded_terminals=(kitty)
+
+if [ -x "$(command -v tmux)" ] && [ -z "${TMUX}" ]; then
+    skip=0
+    if [ -n "${KITTY_WINDOW_ID}" ]; then
+        skip=1
+    else
+        for term in "${tmux_excluded_terminals[@]}"; do
+            case "${TERM:-}${TERM_PROGRAM:-}" in
+                *"${term}"*) skip=1; break ;;
+            esac
+        done
+    fi
+    if [ "${skip}" -eq 0 ]; then
+        tmux >/dev/null 2>&1
+    fi
 fi
 
+
+# if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
+#     tmux >/dev/null 2>&1
+# fi
