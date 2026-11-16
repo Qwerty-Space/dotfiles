@@ -1,4 +1,5 @@
 [audio]
+enable_notification_sounds = false
 enable_screenshot_sounds = false
 
 [bar.default]
@@ -12,31 +13,73 @@ end = [
     "bluetooth",
     "volume",
     "brightness",
-    "battery",
     "control-center",
     "session",
-    "date",
     "clock"
 ]
 margin_ends = 0
 position = "top"
 radius = 0
-start = [ "launcher", "wallpaper", "workspaces", "tray" ]
+start = [ "launcher", "screenshot", "wallpaper", "workspaces", "tray", "recorder", "bar_2", "slideshow", "mpvpaper" ]
+thickness = 30
 
 [battery.device."/org/freedesktop/UPower/devices/mouse_hidpp_battery_0"]
-warning_threshold = 15
+warning_threshold = 20
 
-[location]
-address = "London Colney, United Kingdom"
-
-[lockscreen]
-fingerprint = false
-grace_period_seconds = 5
-
-[lockscreen_widgets]
+[desktop_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@HDMI-A-1" ]
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[dock]
+active_monitor_only = true
+reserve_space = false
+smart_auto_hide = true
+
+[idle]
+behavior_order = [ "screen-off", "lock", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = false
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    locked_timeout = 10.0
+    timeout = 300.0
+
+[keybinds]
+tab_previous = [ "Shift+ISO_Left_Tab", "Ctrl+Tab" ]
+
+[lockscreen]
+edge_smoothness = 0.29999999329447746
+fingerprint = false
+grace_period_seconds = 10
+transition_duration = 100
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [
+    "lockscreen-login-box@DP-1",
+    "lockscreen-login-box@HDMI-A-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002"
+]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -47,7 +90,7 @@ widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@HDMI-A-1" ]
     box_height = 196.0
     box_width = 810.0
     cx = 960.0
-    cy = 898.0
+    cy = 894.0
     output = "DP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -56,7 +99,7 @@ widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@HDMI-A-1" ]
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
         background_color = "surface_container"
-        background_opacity = 0.88
+        background_opacity = 0.6
         background_radius = 12.0
         center_password_text = false
         input_opacity = 1.0
@@ -68,7 +111,7 @@ widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@HDMI-A-1" ]
         show_media = true
         show_password_reveal = true
         show_session_buttons = true
-        show_unlock_hint = true
+        show_unlock_hint = false
         show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-1"]
@@ -99,18 +142,148 @@ widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@HDMI-A-1" ]
         show_unlock_hint = true
         show_weather = true
 
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 960.0
+    cy = 652.0
+    output = "DP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "media_player"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        audio_visualizer = true
+        background_color = "surface_container"
+        background_opacity = 0.88
+        hide_when_no_media = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 960.0
+    cy = 128.5
+    output = "DP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = true
+        background_color = "surface_container"
+        background_opacity = 0.6
+        clock_style = "digital"
+
 [nightlight]
 enabled = true
+temperature_night = 3600
+
+[notification]
+background_opacity = 0.88
+filter_order = [ "filter", "filter-2" ]
+scale = 0.8
+
+    [notification.filter.filter]
+    allow_permanent = true
+    bypass_dnd = true
+    enabled = true
+    match = "telegram"
+    match_content = "^Nike.+Bob the Banana$"
+    play_sound = true
+    save_history = true
+    show_toast = true
+
+    [notification.filter.filter-2]
+    allow_permanent = true
+    bypass_dnd = false
+    enabled = false
+    match = "telegram desktop"
+    match_content = "^Bob the Banana.+QwertySpace$"
+    play_sound = true
+    save_history = true
+    show_toast = false
+
+[osd]
+background_opacity = 0.88
+follow_focused_output = true
+
+    [osd.kinds]
+    media = false
+
+[plugin_settings."me/wallpaper-slideshow"]
+excludeRegex = "*/NSFW/*"
+folder = "~/Saved Pictures/Wallpapers/Desktop"
+
+[plugin_settings."noctalia/screen_recorder"]
+directory = "/tmp/"
+video_bitrate_mode = "vbr"
+video_quality = "high"
+video_source = "region"
+
+[plugins]
+enabled = [
+    "noctalia/umbriel-companion",
+    "weinguyen/shell-command",
+    "noctalia/screen_recorder",
+    "nilsonlinux/rss-notifier",
+    "noctalia/mpvpaper"
+]
+
+    [[plugins.source]]
+    kind = "git"
+    name = "official"
+
+    [[plugins.source]]
+    kind = "git"
+    name = "community"
+
+    [[plugins.source]]
+    kind = "path"
+    location = "/home/qwerty/.config/noctalia/plugins"
+    name = "plugins"
 
 [shell]
+avatar_path = "/home/qwerty/Saved Pictures/Categories/Avatars/Anime/Mirai Kuriyama Avatar.png"
 umbriel_audio_provider_enabled = true
 
     [shell.animation]
-    speed = 2.0000000298023224
+    speed = 4.0
+
+    [shell.greeter_sync]
+    privilege_command = "jin"
+
+    [shell.launcher]
+    default_view = "pinned"
+    pinned = [ "firefox", "org.telegram.desktop", "org.keepassxc.KeePassXC" ]
+    width = 750
+
+    [shell.panel]
+    transparency_mode = "glass"
+
+    [shell.screenshot]
+    directory = "/tmp/"
+    pipe_command = "notify-send \"Screenshot taken\""
+    pipe_to_command = true
+    region_border_width = 0.0
+    save_to_file = false
+    skip_annotate_on_copy_save = true
+
+    [shell.window_switcher]
+    mru = true
+    style = "compact"
 
 [theme]
-builtin = "Catppuccin"
+builtin = "Tokyo-Night"
+community_palette = "Oxocarbon"
 mode = "dark"
+source = "builtin"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    builtin_ids = [ "gtk3", "gtk4", "kitty", "qt" ]
+    community_ids = [ "fcitx5" ]
 
 [wallpaper]
 directory = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/"
@@ -121,19 +294,48 @@ directory = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/"
     recursive = true
 
     [wallpaper.default]
-    path = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/Anime/Re Zero/Rem/da63qfu.png"
+    path = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/The Mandalorian/Chapter 01/huc-ca-000120_8db9ef49.png"
 
     [wallpaper.last]
-    path = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/Anime/Re Zero/Rem/da63qfu.png"
+    path = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/The Mandalorian/Chapter 01/huc-ca-000120_8db9ef49.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/Anime/Re Zero/Rem/da63qfu.png"
+    path = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/The Mandalorian/Chapter 01/huc-ca-000120_8db9ef49.png"
 
     [wallpaper.monitors.HDMI-A-1]
-    path = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/Anime/Re Zero/Rem/da63qfu.png"
+    path = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/The Mandalorian/Chapter 01/huc-ca-000120_8db9ef49.png"
+
+[widget.bar_2]
+type = "noctalia/umbriel-companion:bar"
+
+[widget.clock]
+format = "{:%Y-%m-%d %H:%M}"
+tooltip_format = "{:%A %d %b - %H:%M:%S}"
 
 [widget.media]
+hide_when_idle = true
 hide_when_no_media = true
+min_length = 84
+
+[widget.mpvpaper]
+type = "noctalia/mpvpaper:mpvpaper"
 
 [widget.network]
 show_label = false
+
+[widget.recorder]
+font_scale = 1.04
+type = "noctalia/screen_recorder:recorder"
+
+[widget.screenshot]
+font_scale = 0.98999999999999999
+
+    [widget.screenshot.actions]
+    left = "screenshot-region --annotate"
+
+[widget.slideshow]
+custom_label = "W"
+type = "me/wallpaper-slideshow:slideshow"
+
+[widget.tray]
+drawer_columns = 5
