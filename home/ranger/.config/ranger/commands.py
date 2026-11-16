@@ -21,6 +21,57 @@ class update_tmux_title(Command):
     def execute(self):
         self.fm.run("tmux rename-window ranger")
 
+import os
+import subprocess
+
+from ranger.api.commands import Command
+
+
+class open_in_new_window(Command):
+    """Opens the selected file(s) in nvim in a new tmux window or a new kitty window."""
+
+    def execute(self):
+        files = [f.path for f in self.fm.thistab.get_selection()]
+        if not files:
+            self.fm.notify("No file selected", bad=True)
+            return
+
+        # Window/tab name: the first file's basename, truncated to 20 characters,
+        # with a "+N" suffix when more files are opened.
+        name = os.path.basename(files[0])[:20]
+        if len(files) > 1:
+            name = f"{name} +{len(files) - 1}"
+
+        cmds = []
+
+        TERM = os.environ.get("TERM")
+
+        if "tmux" in TERM:
+            cmds.append(["tmux", "new-window", "-n", name, "nvim", *files])
+        elif "kitty" in TERM:
+            for f in files:
+                name = os.path.basename(f)[:64]
+                cmds.append(["kitty", "-1", "--title", name, "nvim", f])
+        else:
+            self.fm.notify("Not running in tmux or kitty", bad=True)
+            return
+
+        # Popen runs the command without blocking ranger's own terminal.
+        for cmd in cmds:
+            subprocess.Popen(
+                cmd,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+                start_new_session=True,
+            )
+
+
+class test_output(Command):
+    """Outputs something"""
+
+    def execute(self):
+        print(self.fm.run("echo $TERM"))
+
 class x_copy(Command):
     """ Copies a file to the x clipboard """
 
@@ -36,14 +87,12 @@ class x_copy(Command):
 
 
 class watch_episode(Command):
-    """ Watch in mpv on specific tag """
+    """ Watch in mpv on specific tag 
+    "mpv --fs --x11-name=watch --wayland-app-id=watch"
+    """
 
     def execute(self):
-        self.fm.execute_file(
-            files=[f for f in self.fm.thistab.get_selection()],
-            app="mpv",
-            flags="--x11-name=watch")
-
+        self.fm.run("mpv --fs --x11-name=watch --wayland-app-id=watch .", flags="f")
 
 class tmsu_tag(Command):
     """:tmsu_tag
