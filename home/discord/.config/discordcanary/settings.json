@@ -6,13 +6,16 @@
   "IS_MAXIMIZED": false,
   "IS_MINIMIZED": false,
   "WINDOW_BOUNDS": {
-    "x": 1930,
+    "x": 10,
     "y": 10,
-    "width": 1373,
-    "height": 1060
+    "width": 1365,
+    "height": 1012
   },
   "DESKTOP_TTI_DNSTCP_WARMUP": true,
   "DESKTOP_TTI_SPLASH_USE_WEBP": true,
   "DESKTOP_TTI_EARLY_UPDATE_CHECK": true,
-  "DESKTOP_TTI_UPDATE_BACKOFF_MAX_MS": 30000
+  "DESKTOP_TTI_UPDATE_BACKOFF_MAX_MS": 30000,
+  "DESKTOP_TTI_HTTP_CDT": true,
+  "DESKTOP_TTI_UPDATE_BACKOFF_ALGO": 1,
+  "DESKTOP_PERF_KEEP_RENDERER_LOG_FILE_OPEN": true
 }
