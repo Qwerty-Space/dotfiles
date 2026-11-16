@@ -130,3 +130,6 @@ yt-tdl() {
 # yt-dlp proxy
 alias yt-dlp-proxy='yt-dlp --proxy "socks5://127.0.0.1:50206"'
 
+# full screen first monitor mpv
+alias mpv-watch='mpv --fs --x11-name=watch --wayland-app-id=watch'
+
