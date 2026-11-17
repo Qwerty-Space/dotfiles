@@ -5,8 +5,6 @@ pausepath=/run/user/1000/wallpaper_paused
 safepath=/run/user/1000/wallpaper_safe
 lockimg="/tmp/lockimg.png"
 
-res="1920x1080"
-
 # Default values
 force=false
 file_path=""
