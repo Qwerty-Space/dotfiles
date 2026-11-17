@@ -36,6 +36,9 @@ autostart = [
   "keepassxc",
   "udiskie --tray"
 ]
+
+show_cheatsheet = false
+
 # xwayland = false
 # Sharp X11 apps and games on scaled outputs; they see physical resolutions.
 # xwayland_native_resolution = true
@@ -210,6 +213,14 @@ theme = "capitaine-cursors"
 "Print" = "spawn noctalia msg screenshot-region --freeze-screen --annotate"
 "Alt+Print" = "spawn noctalia msg screenshot-fullscreen --freeze-screen"
 
+# Wallpaper
+"Mod+Alt+W" = "spawn ~/scripts/wallpaper_changer --force"
+"Mod+Ctrl+W" = "spawn ~/scripts/pause_wallpaper"
+"Mod+Alt+Ctrl+W" = "spawn ~/scripts/safe_wallpaper"
+
+# Open link in mpv
+"Mod+W" = "spawn ~/scripts/mpv_clipboard"
+
 #ddcutil
 "Mod+F1" = "spawn ddcutil -n 'ATNM91A020664' setvcp 60 0x11"
 "Mod+F2" = "spawn ddcutil -n 'ATNM91A020664' setvcp 60 0x0f"
@@ -277,7 +288,7 @@ theme = "capitaine-cursors"
 "Mod+Period" = "window-consume-or-expel-right"
 # Needs layout.mode = "dwindle".
 # "Mod+Alt+T" = "layout-toggle-split"
-"Mod+W" = { action = "column-toggle-tabbed", repeat = false }
+"Mod+Space" = { action = "column-toggle-tabbed", repeat = false }
 "Mod+bracketleft" = "column-focus-tab-previous"
 "Mod+bracketright" = "column-focus-tab-next"
 "Mod+WheelUp" = "window-focus-left"
@@ -309,9 +320,9 @@ theme = "capitaine-cursors"
 "Mod+Shift+9" = "window-move-to-workspace 9"
 
 # Scratchpad
-"Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
-"Mod+Space" = "scratchpad-toggle"
-"Mod+Ctrl+Space" = { action = "window-restore-from-scratchpad", repeat = false }
+# "Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
+# "Mod+Space" = "scratchpad-toggle"
+# "Mod+Ctrl+Space" = { action = "window-restore-from-scratchpad", repeat = false }
 # "Mod+Tab" = "scratchpad-focus-next"
 
 # ==============================================================================

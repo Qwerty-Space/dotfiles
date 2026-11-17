@@ -212,10 +212,6 @@ follow_focused_output = true
     [osd.kinds]
     media = false
 
-[plugin_settings."me/wallpaper-slideshow"]
-excludeRegex = "*/NSFW/*"
-folder = "~/Saved Pictures/Wallpapers/Desktop"
-
 [plugin_settings."noctalia/screen_recorder"]
 directory = "/tmp/"
 video_bitrate_mode = "vbr"
@@ -289,21 +285,9 @@ wallpaper_scheme = "m3-content"
 directory = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/"
 
     [wallpaper.automation]
-    enabled = true
+    enabled = false
     interval_seconds = 300
     recursive = true
-
-    [wallpaper.default]
-    path = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/The Mandalorian/Chapter 01/huc-ca-000120_8db9ef49.png"
-
-    [wallpaper.last]
-    path = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/The Mandalorian/Chapter 01/huc-ca-000120_8db9ef49.png"
-
-    [wallpaper.monitors.DP-1]
-    path = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/The Mandalorian/Chapter 01/huc-ca-000120_8db9ef49.png"
-
-    [wallpaper.monitors.HDMI-A-1]
-    path = "/home/qwerty/Saved Pictures/Wallpapers/Desktop/The Mandalorian/Chapter 01/huc-ca-000120_8db9ef49.png"
 
 [widget.bar_2]
 type = "noctalia/umbriel-companion:bar"
@@ -332,10 +316,6 @@ font_scale = 0.98999999999999999
 
     [widget.screenshot.actions]
     left = "screenshot-region --annotate"
-
-[widget.slideshow]
-custom_label = "W"
-type = "me/wallpaper-slideshow:slideshow"
 
 [widget.tray]
 drawer_columns = 5
