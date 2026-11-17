@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+err=$(mpv "$(wl-paste)" 2>&1)
+status=$?
+
+if (( status != 0 )); then
+    notify-send "mpv error" "$err"
+fi
+
