@@ -26,9 +26,9 @@ done
 
 shuffle() {
   if [ ! -e "$safepath" ]; then
-    bg=$(find "/home/qwerty/Saved Pictures/Wallpapers/Desktop" -type f -and -not -iname '*.gif' | shuf -n 1)
+    bg=$(find "/home/qwerty/Saved Pictures/Wallpapers/Desktop" -type f | shuf -n 1)
   elif [ -e "$safepath" ]; then
-    bg=$(find "/home/qwerty/Saved Pictures/Wallpapers/Desktop" -type f -and -not -iname '*.gif' -and -not -ipath '*/NSFW/*' | shuf -n 1)
+    bg=$(find "/home/qwerty/Saved Pictures/Wallpapers/Desktop" -type f -and -not -ipath '*/NSFW/*' | shuf -n 1)
   fi
   echo "Found wallpaper $bg" >&2
   echo "$bg"
@@ -40,8 +40,19 @@ set_wp() {
     wallpaper=$(shuffle)
   fi
   echo $wallpaper
+ 
+  mime=$(file -b --mime-type -- "$wallpaper")
 
-  noctalia msg wallpaper-set "$wallpaper"
+  case "$mime" in
+    image/gif|video/*)
+      mpvpaper -s -a full -f -o "no-audio loop" ALL "$wallpaper"
+      ;;
+    *)
+      noctalia msg wallpaper-set "$wallpaper"
+      sleep 2; pkill mpvpaper
+      ;;
+  esac
+
   echo "Set wallpaper to $(basename "$wallpaper")" >&2
 }
 
